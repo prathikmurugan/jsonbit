@@ -1,0 +1,24 @@
+[build-system]
+requires = ["maturin>=1.7,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "jsonbit"
+version = "1.0.0"
+authors = [{ name = "Prathik Murugan" }]
+description = "Pure-Rust Auto-3NF Bit-Packed Columnar & BitVec64 Analytical Engine for LLMs and AI Agents"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+keywords = ["json", "olap", "llm", "mcp", "rust", "3nf", "bitvec"]
+classifiers = [
+  "Programming Language :: Rust",
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Database",
+]
+
+[tool.maturin]
+bindings = "bin"
+python-source = "python"
+strip = true

@@ -1,0 +1,2004 @@
+{
+  "repositories": [
+    {
+      "repoId": 1,
+      "fullName": "org-1/project-1",
+      "language": "Rust",
+      "license": "GPL-3.0",
+      "stars": 33407,
+      "forks": 7031,
+      "openIssues": 382,
+      "archived": false
+    },
+    {
+      "repoId": 2,
+      "fullName": "org-2/project-2",
+      "language": "Rust",
+      "license": "Apache-2.0",
+      "stars": 61226,
+      "forks": 11764,
+      "openIssues": 216,
+      "archived": false
+    },
+    {
+      "repoId": 3,
+      "fullName": "org-3/project-3",
+      "language": "Python",
+      "license": "GPL-3.0",
+      "stars": 58496,
+      "forks": 6561,
+      "openIssues": 70,
+      "archived": true
+    },
+    {
+      "repoId": 4,
+      "fullName": "org-4/project-4",
+      "language": "Python",
+      "license": "Apache-2.0",
+      "stars": 31358,
+      "forks": 10322,
+      "openIssues": 284,
+      "archived": false
+    },
+    {
+      "repoId": 5,
+      "fullName": "org-5/project-5",
+      "language": "Python",
+      "license": "GPL-3.0",
+      "stars": 86647,
+      "forks": 7985,
+      "openIssues": 356,
+      "archived": false
+    },
+    {
+      "repoId": 6,
+      "fullName": "org-6/project-6",
+      "language": "TypeScript",
+      "license": "Apache-2.0",
+      "stars": 66354,
+      "forks": 7487,
+      "openIssues": 372,
+      "archived": false
+    },
+    {
+      "repoId": 7,
+      "fullName": "org-7/project-7",
+      "language": "Python",
+      "license": "Apache-2.0",
+      "stars": 41360,
+      "forks": 2424,
+      "openIssues": 224,
+      "archived": false
+    },
+    {
+      "repoId": 8,
+      "fullName": "org-8/project-8",
+      "language": "TypeScript",
+      "license": "BSD-3-Clause",
+      "stars": 8169,
+      "forks": 7981,
+      "openIssues": 233,
+      "archived": false
+    },
+    {
+      "repoId": 9,
+      "fullName": "org-9/project-9",
+      "language": "Python",
+      "license": "BSD-3-Clause",
+      "stars": 31173,
+      "forks": 1980,
+      "openIssues": 105,
+      "archived": false
+    },
+    {
+      "repoId": 10,
+      "fullName": "org-10/project-10",
+      "language": "Python",
+      "license": "GPL-3.0",
+      "stars": 54760,
+      "forks": 2590,
+      "openIssues": 331,
+      "archived": false
+    },
+    {
+      "repoId": 11,
+      "fullName": "org-11/project-11",
+      "language": "TypeScript",
+      "license": "MIT",
+      "stars": 13588,
+      "forks": 10105,
+      "openIssues": 263,
+      "archived": false
+    },
+    {
+      "repoId": 12,
+      "fullName": "org-12/project-12",
+      "language": "TypeScript",
+      "license": "GPL-3.0",
+      "stars": 86760,
+      "forks": 5617,
+      "openIssues": 138,
+      "archived": false
+    },
+    {
+      "repoId": 13,
+      "fullName": "org-13/project-13",
+      "language": "Rust",
+      "license": "MIT",
+      "stars": 26817,
+      "forks": 9832,
+      "openIssues": 150,
+      "archived": false
+    },
+    {
+      "repoId": 14,
+      "fullName": "org-14/project-14",
+      "language": "C++",
+      "license": "Apache-2.0",
+      "stars": 7386,
+      "forks": 5609,
+      "openIssues": 238,
+      "archived": false
+    },
+    {
+      "repoId": 15,
+      "fullName": "org-15/project-15",
+      "language": "Rust",
+      "license": "BSD-3-Clause",
+      "stars": 54467,
+      "forks": 7093,
+      "openIssues": 336,
+      "archived": false
+    },
+    {
+      "repoId": 16,
+      "fullName": "org-16/project-16",
+      "language": "Go",
+      "license": "BSD-3-Clause",
+      "stars": 30773,
+      "forks": 2808,
+      "openIssues": 175,
+      "archived": false
+    },
+    {
+      "repoId": 17,
+      "fullName": "org-17/project-17",
+      "language": "Rust",
+      "license": "GPL-3.0",
+      "stars": 11980,
+      "forks": 1475,
+      "openIssues": 19,
+      "archived": false
+    },
+    {
+      "repoId": 18,
+      "fullName": "org-18/project-18",
+      "language": "Rust",
+      "license": "MIT",
+      "stars": 24991,
+      "forks": 7637,
+      "openIssues": 203,
+      "archived": false
+    },
+    {
+      "repoId": 19,
+      "fullName": "org-19/project-19",
+      "language": "Rust",
+      "license": "MIT",
+      "stars": 52341,
+      "forks": 8462,
+      "openIssues": 321,
+      "archived": false
+    },
+    {
+      "repoId": 20,
+      "fullName": "org-20/project-20",
+      "language": "Python",
+      "license": "BSD-3-Clause",
+      "stars": 73772,
+      "forks": 11659,
+      "openIssues": 164,
+      "archived": false
+    },
+    {
+      "repoId": 21,
+      "fullName": "org-21/project-21",
+      "language": "Go",
+      "license": "MIT",
+      "stars": 7954,
+      "forks": 5603,
+      "openIssues": 37,
+      "archived": false
+    },
+    {
+      "repoId": 22,
+      "fullName": "org-22/project-22",
+      "language": "TypeScript",
+      "license": "BSD-3-Clause",
+      "stars": 79823,
+      "forks": 5723,
+      "openIssues": 398,
+      "archived": false
+    },
+    {
+      "repoId": 23,
+      "fullName": "org-23/project-23",
+      "language": "TypeScript",
+      "license": "GPL-3.0",
+      "stars": 53741,
+      "forks": 1960,
+      "openIssues": 398,
+      "archived": false
+    },
+    {
+      "repoId": 24,
+      "fullName": "org-24/project-24",
+      "language": "Rust",
+      "license": "BSD-3-Clause",
+      "stars": 5208,
+      "forks": 10671,
+      "openIssues": 393,
+      "archived": false
+    },
+    {
+      "repoId": 25,
+      "fullName": "org-25/project-25",
+      "language": "Python",
+      "license": "BSD-3-Clause",
+      "stars": 28808,
+      "forks": 6047,
+      "openIssues": 64,
+      "archived": false
+    },
+    {
+      "repoId": 26,
+      "fullName": "org-1/project-26",
+      "language": "Go",
+      "license": "BSD-3-Clause",
+      "stars": 91987,
+      "forks": 3460,
+      "openIssues": 352,
+      "archived": false
+    },
+    {
+      "repoId": 27,
+      "fullName": "org-2/project-27",
+      "language": "Rust",
+      "license": "MIT",
+      "stars": 75231,
+      "forks": 6450,
+      "openIssues": 206,
+      "archived": false
+    },
+    {
+      "repoId": 28,
+      "fullName": "org-3/project-28",
+      "language": "C++",
+      "license": "BSD-3-Clause",
+      "stars": 61011,
+      "forks": 578,
+      "openIssues": 60,
+      "archived": false
+    },
+    {
+      "repoId": 29,
+      "fullName": "org-4/project-29",
+      "language": "Go",
+      "license": "MIT",
+      "stars": 22881,
+      "forks": 11228,
+      "openIssues": 372,
+      "archived": false
+    },
+    {
+      "repoId": 30,
+      "fullName": "org-5/project-30",
+      "language": "C++",
+      "license": "Apache-2.0",
+      "stars": 21276,
+      "forks": 5676,
+      "openIssues": 91,
+      "archived": false
+    },
+    {
+      "repoId": 31,
+      "fullName": "org-6/project-31",
+      "language": "C++",
+      "license": "GPL-3.0",
+      "stars": 94562,
+      "forks": 3795,
+      "openIssues": 130,
+      "archived": false
+    },
+    {
+      "repoId": 32,
+      "fullName": "org-7/project-32",
+      "language": "Rust",
+      "license": "GPL-3.0",
+      "stars": 28123,
+      "forks": 3604,
+      "openIssues": 390,
+      "archived": false
+    },
+    {
+      "repoId": 33,
+      "fullName": "org-8/project-33",
+      "language": "C++",
+      "license": "BSD-3-Clause",
+      "stars": 94549,
+      "forks": 1264,
+      "openIssues": 149,
+      "archived": true
+    },
+    {
+      "repoId": 34,
+      "fullName": "org-9/project-34",
+      "language": "Go",
+      "license": "Apache-2.0",
+      "stars": 13833,
+      "forks": 10925,
+      "openIssues": 26,
+      "archived": true
+    },
+    {
+      "repoId": 35,
+      "fullName": "org-10/project-35",
+      "language": "Python",
+      "license": "Apache-2.0",
+      "stars": 55193,
+      "forks": 4180,
+      "openIssues": 353,
+      "archived": false
+    },
+    {
+      "repoId": 36,
+      "fullName": "org-11/project-36",
+      "language": "TypeScript",
+      "license": "GPL-3.0",
+      "stars": 39612,
+      "forks": 3707,
+      "openIssues": 145,
+      "archived": false
+    },
+    {
+      "repoId": 37,
+      "fullName": "org-12/project-37",
+      "language": "Python",
+      "license": "GPL-3.0",
+      "stars": 21283,
+      "forks": 6182,
+      "openIssues": 1,
+      "archived": true
+    },
+    {
+      "repoId": 38,
+      "fullName": "org-13/project-38",
+      "language": "C++",
+      "license": "GPL-3.0",
+      "stars": 17992,
+      "forks": 8676,
+      "openIssues": 308,
+      "archived": false
+    },
+    {
+      "repoId": 39,
+      "fullName": "org-14/project-39",
+      "language": "Rust",
+      "license": "GPL-3.0",
+      "stars": 69796,
+      "forks": 359,
+      "openIssues": 64,
+      "archived": false
+    },
+    {
+      "repoId": 40,
+      "fullName": "org-15/project-40",
+      "language": "Rust",
+      "license": "Apache-2.0",
+      "stars": 84625,
+      "forks": 5150,
+      "openIssues": 44,
+      "archived": false
+    },
+    {
+      "repoId": 41,
+      "fullName": "org-16/project-41",
+      "language": "C++",
+      "license": "Apache-2.0",
+      "stars": 60005,
+      "forks": 6905,
+      "openIssues": 190,
+      "archived": false
+    },
+    {
+      "repoId": 42,
+      "fullName": "org-17/project-42",
+      "language": "Rust",
+      "license": "BSD-3-Clause",
+      "stars": 66679,
+      "forks": 2002,
+      "openIssues": 154,
+      "archived": false
+    },
+    {
+      "repoId": 43,
+      "fullName": "org-18/project-43",
+      "language": "Python",
+      "license": "GPL-3.0",
+      "stars": 63355,
+      "forks": 10474,
+      "openIssues": 377,
+      "archived": false
+    },
+    {
+      "repoId": 44,
+      "fullName": "org-19/project-44",
+      "language": "C++",
+      "license": "GPL-3.0",
+      "stars": 86495,
+      "forks": 4535,
+      "openIssues": 270,
+      "archived": false
+    },
+    {
+      "repoId": 45,
+      "fullName": "org-20/project-45",
+      "language": "C++",
+      "license": "Apache-2.0",
+      "stars": 88690,
+      "forks": 3315,
+      "openIssues": 148,
+      "archived": false
+    },
+    {
+      "repoId": 46,
+      "fullName": "org-21/project-46",
+      "language": "TypeScript",
+      "license": "BSD-3-Clause",
+      "stars": 58870,
+      "forks": 10625,
+      "openIssues": 343,
+      "archived": false
+    },
+    {
+      "repoId": 47,
+      "fullName": "org-22/project-47",
+      "language": "Rust",
+      "license": "BSD-3-Clause",
+      "stars": 84870,
+      "forks": 11521,
+      "openIssues": 200,
+      "archived": false
+    },
+    {
+      "repoId": 48,
+      "fullName": "org-23/project-48",
+      "language": "C++",
+      "license": "Apache-2.0",
+      "stars": 21908,
+      "forks": 4698,
+      "openIssues": 267,
+      "archived": false
+    },
+    {
+      "repoId": 49,
+      "fullName": "org-24/project-49",
+      "language": "Go",
+      "license": "BSD-3-Clause",
+      "stars": 20384,
+      "forks": 6595,
+      "openIssues": 220,
+      "archived": false
+    },
+    {
+      "repoId": 50,
+      "fullName": "org-25/project-50",
+      "language": "Rust",
+      "license": "BSD-3-Clause",
+      "stars": 72983,
+      "forks": 4540,
+      "openIssues": 114,
+      "archived": false
+    },
+    {
+      "repoId": 51,
+      "fullName": "org-1/project-51",
+      "language": "C++",
+      "license": "MIT",
+      "stars": 19196,
+      "forks": 9804,
+      "openIssues": 373,
+      "archived": false
+    },
+    {
+      "repoId": 52,
+      "fullName": "org-2/project-52",
+      "language": "Python",
+      "license": "GPL-3.0",
+      "stars": 94004,
+      "forks": 3785,
+      "openIssues": 77,
+      "archived": false
+    },
+    {
+      "repoId": 53,
+      "fullName": "org-3/project-53",
+      "language": "Go",
+      "license": "GPL-3.0",
+      "stars": 55412,
+      "forks": 7236,
+      "openIssues": 294,
+      "archived": false
+    },
+    {
+      "repoId": 54,
+      "fullName": "org-4/project-54",
+      "language": "TypeScript",
+      "license": "Apache-2.0",
+      "stars": 21015,
+      "forks": 8810,
+      "openIssues": 171,
+      "archived": false
+    },
+    {
+      "repoId": 55,
+      "fullName": "org-5/project-55",
+      "language": "TypeScript",
+      "license": "MIT",
+      "stars": 66338,
+      "forks": 624,
+      "openIssues": 346,
+      "archived": false
+    },
+    {
+      "repoId": 56,
+      "fullName": "org-6/project-56",
+      "language": "Go",
+      "license": "BSD-3-Clause",
+      "stars": 41210,
+      "forks": 3620,
+      "openIssues": 303,
+      "archived": false
+    },
+    {
+      "repoId": 57,
+      "fullName": "org-7/project-57",
+      "language": "TypeScript",
+      "license": "BSD-3-Clause",
+      "stars": 20857,
+      "forks": 6137,
+      "openIssues": 220,
+      "archived": false
+    },
+    {
+      "repoId": 58,
+      "fullName": "org-8/project-58",
+      "language": "Rust",
+      "license": "MIT",
+      "stars": 11716,
+      "forks": 5682,
+      "openIssues": 342,
+      "archived": true
+    },
+    {
+      "repoId": 59,
+      "fullName": "org-9/project-59",
+      "language": "Python",
+      "license": "GPL-3.0",
+      "stars": 42088,
+      "forks": 8548,
+      "openIssues": 263,
+      "archived": false
+    },
+    {
+      "repoId": 60,
+      "fullName": "org-10/project-60",
+      "language": "Go",
+      "license": "Apache-2.0",
+      "stars": 49275,
+      "forks": 11723,
+      "openIssues": 119,
+      "archived": false
+    },
+    {
+      "repoId": 61,
+      "fullName": "org-11/project-61",
+      "language": "Go",
+      "license": "GPL-3.0",
+      "stars": 57135,
+      "forks": 1666,
+      "openIssues": 96,
+      "archived": false
+    },
+    {
+      "repoId": 62,
+      "fullName": "org-12/project-62",
+      "language": "Python",
+      "license": "Apache-2.0",
+      "stars": 79305,
+      "forks": 5686,
+      "openIssues": 294,
+      "archived": false
+    },
+    {
+      "repoId": 63,
+      "fullName": "org-13/project-63",
+      "language": "Python",
+      "license": "GPL-3.0",
+      "stars": 44500,
+      "forks": 11456,
+      "openIssues": 140,
+      "archived": false
+    },
+    {
+      "repoId": 64,
+      "fullName": "org-14/project-64",
+      "language": "Go",
+      "license": "BSD-3-Clause",
+      "stars": 15333,
+      "forks": 8239,
+      "openIssues": 10,
+      "archived": false
+    },
+    {
+      "repoId": 65,
+      "fullName": "org-15/project-65",
+      "language": "TypeScript",
+      "license": "GPL-3.0",
+      "stars": 56166,
+      "forks": 597,
+      "openIssues": 119,
+      "archived": false
+    },
+    {
+      "repoId": 66,
+      "fullName": "org-16/project-66",
+      "language": "C++",
+      "license": "GPL-3.0",
+      "stars": 88787,
+      "forks": 5877,
+      "openIssues": 254,
+      "archived": false
+    },
+    {
+      "repoId": 67,
+      "fullName": "org-17/project-67",
+      "language": "Go",
+      "license": "MIT",
+      "stars": 44862,
+      "forks": 1176,
+      "openIssues": 223,
+      "archived": false
+    },
+    {
+      "repoId": 68,
+      "fullName": "org-18/project-68",
+      "language": "Rust",
+      "license": "GPL-3.0",
+      "stars": 61289,
+      "forks": 1369,
+      "openIssues": 169,
+      "archived": false
+    },
+    {
+      "repoId": 69,
+      "fullName": "org-19/project-69",
+      "language": "Go",
+      "license": "MIT",
+      "stars": 92138,
+      "forks": 7854,
+      "openIssues": 185,
+      "archived": false
+    },
+    {
+      "repoId": 70,
+      "fullName": "org-20/project-70",
+      "language": "TypeScript",
+      "license": "BSD-3-Clause",
+      "stars": 74443,
+      "forks": 8262,
+      "openIssues": 265,
+      "archived": false
+    },
+    {
+      "repoId": 71,
+      "fullName": "org-21/project-71",
+      "language": "Go",
+      "license": "GPL-3.0",
+      "stars": 16734,
+      "forks": 10531,
+      "openIssues": 127,
+      "archived": false
+    },
+    {
+      "repoId": 72,
+      "fullName": "org-22/project-72",
+      "language": "Python",
+      "license": "GPL-3.0",
+      "stars": 14021,
+      "forks": 6791,
+      "openIssues": 231,
+      "archived": false
+    },
+    {
+      "repoId": 73,
+      "fullName": "org-23/project-73",
+      "language": "C++",
+      "license": "MIT",
+      "stars": 58663,
+      "forks": 9660,
+      "openIssues": 210,
+      "archived": false
+    },
+    {
+      "repoId": 74,
+      "fullName": "org-24/project-74",
+      "language": "Go",
+      "license": "MIT",
+      "stars": 30431,
+      "forks": 11539,
+      "openIssues": 19,
+      "archived": false
+    },
+    {
+      "repoId": 75,
+      "fullName": "org-25/project-75",
+      "language": "Python",
+      "license": "MIT",
+      "stars": 39757,
+      "forks": 9181,
+      "openIssues": 271,
+      "archived": false
+    },
+    {
+      "repoId": 76,
+      "fullName": "org-1/project-76",
+      "language": "C++",
+      "license": "GPL-3.0",
+      "stars": 82192,
+      "forks": 5726,
+      "openIssues": 214,
+      "archived": false
+    },
+    {
+      "repoId": 77,
+      "fullName": "org-2/project-77",
+      "language": "C++",
+      "license": "MIT",
+      "stars": 92091,
+      "forks": 5221,
+      "openIssues": 302,
+      "archived": false
+    },
+    {
+      "repoId": 78,
+      "fullName": "org-3/project-78",
+      "language": "Rust",
+      "license": "BSD-3-Clause",
+      "stars": 54639,
+      "forks": 956,
+      "openIssues": 309,
+      "archived": false
+    },
+    {
+      "repoId": 79,
+      "fullName": "org-4/project-79",
+      "language": "Go",
+      "license": "Apache-2.0",
+      "stars": 92282,
+      "forks": 3679,
+      "openIssues": 190,
+      "archived": true
+    },
+    {
+      "repoId": 80,
+      "fullName": "org-5/project-80",
+      "language": "Go",
+      "license": "BSD-3-Clause",
+      "stars": 35844,
+      "forks": 3219,
+      "openIssues": 13,
+      "archived": true
+    },
+    {
+      "repoId": 81,
+      "fullName": "org-6/project-81",
+      "language": "Go",
+      "license": "GPL-3.0",
+      "stars": 3057,
+      "forks": 8861,
+      "openIssues": 251,
+      "archived": false
+    },
+    {
+      "repoId": 82,
+      "fullName": "org-7/project-82",
+      "language": "Go",
+      "license": "Apache-2.0",
+      "stars": 78455,
+      "forks": 3256,
+      "openIssues": 294,
+      "archived": false
+    },
+    {
+      "repoId": 83,
+      "fullName": "org-8/project-83",
+      "language": "Go",
+      "license": "Apache-2.0",
+      "stars": 72859,
+      "forks": 10194,
+      "openIssues": 36,
+      "archived": false
+    },
+    {
+      "repoId": 84,
+      "fullName": "org-9/project-84",
+      "language": "Rust",
+      "license": "BSD-3-Clause",
+      "stars": 58909,
+      "forks": 7876,
+      "openIssues": 389,
+      "archived": false
+    },
+    {
+      "repoId": 85,
+      "fullName": "org-10/project-85",
+      "language": "Python",
+      "license": "BSD-3-Clause",
+      "stars": 16373,
+      "forks": 6829,
+      "openIssues": 194,
+      "archived": false
+    },
+    {
+      "repoId": 86,
+      "fullName": "org-11/project-86",
+      "language": "Go",
+      "license": "MIT",
+      "stars": 8000,
+      "forks": 10778,
+      "openIssues": 247,
+      "archived": false
+    },
+    {
+      "repoId": 87,
+      "fullName": "org-12/project-87",
+      "language": "Python",
+      "license": "Apache-2.0",
+      "stars": 65605,
+      "forks": 9325,
+      "openIssues": 298,
+      "archived": false
+    },
+    {
+      "repoId": 88,
+      "fullName": "org-13/project-88",
+      "language": "Rust",
+      "license": "GPL-3.0",
+      "stars": 36508,
+      "forks": 7797,
+      "openIssues": 74,
+      "archived": false
+    },
+    {
+      "repoId": 89,
+      "fullName": "org-14/project-89",
+      "language": "TypeScript",
+      "license": "MIT",
+      "stars": 72507,
+      "forks": 9671,
+      "openIssues": 143,
+      "archived": false
+    },
+    {
+      "repoId": 90,
+      "fullName": "org-15/project-90",
+      "language": "Go",
+      "license": "MIT",
+      "stars": 88125,
+      "forks": 12049,
+      "openIssues": 115,
+      "archived": false
+    },
+    {
+      "repoId": 91,
+      "fullName": "org-16/project-91",
+      "language": "C++",
+      "license": "GPL-3.0",
+      "stars": 58130,
+      "forks": 3717,
+      "openIssues": 307,
+      "archived": false
+    },
+    {
+      "repoId": 92,
+      "fullName": "org-17/project-92",
+      "language": "C++",
+      "license": "MIT",
+      "stars": 27273,
+      "forks": 1872,
+      "openIssues": 259,
+      "archived": false
+    },
+    {
+      "repoId": 93,
+      "fullName": "org-18/project-93",
+      "language": "Rust",
+      "license": "MIT",
+      "stars": 88102,
+      "forks": 5623,
+      "openIssues": 45,
+      "archived": false
+    },
+    {
+      "repoId": 94,
+      "fullName": "org-19/project-94",
+      "language": "Go",
+      "license": "Apache-2.0",
+      "stars": 41828,
+      "forks": 3169,
+      "openIssues": 186,
+      "archived": true
+    },
+    {
+      "repoId": 95,
+      "fullName": "org-20/project-95",
+      "language": "Python",
+      "license": "GPL-3.0",
+      "stars": 84317,
+      "forks": 4470,
+      "openIssues": 106,
+      "archived": false
+    },
+    {
+      "repoId": 96,
+      "fullName": "org-21/project-96",
+      "language": "Go",
+      "license": "GPL-3.0",
+      "stars": 74874,
+      "forks": 443,
+      "openIssues": 6,
+      "archived": false
+    },
+    {
+      "repoId": 97,
+      "fullName": "org-22/project-97",
+      "language": "Rust",
+      "license": "BSD-3-Clause",
+      "stars": 76137,
+      "forks": 11101,
+      "openIssues": 160,
+      "archived": false
+    },
+    {
+      "repoId": 98,
+      "fullName": "org-23/project-98",
+      "language": "TypeScript",
+      "license": "Apache-2.0",
+      "stars": 23423,
+      "forks": 5002,
+      "openIssues": 143,
+      "archived": false
+    },
+    {
+      "repoId": 99,
+      "fullName": "org-24/project-99",
+      "language": "TypeScript",
+      "license": "MIT",
+      "stars": 26450,
+      "forks": 10812,
+      "openIssues": 283,
+      "archived": false
+    },
+    {
+      "repoId": 100,
+      "fullName": "org-25/project-100",
+      "language": "TypeScript",
+      "license": "GPL-3.0",
+      "stars": 27662,
+      "forks": 9341,
+      "openIssues": 155,
+      "archived": true
+    },
+    {
+      "repoId": 101,
+      "fullName": "org-1/project-101",
+      "language": "Go",
+      "license": "Apache-2.0",
+      "stars": 30849,
+      "forks": 635,
+      "openIssues": 163,
+      "archived": false
+    },
+    {
+      "repoId": 102,
+      "fullName": "org-2/project-102",
+      "language": "C++",
+      "license": "Apache-2.0",
+      "stars": 13661,
+      "forks": 10716,
+      "openIssues": 364,
+      "archived": true
+    },
+    {
+      "repoId": 103,
+      "fullName": "org-3/project-103",
+      "language": "TypeScript",
+      "license": "GPL-3.0",
+      "stars": 9456,
+      "forks": 11114,
+      "openIssues": 297,
+      "archived": false
+    },
+    {
+      "repoId": 104,
+      "fullName": "org-4/project-104",
+      "language": "C++",
+      "license": "GPL-3.0",
+      "stars": 61571,
+      "forks": 9106,
+      "openIssues": 282,
+      "archived": true
+    },
+    {
+      "repoId": 105,
+      "fullName": "org-5/project-105",
+      "language": "Python",
+      "license": "Apache-2.0",
+      "stars": 83667,
+      "forks": 10140,
+      "openIssues": 390,
+      "archived": false
+    },
+    {
+      "repoId": 106,
+      "fullName": "org-6/project-106",
+      "language": "Python",
+      "license": "BSD-3-Clause",
+      "stars": 74006,
+      "forks": 8356,
+      "openIssues": 392,
+      "archived": false
+    },
+    {
+      "repoId": 107,
+      "fullName": "org-7/project-107",
+      "language": "C++",
+      "license": "GPL-3.0",
+      "stars": 90370,
+      "forks": 1932,
+      "openIssues": 301,
+      "archived": false
+    },
+    {
+      "repoId": 108,
+      "fullName": "org-8/project-108",
+      "language": "Rust",
+      "license": "MIT",
+      "stars": 35129,
+      "forks": 11516,
+      "openIssues": 77,
+      "archived": false
+    },
+    {
+      "repoId": 109,
+      "fullName": "org-9/project-109",
+      "language": "C++",
+      "license": "Apache-2.0",
+      "stars": 34305,
+      "forks": 6445,
+      "openIssues": 338,
+      "archived": false
+    },
+    {
+      "repoId": 110,
+      "fullName": "org-10/project-110",
+      "language": "TypeScript",
+      "license": "GPL-3.0",
+      "stars": 15379,
+      "forks": 8187,
+      "openIssues": 237,
+      "archived": true
+    },
+    {
+      "repoId": 111,
+      "fullName": "org-11/project-111",
+      "language": "C++",
+      "license": "MIT",
+      "stars": 75281,
+      "forks": 7621,
+      "openIssues": 296,
+      "archived": false
+    },
+    {
+      "repoId": 112,
+      "fullName": "org-12/project-112",
+      "language": "Python",
+      "license": "MIT",
+      "stars": 42271,
+      "forks": 1672,
+      "openIssues": 314,
+      "archived": false
+    },
+    {
+      "repoId": 113,
+      "fullName": "org-13/project-113",
+      "language": "Go",
+      "license": "MIT",
+      "stars": 64514,
+      "forks": 3493,
+      "openIssues": 34,
+      "archived": true
+    },
+    {
+      "repoId": 114,
+      "fullName": "org-14/project-114",
+      "language": "C++",
+      "license": "MIT",
+      "stars": 89001,
+      "forks": 1221,
+      "openIssues": 274,
+      "archived": false
+    },
+    {
+      "repoId": 115,
+      "fullName": "org-15/project-115",
+      "language": "Go",
+      "license": "MIT",
+      "stars": 28003,
+      "forks": 316,
+      "openIssues": 331,
+      "archived": false
+    },
+    {
+      "repoId": 116,
+      "fullName": "org-16/project-116",
+      "language": "Go",
+      "license": "BSD-3-Clause",
+      "stars": 10192,
+      "forks": 7889,
+      "openIssues": 131,
+      "archived": false
+    },
+    {
+      "repoId": 117,
+      "fullName": "org-17/project-117",
+      "language": "TypeScript",
+      "license": "MIT",
+      "stars": 53017,
+      "forks": 5333,
+      "openIssues": 62,
+      "archived": false
+    },
+    {
+      "repoId": 118,
+      "fullName": "org-18/project-118",
+      "language": "Python",
+      "license": "BSD-3-Clause",
+      "stars": 77894,
+      "forks": 580,
+      "openIssues": 40,
+      "archived": false
+    },
+    {
+      "repoId": 119,
+      "fullName": "org-19/project-119",
+      "language": "Python",
+      "license": "BSD-3-Clause",
+      "stars": 23341,
+      "forks": 7788,
+      "openIssues": 285,
+      "archived": false
+    },
+    {
+      "repoId": 120,
+      "fullName": "org-20/project-120",
+      "language": "TypeScript",
+      "license": "BSD-3-Clause",
+      "stars": 24793,
+      "forks": 1054,
+      "openIssues": 271,
+      "archived": false
+    },
+    {
+      "repoId": 121,
+      "fullName": "org-21/project-121",
+      "language": "Go",
+      "license": "Apache-2.0",
+      "stars": 43138,
+      "forks": 11269,
+      "openIssues": 7,
+      "archived": true
+    },
+    {
+      "repoId": 122,
+      "fullName": "org-22/project-122",
+      "language": "C++",
+      "license": "MIT",
+      "stars": 85823,
+      "forks": 1243,
+      "openIssues": 22,
+      "archived": false
+    },
+    {
+      "repoId": 123,
+      "fullName": "org-23/project-123",
+      "language": "Rust",
+      "license": "GPL-3.0",
+      "stars": 93448,
+      "forks": 11858,
+      "openIssues": 379,
+      "archived": false
+    },
+    {
+      "repoId": 124,
+      "fullName": "org-24/project-124",
+      "language": "TypeScript",
+      "license": "GPL-3.0",
+      "stars": 74869,
+      "forks": 1673,
+      "openIssues": 255,
+      "archived": false
+    },
+    {
+      "repoId": 125,
+      "fullName": "org-25/project-125",
+      "language": "Rust",
+      "license": "MIT",
+      "stars": 87336,
+      "forks": 2678,
+      "openIssues": 369,
+      "archived": false
+    },
+    {
+      "repoId": 126,
+      "fullName": "org-1/project-126",
+      "language": "TypeScript",
+      "license": "GPL-3.0",
+      "stars": 82152,
+      "forks": 9706,
+      "openIssues": 8,
+      "archived": false
+    },
+    {
+      "repoId": 127,
+      "fullName": "org-2/project-127",
+      "language": "Python",
+      "license": "MIT",
+      "stars": 17160,
+      "forks": 5684,
+      "openIssues": 78,
+      "archived": true
+    },
+    {
+      "repoId": 128,
+      "fullName": "org-3/project-128",
+      "language": "C++",
+      "license": "GPL-3.0",
+      "stars": 30113,
+      "forks": 3701,
+      "openIssues": 35,
+      "archived": false
+    },
+    {
+      "repoId": 129,
+      "fullName": "org-4/project-129",
+      "language": "C++",
+      "license": "MIT",
+      "stars": 37555,
+      "forks": 5727,
+      "openIssues": 342,
+      "archived": true
+    },
+    {
+      "repoId": 130,
+      "fullName": "org-5/project-130",
+      "language": "C++",
+      "license": "Apache-2.0",
+      "stars": 18959,
+      "forks": 3359,
+      "openIssues": 250,
+      "archived": false
+    },
+    {
+      "repoId": 131,
+      "fullName": "org-6/project-131",
+      "language": "C++",
+      "license": "Apache-2.0",
+      "stars": 64494,
+      "forks": 5004,
+      "openIssues": 24,
+      "archived": false
+    },
+    {
+      "repoId": 132,
+      "fullName": "org-7/project-132",
+      "language": "Go",
+      "license": "BSD-3-Clause",
+      "stars": 92852,
+      "forks": 12006,
+      "openIssues": 382,
+      "archived": true
+    },
+    {
+      "repoId": 133,
+      "fullName": "org-8/project-133",
+      "language": "Rust",
+      "license": "MIT",
+      "stars": 52858,
+      "forks": 5091,
+      "openIssues": 363,
+      "archived": true
+    },
+    {
+      "repoId": 134,
+      "fullName": "org-9/project-134",
+      "language": "TypeScript",
+      "license": "GPL-3.0",
+      "stars": 84204,
+      "forks": 11693,
+      "openIssues": 107,
+      "archived": false
+    },
+    {
+      "repoId": 135,
+      "fullName": "org-10/project-135",
+      "language": "TypeScript",
+      "license": "BSD-3-Clause",
+      "stars": 89572,
+      "forks": 870,
+      "openIssues": 223,
+      "archived": false
+    },
+    {
+      "repoId": 136,
+      "fullName": "org-11/project-136",
+      "language": "Rust",
+      "license": "MIT",
+      "stars": 22332,
+      "forks": 6792,
+      "openIssues": 269,
+      "archived": false
+    },
+    {
+      "repoId": 137,
+      "fullName": "org-12/project-137",
+      "language": "Python",
+      "license": "Apache-2.0",
+      "stars": 68462,
+      "forks": 3716,
+      "openIssues": 214,
+      "archived": false
+    },
+    {
+      "repoId": 138,
+      "fullName": "org-13/project-138",
+      "language": "TypeScript",
+      "license": "MIT",
+      "stars": 83299,
+      "forks": 11970,
+      "openIssues": 213,
+      "archived": true
+    },
+    {
+      "repoId": 139,
+      "fullName": "org-14/project-139",
+      "language": "TypeScript",
+      "license": "GPL-3.0",
+      "stars": 82329,
+      "forks": 4957,
+      "openIssues": 369,
+      "archived": false
+    },
+    {
+      "repoId": 140,
+      "fullName": "org-15/project-140",
+      "language": "TypeScript",
+      "license": "GPL-3.0",
+      "stars": 86747,
+      "forks": 416,
+      "openIssues": 63,
+      "archived": false
+    },
+    {
+      "repoId": 141,
+      "fullName": "org-16/project-141",
+      "language": "Rust",
+      "license": "Apache-2.0",
+      "stars": 35672,
+      "forks": 7157,
+      "openIssues": 159,
+      "archived": false
+    },
+    {
+      "repoId": 142,
+      "fullName": "org-17/project-142",
+      "language": "TypeScript",
+      "license": "Apache-2.0",
+      "stars": 86862,
+      "forks": 1364,
+      "openIssues": 327,
+      "archived": false
+    },
+    {
+      "repoId": 143,
+      "fullName": "org-18/project-143",
+      "language": "C++",
+      "license": "BSD-3-Clause",
+      "stars": 90037,
+      "forks": 4061,
+      "openIssues": 154,
+      "archived": false
+    },
+    {
+      "repoId": 144,
+      "fullName": "org-19/project-144",
+      "language": "Go",
+      "license": "MIT",
+      "stars": 17099,
+      "forks": 1692,
+      "openIssues": 364,
+      "archived": false
+    },
+    {
+      "repoId": 145,
+      "fullName": "org-20/project-145",
+      "language": "TypeScript",
+      "license": "MIT",
+      "stars": 14223,
+      "forks": 704,
+      "openIssues": 23,
+      "archived": false
+    },
+    {
+      "repoId": 146,
+      "fullName": "org-21/project-146",
+      "language": "Python",
+      "license": "MIT",
+      "stars": 35136,
+      "forks": 4089,
+      "openIssues": 23,
+      "archived": false
+    },
+    {
+      "repoId": 147,
+      "fullName": "org-22/project-147",
+      "language": "C++",
+      "license": "Apache-2.0",
+      "stars": 13353,
+      "forks": 11574,
+      "openIssues": 247,
+      "archived": false
+    },
+    {
+      "repoId": 148,
+      "fullName": "org-23/project-148",
+      "language": "C++",
+      "license": "BSD-3-Clause",
+      "stars": 25934,
+      "forks": 7658,
+      "openIssues": 155,
+      "archived": false
+    },
+    {
+      "repoId": 149,
+      "fullName": "org-24/project-149",
+      "language": "C++",
+      "license": "BSD-3-Clause",
+      "stars": 70450,
+      "forks": 11086,
+      "openIssues": 20,
+      "archived": false
+    },
+    {
+      "repoId": 150,
+      "fullName": "org-25/project-150",
+      "language": "Rust",
+      "license": "Apache-2.0",
+      "stars": 67221,
+      "forks": 10612,
+      "openIssues": 60,
+      "archived": false
+    },
+    {
+      "repoId": 151,
+      "fullName": "org-1/project-151",
+      "language": "Rust",
+      "license": "GPL-3.0",
+      "stars": 80664,
+      "forks": 4901,
+      "openIssues": 288,
+      "archived": false
+    },
+    {
+      "repoId": 152,
+      "fullName": "org-2/project-152",
+      "language": "Python",
+      "license": "MIT",
+      "stars": 57378,
+      "forks": 4692,
+      "openIssues": 242,
+      "archived": false
+    },
+    {
+      "repoId": 153,
+      "fullName": "org-3/project-153",
+      "language": "TypeScript",
+      "license": "MIT",
+      "stars": 8884,
+      "forks": 11328,
+      "openIssues": 360,
+      "archived": false
+    },
+    {
+      "repoId": 154,
+      "fullName": "org-4/project-154",
+      "language": "Python",
+      "license": "MIT",
+      "stars": 41840,
+      "forks": 393,
+      "openIssues": 275,
+      "archived": false
+    },
+    {
+      "repoId": 155,
+      "fullName": "org-5/project-155",
+      "language": "Go",
+      "license": "GPL-3.0",
+      "stars": 53035,
+      "forks": 8128,
+      "openIssues": 78,
+      "archived": false
+    },
+    {
+      "repoId": 156,
+      "fullName": "org-6/project-156",
+      "language": "Rust",
+      "license": "BSD-3-Clause",
+      "stars": 83146,
+      "forks": 204,
+      "openIssues": 146,
+      "archived": false
+    },
+    {
+      "repoId": 157,
+      "fullName": "org-7/project-157",
+      "language": "C++",
+      "license": "BSD-3-Clause",
+      "stars": 65566,
+      "forks": 2782,
+      "openIssues": 129,
+      "archived": false
+    },
+    {
+      "repoId": 158,
+      "fullName": "org-8/project-158",
+      "language": "Python",
+      "license": "MIT",
+      "stars": 80109,
+      "forks": 2959,
+      "openIssues": 343,
+      "archived": false
+    },
+    {
+      "repoId": 159,
+      "fullName": "org-9/project-159",
+      "language": "C++",
+      "license": "Apache-2.0",
+      "stars": 5704,
+      "forks": 7164,
+      "openIssues": 237,
+      "archived": false
+    },
+    {
+      "repoId": 160,
+      "fullName": "org-10/project-160",
+      "language": "Go",
+      "license": "MIT",
+      "stars": 86366,
+      "forks": 7077,
+      "openIssues": 109,
+      "archived": false
+    },
+    {
+      "repoId": 161,
+      "fullName": "org-11/project-161",
+      "language": "Rust",
+      "license": "BSD-3-Clause",
+      "stars": 83331,
+      "forks": 5405,
+      "openIssues": 166,
+      "archived": false
+    },
+    {
+      "repoId": 162,
+      "fullName": "org-12/project-162",
+      "language": "Go",
+      "license": "GPL-3.0",
+      "stars": 72367,
+      "forks": 3516,
+      "openIssues": 350,
+      "archived": false
+    },
+    {
+      "repoId": 163,
+      "fullName": "org-13/project-163",
+      "language": "TypeScript",
+      "license": "BSD-3-Clause",
+      "stars": 45873,
+      "forks": 2918,
+      "openIssues": 48,
+      "archived": false
+    },
+    {
+      "repoId": 164,
+      "fullName": "org-14/project-164",
+      "language": "Python",
+      "license": "BSD-3-Clause",
+      "stars": 81306,
+      "forks": 108,
+      "openIssues": 154,
+      "archived": true
+    },
+    {
+      "repoId": 165,
+      "fullName": "org-15/project-165",
+      "language": "TypeScript",
+      "license": "GPL-3.0",
+      "stars": 56842,
+      "forks": 8187,
+      "openIssues": 348,
+      "archived": false
+    },
+    {
+      "repoId": 166,
+      "fullName": "org-16/project-166",
+      "language": "Python",
+      "license": "BSD-3-Clause",
+      "stars": 10013,
+      "forks": 2081,
+      "openIssues": 64,
+      "archived": false
+    },
+    {
+      "repoId": 167,
+      "fullName": "org-17/project-167",
+      "language": "C++",
+      "license": "Apache-2.0",
+      "stars": 17393,
+      "forks": 10754,
+      "openIssues": 191,
+      "archived": false
+    },
+    {
+      "repoId": 168,
+      "fullName": "org-18/project-168",
+      "language": "C++",
+      "license": "Apache-2.0",
+      "stars": 58109,
+      "forks": 11506,
+      "openIssues": 270,
+      "archived": false
+    },
+    {
+      "repoId": 169,
+      "fullName": "org-19/project-169",
+      "language": "Python",
+      "license": "Apache-2.0",
+      "stars": 1307,
+      "forks": 7470,
+      "openIssues": 140,
+      "archived": false
+    },
+    {
+      "repoId": 170,
+      "fullName": "org-20/project-170",
+      "language": "TypeScript",
+      "license": "BSD-3-Clause",
+      "stars": 29844,
+      "forks": 2374,
+      "openIssues": 173,
+      "archived": false
+    },
+    {
+      "repoId": 171,
+      "fullName": "org-21/project-171",
+      "language": "Rust",
+      "license": "GPL-3.0",
+      "stars": 10001,
+      "forks": 9130,
+      "openIssues": 288,
+      "archived": false
+    },
+    {
+      "repoId": 172,
+      "fullName": "org-22/project-172",
+      "language": "TypeScript",
+      "license": "GPL-3.0",
+      "stars": 29540,
+      "forks": 5807,
+      "openIssues": 76,
+      "archived": false
+    },
+    {
+      "repoId": 173,
+      "fullName": "org-23/project-173",
+      "language": "TypeScript",
+      "license": "Apache-2.0",
+      "stars": 58747,
+      "forks": 1441,
+      "openIssues": 318,
+      "archived": false
+    },
+    {
+      "repoId": 174,
+      "fullName": "org-24/project-174",
+      "language": "Go",
+      "license": "MIT",
+      "stars": 75640,
+      "forks": 3975,
+      "openIssues": 21,
+      "archived": false
+    },
+    {
+      "repoId": 175,
+      "fullName": "org-25/project-175",
+      "language": "Python",
+      "license": "Apache-2.0",
+      "stars": 4842,
+      "forks": 2770,
+      "openIssues": 122,
+      "archived": false
+    },
+    {
+      "repoId": 176,
+      "fullName": "org-1/project-176",
+      "language": "TypeScript",
+      "license": "MIT",
+      "stars": 24586,
+      "forks": 273,
+      "openIssues": 212,
+      "archived": false
+    },
+    {
+      "repoId": 177,
+      "fullName": "org-2/project-177",
+      "language": "Rust",
+      "license": "GPL-3.0",
+      "stars": 60780,
+      "forks": 4545,
+      "openIssues": 299,
+      "archived": false
+    },
+    {
+      "repoId": 178,
+      "fullName": "org-3/project-178",
+      "language": "C++",
+      "license": "MIT",
+      "stars": 2349,
+      "forks": 6386,
+      "openIssues": 63,
+      "archived": false
+    },
+    {
+      "repoId": 179,
+      "fullName": "org-4/project-179",
+      "language": "TypeScript",
+      "license": "BSD-3-Clause",
+      "stars": 3489,
+      "forks": 3129,
+      "openIssues": 43,
+      "archived": false
+    },
+    {
+      "repoId": 180,
+      "fullName": "org-5/project-180",
+      "language": "C++",
+      "license": "BSD-3-Clause",
+      "stars": 7694,
+      "forks": 927,
+      "openIssues": 63,
+      "archived": false
+    },
+    {
+      "repoId": 181,
+      "fullName": "org-6/project-181",
+      "language": "TypeScript",
+      "license": "BSD-3-Clause",
+      "stars": 15616,
+      "forks": 10525,
+      "openIssues": 93,
+      "archived": false
+    },
+    {
+      "repoId": 182,
+      "fullName": "org-7/project-182",
+      "language": "TypeScript",
+      "license": "BSD-3-Clause",
+      "stars": 2137,
+      "forks": 1891,
+      "openIssues": 53,
+      "archived": false
+    },
+    {
+      "repoId": 183,
+      "fullName": "org-8/project-183",
+      "language": "Rust",
+      "license": "MIT",
+      "stars": 15660,
+      "forks": 9164,
+      "openIssues": 201,
+      "archived": false
+    },
+    {
+      "repoId": 184,
+      "fullName": "org-9/project-184",
+      "language": "Rust",
+      "license": "BSD-3-Clause",
+      "stars": 5419,
+      "forks": 8675,
+      "openIssues": 54,
+      "archived": false
+    },
+    {
+      "repoId": 185,
+      "fullName": "org-10/project-185",
+      "language": "Python",
+      "license": "Apache-2.0",
+      "stars": 5287,
+      "forks": 6101,
+      "openIssues": 352,
+      "archived": false
+    },
+    {
+      "repoId": 186,
+      "fullName": "org-11/project-186",
+      "language": "TypeScript",
+      "license": "GPL-3.0",
+      "stars": 19452,
+      "forks": 11955,
+      "openIssues": 321,
+      "archived": true
+    },
+    {
+      "repoId": 187,
+      "fullName": "org-12/project-187",
+      "language": "Go",
+      "license": "Apache-2.0",
+      "stars": 75725,
+      "forks": 7272,
+      "openIssues": 141,
+      "archived": false
+    },
+    {
+      "repoId": 188,
+      "fullName": "org-13/project-188",
+      "language": "Go",
+      "license": "Apache-2.0",
+      "stars": 38817,
+      "forks": 8462,
+      "openIssues": 43,
+      "archived": false
+    },
+    {
+      "repoId": 189,
+      "fullName": "org-14/project-189",
+      "language": "Python",
+      "license": "GPL-3.0",
+      "stars": 7442,
+      "forks": 1538,
+      "openIssues": 187,
+      "archived": false
+    },
+    {
+      "repoId": 190,
+      "fullName": "org-15/project-190",
+      "language": "Rust",
+      "license": "BSD-3-Clause",
+      "stars": 95183,
+      "forks": 6140,
+      "openIssues": 269,
+      "archived": true
+    },
+    {
+      "repoId": 191,
+      "fullName": "org-16/project-191",
+      "language": "C++",
+      "license": "Apache-2.0",
+      "stars": 76544,
+      "forks": 10836,
+      "openIssues": 168,
+      "archived": false
+    },
+    {
+      "repoId": 192,
+      "fullName": "org-17/project-192",
+      "language": "Rust",
+      "license": "Apache-2.0",
+      "stars": 6927,
+      "forks": 2362,
+      "openIssues": 125,
+      "archived": false
+    },
+    {
+      "repoId": 193,
+      "fullName": "org-18/project-193",
+      "language": "C++",
+      "license": "BSD-3-Clause",
+      "stars": 91845,
+      "forks": 12024,
+      "openIssues": 389,
+      "archived": false
+    },
+    {
+      "repoId": 194,
+      "fullName": "org-19/project-194",
+      "language": "TypeScript",
+      "license": "GPL-3.0",
+      "stars": 54612,
+      "forks": 1480,
+      "openIssues": 2,
+      "archived": false
+    },
+    {
+      "repoId": 195,
+      "fullName": "org-20/project-195",
+      "language": "Python",
+      "license": "GPL-3.0",
+      "stars": 17668,
+      "forks": 9517,
+      "openIssues": 322,
+      "archived": false
+    },
+    {
+      "repoId": 196,
+      "fullName": "org-21/project-196",
+      "language": "Python",
+      "license": "MIT",
+      "stars": 41688,
+      "forks": 4454,
+      "openIssues": 335,
+      "archived": false
+    },
+    {
+      "repoId": 197,
+      "fullName": "org-22/project-197",
+      "language": "Python",
+      "license": "Apache-2.0",
+      "stars": 14853,
+      "forks": 9680,
+      "openIssues": 140,
+      "archived": false
+    },
+    {
+      "repoId": 198,
+      "fullName": "org-23/project-198",
+      "language": "Go",
+      "license": "Apache-2.0",
+      "stars": 63093,
+      "forks": 6798,
+      "openIssues": 265,
+      "archived": true
+    },
+    {
+      "repoId": 199,
+      "fullName": "org-24/project-199",
+      "language": "TypeScript",
+      "license": "Apache-2.0",
+      "stars": 31707,
+      "forks": 6786,
+      "openIssues": 200,
+      "archived": false
+    },
+    {
+      "repoId": 200,
+      "fullName": "org-25/project-200",
+      "language": "Python",
+      "license": "BSD-3-Clause",
+      "stars": 22068,
+      "forks": 2625,
+      "openIssues": 374,
+      "archived": false
+    }
+  ]
+}

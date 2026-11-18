@@ -1,0 +1,20 @@
+# Rust build artifacts
+/target/
+**/*.rs.bk
+
+# Node / TypeScript
+/node_modules/
+/dist/
+/vendor/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+/wheels/
+
+# Temporary test & snapshot files
+*.jsonbit
+benchmarks/.tmp*/
+.DS_Store

@@ -1,0 +1,43 @@
+{
+  "name": "@jsonbit/core",
+  "version": "1.0.0",
+  "description": "jsonbit — Pure-Rust Auto-3NF Columnar Bit-Packed & BitVec64 Engine for LLMs and AI Agents",
+  "type": "module",
+  "main": "./src/index.ts",
+  "bin": {
+    "jsonbit": "./bin/jsonbit.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "NODE_NO_WARNINGS=1 vitest run",
+    "bench": "NODE_NO_WARNINGS=1 tsx benchmarks/run-full-rust-benchmark.ts --reuse-gemini",
+    "cli": "node ./bin/jsonbit.js"
+  },
+  "keywords": [
+    "llm",
+    "olap",
+    "json",
+    "jsonbit",
+    "rust",
+    "3nf",
+    "agents",
+    "mcp",
+    "tokens"
+  ],
+  "license": "MIT",
+  "author": "Prathik Murugan",
+  "devDependencies": {
+    "@faker-js/faker": "^10.6.0",
+    "@toon-format/toon": "^3.1.1",
+    "@types/node": "^25.8.0",
+    "gpt-tokenizer": "^4.1.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.4"
+  }
+}

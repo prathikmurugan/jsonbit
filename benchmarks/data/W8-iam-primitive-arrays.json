@@ -1,0 +1,1395 @@
+{
+  "principals": [
+    {
+      "principalId": "iam-user-1",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-2",
+      "group": "developers",
+      "mfaEnabled": false,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-3",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-4",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-5",
+      "group": "platform",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-6",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-7",
+      "group": "contractors",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-8",
+      "group": "security-ops",
+      "mfaEnabled": false,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-9",
+      "group": "platform",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-10",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-11",
+      "group": "contractors",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-12",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-13",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-14",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-15",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-16",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-17",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-18",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-19",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-20",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-21",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-22",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-23",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-24",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-25",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-26",
+      "group": "developers",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-27",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-28",
+      "group": "security-ops",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-29",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-30",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-31",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-32",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-33",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-34",
+      "group": "developers",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-35",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-36",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-37",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-38",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-39",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-40",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-41",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-42",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-43",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-44",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-45",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-46",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-47",
+      "group": "contractors",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-48",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-49",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-50",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-51",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-52",
+      "group": "security-ops",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-53",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-54",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-55",
+      "group": "contractors",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-56",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-57",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-58",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-59",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-60",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-61",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-62",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-63",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-64",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-65",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-66",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-67",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-68",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-69",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-70",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-71",
+      "group": "contractors",
+      "mfaEnabled": false,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-72",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-73",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-74",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-75",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-76",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-77",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-78",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-79",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-80",
+      "group": "security-ops",
+      "mfaEnabled": false,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-81",
+      "group": "platform",
+      "mfaEnabled": false,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-82",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-83",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-84",
+      "group": "security-ops",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-85",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-86",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-87",
+      "group": "contractors",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-88",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-89",
+      "group": "platform",
+      "mfaEnabled": false,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-90",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-91",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-92",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-93",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-94",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-95",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-96",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-97",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-98",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-99",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-100",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-101",
+      "group": "platform",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-102",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-103",
+      "group": "contractors",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-104",
+      "group": "security-ops",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-105",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-106",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-107",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-108",
+      "group": "security-ops",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-109",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-110",
+      "group": "developers",
+      "mfaEnabled": false,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-111",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-112",
+      "group": "security-ops",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-113",
+      "group": "platform",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-114",
+      "group": "developers",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-115",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-116",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-117",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-118",
+      "group": "developers",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-119",
+      "group": "contractors",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-120",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-121",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-122",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-123",
+      "group": "contractors",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-124",
+      "group": "security-ops",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-125",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-126",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-127",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-128",
+      "group": "security-ops",
+      "mfaEnabled": false,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-129",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-130",
+      "group": "developers",
+      "mfaEnabled": false,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-131",
+      "group": "contractors",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-132",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-133",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-134",
+      "group": "developers",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-135",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-136",
+      "group": "security-ops",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-137",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-138",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy",
+        "admin"
+      ]
+    },
+    {
+      "principalId": "iam-user-139",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-140",
+      "group": "security-ops",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-141",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    },
+    {
+      "principalId": "iam-user-142",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-143",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-144",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-145",
+      "group": "platform",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write"
+      ]
+    },
+    {
+      "principalId": "iam-user-146",
+      "group": "developers",
+      "mfaEnabled": false,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-147",
+      "group": "contractors",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-148",
+      "group": "security-ops",
+      "mfaEnabled": true,
+      "scopes": [
+        "read"
+      ]
+    },
+    {
+      "principalId": "iam-user-149",
+      "group": "platform",
+      "mfaEnabled": false,
+      "scopes": [
+        "read",
+        "audit"
+      ]
+    },
+    {
+      "principalId": "iam-user-150",
+      "group": "developers",
+      "mfaEnabled": true,
+      "scopes": [
+        "read",
+        "write",
+        "deploy"
+      ]
+    }
+  ]
+}
