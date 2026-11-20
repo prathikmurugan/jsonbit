@@ -4,7 +4,7 @@
     "jsonbit": {
       "type": "local",
       "command": [
-        "/home/secureshield/Desktop/hutter-crusher/json-olap/target/release/jsonbit",
+        "./target/release/jsonbit",
         "mcp"
       ],
       "enabled": true

@@ -125,7 +125,7 @@ describe('jsonbit: Pure-Rust Auto-3NF Bit-Packed Columnar & BitVec64 Engine', ()
     const lines = proc.stdout
       .trim()
       .split('\n')
-      .map(l => JSON.parse(l))
+      .map((l: string) => JSON.parse(l))
     expect(lines[0].result.protocolVersion).toBe('2024-11-05')
     expect(lines[1].result.content[0].text).toContain('TABLE records')
     expect(JSON.parse(lines[2].result.content[0].text)).toEqual([
@@ -174,7 +174,10 @@ describe('jsonbit: Pure-Rust Auto-3NF Bit-Packed Columnar & BitVec64 Engine', ()
       const q = questions[i]!
       const qr = out.question_results[i]!
       totalLatencyUs += qr.latency_us
-      if (compareAnswers(qr.answer, q.groundTruth, q.answerType, q.normalizationOptions).match) {
+      if (
+        compareAnswers(qr.answer, q.groundTruth, q.answerType ?? 'string', q.normalizationOptions)
+          .match
+      ) {
         strictHits++
       }
     }

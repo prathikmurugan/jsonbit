@@ -18,6 +18,11 @@ classifiers = [
   "Topic :: Database",
 ]
 
+[project.urls]
+Homepage = "https://github.com/prathikmurugan/jsonbit"
+Repository = "https://github.com/prathikmurugan/jsonbit"
+Issues = "https://github.com/prathikmurugan/jsonbit/issues"
+
 [tool.maturin]
 bindings = "bin"
 python-source = "python"

@@ -5,6 +5,10 @@ edition = "2021"
 authors = ["Prathik Murugan"]
 description = "jsonbit — Pure-Rust Auto-3NF Columnar Bit-Packed & BitVec64 Analytical Engine for LLMs"
 license = "MIT"
+readme = "README.md"
+repository = "https://github.com/prathikmurugan/jsonbit"
+keywords = ["json", "olap", "llm", "mcp", "columnar"]
+categories = ["command-line-utilities", "database-implementations", "encoding"]
 
 [[bin]]
 name = "jsonbit"

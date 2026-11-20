@@ -1,7 +1,7 @@
 /**
- * Comprehensive Pure-Rust Benchmark Suite & SVG Chart Generator for `json-olap`
+ * Comprehensive Pure-Rust Benchmark Suite & SVG Chart Generator for `jsonbit`
  *
- * Benchmarks `./target/release/json-olap` (Pure-Rust Auto-3NF Bit-Packed Columnar & BitVec64 Engine)
+ * Benchmarks `./target/release/jsonbit` (Pure-Rust Auto-3NF Bit-Packed Columnar & BitVec64 Engine)
  * against:
  *  1. Raw JSON (Pretty)
  *  2. Minified JSON
@@ -13,7 +13,7 @@
  *  - Track 1: 10 Real-World Workloads (`W1`–`W10`, including edge cases) + 8 Official Suite Datasets
  *  - Track 2: Scale Stress Track (`10` -> `100` -> `1,000` -> `10,000` nested records)
  *  - Track 3: Query Execution Speed (`Pure-Rust BitVec64 SQL/Slice` vs `jq` CLI) & 100% Codd 3NF Lossless Rehydration
- *  - Track 4: Live `gemini-3.8-flash` End-to-End Accuracy & Token Evaluation (powered 100% by `./target/release/json-olap`)
+ *  - Track 4: Live `gemini-3.8-flash` End-to-End Accuracy & Token Evaluation (powered 100% by `./target/release/jsonbit`)
  *  - Track 5: Automatic SVG Chart Generation (`benchmarks/charts/*.svg`)
  */
 
@@ -294,7 +294,7 @@ function generateTokenScalingSvg(
     { key: 'minTok' as const, label: 'Minified JSON', color: '#f97316', dash: '6,4' },
     { key: 'yamlTok' as const, label: 'YAML', color: '#eab308', dash: '4,4' },
     { key: 'toonTok' as const, label: 'TOON (v4)', color: '#8b5cf6', dash: '' },
-    { key: 'olapTok' as const, label: 'json-olap (Pure-Rust 3NF Cube)', color: '#10b981', dash: '' },
+    { key: 'olapTok' as const, label: 'jsonbit (Pure-Rust 3NF Cube)', color: '#10b981', dash: '' },
   ]
 
   const yTicks = [
@@ -348,7 +348,7 @@ function generateTokenScalingSvg(
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="100%" height="100%">
   <rect width="${width}" height="${height}" fill="#ffffff" rx="10" stroke="#cbd5e1" stroke-width="1"/>
   <text x="${padL}" y="32" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="700" fill="#0f172a">LLM Context Tokens vs. Dataset Scale (Log Scale)</text>
-  <text x="${padL}" y="52" font-family="Inter, system-ui, sans-serif" font-size="12.5" fill="#64748b">O(N) Linear Formats (JSON, YAML, TOON) vs. O(1) Pure-Rust json-olap Semantic Cube Card</text>
+  <text x="${padL}" y="52" font-family="Inter, system-ui, sans-serif" font-size="12.5" fill="#64748b">O(N) Linear Formats (JSON, YAML, TOON) vs. O(1) Pure-Rust jsonbit Semantic Cube Card</text>
   ${gridLines}
   <rect x="${padL}" y="${padT}" width="${plotW}" height="${plotH}" fill="none" stroke="#cbd5e1" stroke-width="1"/>
   ${paths}
@@ -465,7 +465,7 @@ function generateStorageAndLatencySvg(
     { name: 'YAML', bytes: totalYamlBytes, color: '#eab308' },
     { name: 'Minified JSON', bytes: totalMinBytes, color: '#f97316' },
     { name: 'TOON', bytes: totalToonBytes, color: '#8b5cf6' },
-    { name: 'json-olap (Rust)', bytes: totalOlapBytes, color: '#10b981' },
+    { name: 'jsonbit (Rust)', bytes: totalOlapBytes, color: '#10b981' },
   ]
   const maxBytes = Math.max(...storageSeries.map(s => s.bytes), 1)
   const barW1 = Math.floor(panelW / (storageSeries.length * 1.55))
@@ -492,8 +492,8 @@ function generateStorageAndLatencySvg(
 
   const latencySeries = [
     { name: 'jq CLI (C)', us: jqAvgUs, color: '#64748b' },
-    { name: 'json-olap SQL (Rust)', us: olapSqlAvgUs, color: '#0ea5e9' },
-    { name: 'json-olap Slice (Rust)', us: olapSliceAvgUs, color: '#10b981' },
+    { name: 'jsonbit SQL (Rust)', us: olapSqlAvgUs, color: '#0ea5e9' },
+    { name: 'jsonbit Slice (Rust)', us: olapSliceAvgUs, color: '#10b981' },
   ]
   const maxUs = Math.max(...latencySeries.map(s => s.us), 1)
   const barW2 = Math.floor(panelW / (latencySeries.length * 1.8))
@@ -722,7 +722,7 @@ async function main() {
     })
 
     console.log(
-      `Scale N=${String(n).padStart(6)} rows | Pretty: ${String(prettyTok).padStart(9)} tok | TOON: ${String(toonTok).padStart(9)} tok | Pure-Rust json-olap: ${String(olapTok).padStart(4)} tok | Ingest: ${(dr.ingest_us / 1000).toFixed(2)} ms`,
+      `Scale N=${String(n).padStart(6)} rows | Pretty: ${String(prettyTok).padStart(9)} tok | TOON: ${String(toonTok).padStart(9)} tok | Pure-Rust jsonbit: ${String(olapTok).padStart(4)} tok | Ingest: ${(dr.ingest_us / 1000).toFixed(2)} ms`,
     )
   }
   console.log()
@@ -789,8 +789,8 @@ async function main() {
     `Pure-Rust SQL Ground-Truth Accuracy: ${deterministicSqlHits}/${allBenchQuestions.length} (${((deterministicSqlHits / allBenchQuestions.length) * 100).toFixed(1)}%)`,
   )
   console.log(`Average Query Latency — jq CLI (C):               ${jqAvgUs.toFixed(1)} µs`)
-  console.log(`Average Query Latency — json-olap SQL (Rust):     ${olapSqlAvgUs.toFixed(1)} µs (${(jqAvgUs / Math.max(1, olapSqlAvgUs)).toFixed(0)}x faster)`)
-  console.log(`Average Query Latency — json-olap Slice (Rust):   ${olapSliceAvgUs.toFixed(1)} µs (${(jqAvgUs / Math.max(1, olapSliceAvgUs)).toFixed(0)}x faster)\n`)
+  console.log(`Average Query Latency — jsonbit SQL (Rust):     ${olapSqlAvgUs.toFixed(1)} µs (${(jqAvgUs / Math.max(1, olapSqlAvgUs)).toFixed(0)}x faster)`)
+  console.log(`Average Query Latency — jsonbit Slice (Rust):   ${olapSliceAvgUs.toFixed(1)} µs (${(jqAvgUs / Math.max(1, olapSliceAvgUs)).toFixed(0)}x faster)\n`)
 
   // ============================================================================
   // TRACK 4: Live `gemini-3.8-flash` Evaluation (Powered 100% by Rust Binary)
@@ -881,7 +881,7 @@ async function main() {
     const toonPrompt = `${sysInstruction}\n\nData (TOON):\n\`\`\`\n${payloads.toon}\n\`\`\`\n\nQuestion: ${q.prompt}\nAnswer:`
     const slicePrompt = `${sysInstruction}\n\n${qr.context}\n\nQuestion: ${q.prompt}\nAnswer:`
 
-    const sqlGenPrompt = `You are querying a Pure-Rust json-olap 3NF columnar engine.\nHere is the MDL Cube Card:\n${payloads.rustCard}\n\nWrite a single read-only SQL SELECT query to answer: "${q.prompt}"\nRules:\n- Return ONLY the raw SQL query on a single line (no markdown backticks, no explanation).\n- For 1-to-Many child items on orders, query \`orders_items\` or \`FROM orders JOIN orders_items\`.\n- For singleton config table, query \`FROM config\`.\nSQL:`
+    const sqlGenPrompt = `You are querying a Pure-Rust jsonbit 3NF columnar engine.\nHere is the MDL Cube Card:\n${payloads.rustCard}\n\nWrite a single read-only SQL SELECT query to answer: "${q.prompt}"\nRules:\n- Return ONLY the raw SQL query on a single line (no markdown backticks, no explanation).\n- For 1-to-Many child items on orders, query \`orders_items\` or \`FROM orders JOIN orders_items\`.\n- For singleton config table, query \`FROM config\`.\nSQL:`
 
     const [prettyRes, minRes, yamlRes, toonRes, sliceRes, sqlGenRes] = await Promise.all([
       callGemini(prettyPrompt),
@@ -1097,7 +1097,7 @@ async function main() {
   const sqlAgentHits = sumField(r => (r.olapSqlHit ? 1 : 0))
   const sqlAgentToks = sumField(r => r.olapSqlTok)
   console.log(
-    `${'json-olap SQL Agent'.padEnd(20)} | Accuracy: ${String(sqlAgentHits).padStart(2)}/${nQ} (${((sqlAgentHits / nQ) * 100).toFixed(1)}%) | Total Prompt Tokens: ${sqlAgentToks.toLocaleString().padStart(9)}`,
+    `${'jsonbit SQL Agent'.padEnd(20)} | Accuracy: ${String(sqlAgentHits).padStart(2)}/${nQ} (${((sqlAgentHits / nQ) * 100).toFixed(1)}%) | Total Prompt Tokens: ${sqlAgentToks.toLocaleString().padStart(9)}`,
   )
 
   // ============================================================================
@@ -1129,7 +1129,7 @@ async function main() {
     JSON.stringify(
       {
         timestamp: new Date().toISOString(),
-        engine: 'Pure-Rust json-olap v1.0.0 (BitVec64 + ForInt + DictString + CSR 3NF)',
+        engine: 'Pure-Rust jsonbit v1.0.0 (BitVec64 + ForInt + DictString + CSR 3NF)',
         model: MODEL,
         track1_storage_and_tokens: {
           workloads: track1Table,

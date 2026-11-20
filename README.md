@@ -1,6 +1,6 @@
 # jsonbit
 
-[![Rust](https://img.shields.io/badge/rust-1.100%2B-orange.svg)](./Cargo.toml)
+[![Rust](https://img.shields.io/badge/rust-1.75%2B-orange.svg)](./Cargo.toml)
 [![TypeScript](https://img.shields.io/badge/typescript-5.9-blue.svg)](./package.json)
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](./python/jsonbit.py)
 [![MCP](https://img.shields.io/badge/MCP-2024--11--05-00ADD8.svg)](./rust/mcp.rs)
@@ -48,7 +48,7 @@ Passing large structured datasets (API responses, telemetry logs, database expor
 ### Build & Install Locally
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/prathikmurugan/jsonbit.git
 cd jsonbit
 
 # Build optimized release binary (./target/release/jsonbit)
@@ -134,7 +134,7 @@ Codex and terminal agents automatically read [`AGENTS.md`](./AGENTS.md) in the r
 Requires Python 3.10+ with no third-party pip packages:
 
 ```python
-from python.jsonbit import JsonBit
+from jsonbit import JsonBit  # or `from python.jsonbit import JsonBit` from repo root
 
 with JsonBit("benchmarks/data/github-repos.json") as olap:
     # Generate compact OLAP schema & statistical card
@@ -293,9 +293,9 @@ While linear text encodings (`Raw JSON`, `Minified JSON`, `YAML`, `TOON`) scale 
 | **Total (10 Workloads)** | **All Categories** | **280.6 KB** | **30.6 KB (-89.1%)** | **143,978** | **61,887** | **36,636 (-40.8%)** | **3,249 (-94.7%)** | **10/10 PASS** |
 
 - **Query Latency (`Pure-Rust BitVec64 SQL` vs. `jq` C CLI):**
-  - `jq` CLI (`stedolan/jq`): `6,245.6 µs` average per query
-  - `jsonbit` Pure-Rust SQL (`execute_sql`): **`4.7 µs` average per query (`1,317x` faster)**
-  - `jsonbit` Pure-Rust Bitmap Slice (`query_slice`): **`14.0 µs` average per query (`447x` faster)**
+  - `jq` CLI (`stedolan/jq`): `6,545.3 µs` average per query
+  - `jsonbit` Pure-Rust SQL (`execute_sql`): **`6.8 µs` average per query (`963x` faster)**
+  - `jsonbit` Pure-Rust Bitmap Slice (`query_slice`): **`19.9 µs` average per query (`329x` faster)**
 - **Standard 8-Dataset Benchmark Suite:**
   - **Storage Compression:** `1,178,283` bytes (Minified JSON) $\rightarrow$ **`419,661` bytes (`-64.4%` RAM/storage reduction)**, `8/8` (`100%`) lossless 3NF rehydration.
   - **Token Reduction:** `334,046` tokens (`TOON` v4) $\rightarrow$ **`2,536` tokens (`-99.24%`)**.

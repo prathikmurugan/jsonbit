@@ -4,16 +4,19 @@
   "description": "jsonbit — Pure-Rust Auto-3NF Columnar Bit-Packed & BitVec64 Engine for LLMs and AI Agents",
   "type": "module",
   "main": "./src/index.ts",
+  "types": "./src/index.ts",
   "bin": {
     "jsonbit": "./bin/jsonbit.js"
   },
   "files": [
     "bin/",
+    "scripts/",
     "src/",
     "README.md",
     "LICENSE"
   ],
   "scripts": {
+    "postinstall": "node ./scripts/install-binary.mjs",
     "test": "NODE_NO_WARNINGS=1 vitest run",
     "bench": "NODE_NO_WARNINGS=1 tsx benchmarks/run-full-rust-benchmark.ts --reuse-gemini",
     "cli": "node ./bin/jsonbit.js"
@@ -31,9 +34,17 @@
   ],
   "license": "MIT",
   "author": "Prathik Murugan",
+  "homepage": "https://github.com/prathikmurugan/jsonbit#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prathikmurugan/jsonbit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prathikmurugan/jsonbit/issues"
+  },
   "devDependencies": {
     "@faker-js/faker": "^10.6.0",
-    "@toon-format/toon": "^3.1.1",
+    "@toon-format/toon": "^4.4.0",
     "@types/node": "^25.8.0",
     "gpt-tokenizer": "^4.1.2",
     "tsx": "^4.21.0",

@@ -94,6 +94,14 @@ impl RustMcpServer {
             }));
         }
 
+        if method == "ping" {
+            return Some(json!({
+                "jsonrpc": "2.0",
+                "id": id,
+                "result": {}
+            }));
+        }
+
         if method == "tools/list" {
             return Some(json!({
                 "jsonrpc": "2.0",

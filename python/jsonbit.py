@@ -13,16 +13,17 @@ from typing import Any, Dict, List, Optional, Union
 
 
 def _resolve_default_bin() -> str:
+    exe = "jsonbit.exe" if os.name == "nt" else "jsonbit"
     env_bin = os.environ.get("JSONBIT_BIN")
     if env_bin and os.path.exists(env_bin):
         return env_bin
-    local_bin = Path(__file__).resolve().parent.parent / "target" / "release" / "jsonbit"
+    local_bin = Path(__file__).resolve().parent.parent / "target" / "release" / exe
     if local_bin.exists():
         return str(local_bin)
     path_bin = shutil.which("jsonbit")
     if path_bin:
         return path_bin
-    return str(local_bin)
+    return exe
 
 
 DEFAULT_BIN = _resolve_default_bin()
@@ -55,8 +56,11 @@ class JsonBit:
             [self.bin_path, *args],
             capture_output=True,
             text=True,
-            check=True,
+            encoding="utf-8",
         )
+        if res.returncode != 0:
+            msg = (res.stderr or res.stdout or f"jsonbit exited with status {res.returncode}").strip()
+            raise RuntimeError(msg)
         return res.stdout.strip()
 
     def card(self) -> str:

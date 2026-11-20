@@ -196,7 +196,7 @@ impl JsonOlapEngine {
         lines.join("\n")
     }
 
-    /// Generates a 1-Turn Factorized 3NF Holistic Digest (`olap_digest` / `json-olap digest`)
+    /// Generates a 1-Turn Factorized 3NF Holistic Digest (`olap_digest` / `jsonbit digest`)
     /// containing 100% of every row and field across all 3NF tables PLUS the exact OLAP
     /// statistical header, while using 35%-70% fewer tokens than TOON via:
     /// 1. 3NF Child-Table Hoisting & CSR Parent Grouping (zero repeated child headers)

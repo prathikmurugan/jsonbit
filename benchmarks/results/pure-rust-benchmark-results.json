@@ -1,6 +1,6 @@
 {
   "timestamp": "2026-11-17T05:02:25.478Z",
-  "engine": "Pure-Rust json-olap v1.0.0 (BitVec64 + ForInt + DictString + CSR 3NF)",
+  "engine": "Pure-Rust jsonbit v1.0.0 (BitVec64 + ForInt + DictString + CSR 3NF)",
   "model": "gemini-3.8-flash",
   "track1_storage_and_tokens": {
     "workloads": [

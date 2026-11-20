@@ -84,6 +84,10 @@ fn main() {
         print_help();
         return;
     }
+    if args[1] == "--version" || args[1] == "-V" {
+        println!("jsonbit {}", env!("CARGO_PKG_VERSION"));
+        return;
+    }
 
     let cmd = args[1].as_str();
 

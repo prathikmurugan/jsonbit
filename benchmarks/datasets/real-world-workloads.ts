@@ -1,5 +1,5 @@
 /**
- * Real-World Benchmark Workloads & Ground-Truth Query Suite for `json-olap` (Pure-Rust Engine)
+ * Real-World Benchmark Workloads & Ground-Truth Query Suite for `jsonbit` (Pure-Rust Engine)
  *
  * Covers 10 distinct production topologies, including edge cases:
  *  - W1: Tiny 4-row REST API response (tests Adaptive Micro-Card overhead)

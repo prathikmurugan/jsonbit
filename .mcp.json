@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "jsonbit": {
-      "command": "/home/secureshield/Desktop/hutter-crusher/json-olap/target/release/jsonbit",
+      "command": "./target/release/jsonbit",
       "args": ["mcp"]
     }
   }
