@@ -274,22 +274,14 @@ jobs:
     needs: [bump-and-tag, github-release]
     runs-on: ubuntu-latest
     steps:
-      - name: Check npm token
-        id: check
-        env:
-          TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: echo "enabled=$([ -n "$TOKEN" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
       - uses: actions/checkout@v4
-        if: steps.check.outputs.enabled == 'true'
         with:
           ref: ${{ needs.bump-and-tag.outputs.tag_name }}
       - uses: actions/setup-node@v4
-        if: steps.check.outputs.enabled == 'true'
         with:
           node-version: "22"
           registry-url: "https://registry.npmjs.org"
-      - name: Publish to npm
-        if: steps.check.outputs.enabled == 'true'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Upgrade npm for OIDC Trusted Publishing
+        run: npm install -g npm@latest
+      - name: Publish to npm (Trusted Publishing)
         run: npm publish --access public --provenance

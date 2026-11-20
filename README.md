@@ -1,8 +1,9 @@
 # jsonbit
 
-[![Rust](https://img.shields.io/badge/rust-1.75%2B-orange.svg)](./Cargo.toml)
-[![TypeScript](https://img.shields.io/badge/typescript-5.9-blue.svg)](./package.json)
-[![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](./python/jsonbit/__init__.py)
+[![CI](https://github.com/prathikmurugan/jsonbit/actions/workflows/ci.yml/badge.svg)](https://github.com/prathikmurugan/jsonbit/actions/workflows/ci.yml)
+[![Crates.io](https://img.shields.io/crates/v/jsonbit.svg)](https://crates.io/crates/jsonbit)
+[![PyPI](https://img.shields.io/pypi/v/jsonbit.svg)](https://pypi.org/project/jsonbit/)
+[![npm](https://img.shields.io/npm/v/@jsonbit/core.svg)](https://www.npmjs.com/package/@jsonbit/core)
 [![MCP](https://img.shields.io/badge/MCP-2024--11--05-00ADD8.svg)](./rust/mcp.rs)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
@@ -41,33 +42,38 @@ Passing large structured datasets (API responses, telemetry logs, database expor
 
 ## Installation & Setup
 
-### Prerequisites
-- **Rust** (`1.75+`, [rustup.rs](https://rustup.rs/))
-- *(Optional)* **Python 3.10+** for the Python SDK, or **Node.js 20+** for the TypeScript SDK
+Install the pre-built native `jsonbit` binary using your preferred package manager (no Rust compiler required for Python or Node.js):
 
-### Build & Install Locally
+### Python (`pip` / `uv`) — *Includes native CLI + Python SDK*
+```bash
+pip install jsonbit
+```
 
+### Rust (`cargo`)
+```bash
+cargo install jsonbit
+```
+
+### Node.js (`npm` / `npx`) — *Includes native CLI + TypeScript SDK*
+```bash
+npm install -g @jsonbit/core
+# or run directly without global install:
+npx @jsonbit/core --help
+```
+
+### Pre-Built Binaries & Building from Source
+Standalone binaries for Linux (`x64`, `arm64`), macOS (`arm64`, `x64`), and Windows (`x64`) are attached to every [GitHub Release](https://github.com/prathikmurugan/jsonbit/releases).
+
+To build from source (requires Rust `1.75+`):
 ```bash
 git clone https://github.com/prathikmurugan/jsonbit.git
 cd jsonbit
-
-# Build optimized release binary (./target/release/jsonbit)
-cargo build --release
-
-# Install `jsonbit` globally into your PATH (~/.cargo/bin)
 cargo install --path .
 ```
 
 Verify installation:
-
 ```bash
-jsonbit --help
-```
-
-*(Optional)* Install the Python package & binary in editable/wheel mode via `maturin` or `pip`:
-
-```bash
-pip install .
+jsonbit --version
 ```
 
 ---
@@ -86,10 +92,7 @@ Add the following to `opencode.json` in your project root (or globally in `~/.co
   "mcp": {
     "jsonbit": {
       "type": "local",
-      "command": [
-        "/path/to/jsonbit/target/release/jsonbit",
-        "mcp"
-      ],
+      "command": ["jsonbit", "mcp"],
       "enabled": true
     }
   }
@@ -101,7 +104,7 @@ Add the following to `opencode.json` in your project root (or globally in `~/.co
 Register via the Claude Code CLI:
 
 ```bash
-claude mcp add jsonbit -- /path/to/jsonbit/target/release/jsonbit mcp
+claude mcp add jsonbit -- jsonbit mcp
 ```
 
 Or include in `.mcp.json`:
@@ -110,7 +113,7 @@ Or include in `.mcp.json`:
 {
   "mcpServers": {
     "jsonbit": {
-      "command": "/path/to/jsonbit/target/release/jsonbit",
+      "command": "jsonbit",
       "args": ["mcp"]
     }
   }
