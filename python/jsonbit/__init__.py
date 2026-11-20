@@ -7,6 +7,7 @@ import json
 import os
 import shutil
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
@@ -17,9 +18,15 @@ def _resolve_default_bin() -> str:
     env_bin = os.environ.get("JSONBIT_BIN")
     if env_bin and os.path.exists(env_bin):
         return env_bin
-    local_bin = Path(__file__).resolve().parent.parent / "target" / "release" / exe
+    # 1. Local Cargo release build (when running from the repository root)
+    local_bin = Path(__file__).resolve().parent.parent.parent / "target" / "release" / exe
     if local_bin.exists():
         return str(local_bin)
+    # 2. Binary installed alongside the active Python environment (pip / uv / venv)
+    venv_bin = Path(sys.executable).resolve().parent / exe
+    if venv_bin.exists():
+        return str(venv_bin)
+    # 3. Global PATH lookup
     path_bin = shutil.which("jsonbit")
     if path_bin:
         return path_bin
@@ -103,3 +110,6 @@ class JsonBit:
 
     def __exit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None:
         self.close()
+
+
+__all__ = ["JsonBit", "DEFAULT_BIN"]

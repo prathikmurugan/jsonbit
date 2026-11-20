@@ -2,7 +2,7 @@
 
 [![Rust](https://img.shields.io/badge/rust-1.75%2B-orange.svg)](./Cargo.toml)
 [![TypeScript](https://img.shields.io/badge/typescript-5.9-blue.svg)](./package.json)
-[![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](./python/jsonbit.py)
+[![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](./python/jsonbit/__init__.py)
 [![MCP](https://img.shields.io/badge/MCP-2024--11--05-00ADD8.svg)](./rust/mcp.rs)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
@@ -129,7 +129,7 @@ Codex and terminal agents automatically read [`AGENTS.md`](./AGENTS.md) in the r
 
 ## SDK Usage
 
-### Python (`python/jsonbit.py`)
+### Python (`python/jsonbit`)
 
 Requires Python 3.10+ with no third-party pip packages:
 
