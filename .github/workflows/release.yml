@@ -1,0 +1,295 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: "Version bump (patch: 1.0.x, minor: 1.x.0, major: x.0.0, current: release current version)"
+        required: true
+        default: "patch"
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+          - current
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  bump-and-tag:
+    name: Bump Version & Create Tag
+    runs-on: ubuntu-latest
+    outputs:
+      tag_name: ${{ steps.bump.outputs.tag_name }}
+      version: ${{ steps.bump.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Compute & apply version bump
+        id: bump
+        env:
+          BUMP: ${{ github.event.inputs.bump }}
+        run: |
+          node -e '
+            const fs = require("fs");
+            const pkg = JSON.parse(fs.readFileSync("package.json", "utf8"));
+            let [maj, min, pat] = pkg.version.split(".").map(Number);
+            const bump = process.env.BUMP;
+            if (bump === "major") { maj += 1; min = 0; pat = 0; }
+            else if (bump === "minor") { min += 1; pat = 0; }
+            else if (bump === "patch") { pat += 1; }
+            const next = `${maj}.${min}.${pat}`;
+
+            if (bump !== "current") {
+              pkg.version = next;
+              fs.writeFileSync("package.json", JSON.stringify(pkg, null, 2) + "\n");
+
+              const lock = JSON.parse(fs.readFileSync("package-lock.json", "utf8"));
+              lock.version = next;
+              if (lock.packages && lock.packages[""]) lock.packages[""].version = next;
+              fs.writeFileSync("package-lock.json", JSON.stringify(lock, null, 2) + "\n");
+
+              const cargo = fs.readFileSync("Cargo.toml", "utf8")
+                .replace(/^version = "[^"]+"/m, `version = "${next}"`);
+              fs.writeFileSync("Cargo.toml", cargo);
+
+              const py = fs.readFileSync("pyproject.toml", "utf8")
+                .replace(/^version = "[^"]+"/m, `version = "${next}"`);
+              fs.writeFileSync("pyproject.toml", py);
+            }
+
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, `version=${next}\ntag_name=v${next}\n`);
+            console.log(`Release version: v${next}`);
+          '
+
+      - name: Sync Cargo.lock & push release tag
+        env:
+          TAG: ${{ steps.bump.outputs.tag_name }}
+          VER: ${{ steps.bump.outputs.version }}
+        run: |
+          cargo update --workspace --offline || cargo generate-lockfile
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet; then
+            git add Cargo.toml Cargo.lock package.json package-lock.json pyproject.toml
+            git commit -m "chore(release): ${TAG}"
+            git push origin HEAD:main
+          fi
+          git tag -f "${TAG}"
+          git push -f origin "${TAG}"
+
+  build-binaries:
+    name: Build Native Binary (${{ matrix.asset }})
+    needs: [bump-and-tag]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+            asset: jsonbit-linux-x64
+            ext: tar.gz
+          - os: ubuntu-24.04-arm
+            target: aarch64-unknown-linux-gnu
+            asset: jsonbit-linux-arm64
+            ext: tar.gz
+          - os: macos-15
+            target: aarch64-apple-darwin
+            asset: jsonbit-darwin-arm64
+            ext: tar.gz
+          - os: macos-15-intel
+            target: x86_64-apple-darwin
+            asset: jsonbit-darwin-x64
+            ext: tar.gz
+          - os: windows-latest
+            target: x86_64-pc-windows-msvc
+            asset: jsonbit-win32-x64
+            ext: zip
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.bump-and-tag.outputs.tag_name }}
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Build release binary
+        run: cargo build --release --locked --target ${{ matrix.target }}
+
+      - name: Package Unix binary
+        if: runner.os != 'Windows'
+        run: |
+          mkdir -p dist
+          tar -C target/${{ matrix.target }}/release -czf dist/${{ matrix.asset }}.tar.gz jsonbit
+
+      - name: Package Windows binary
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path dist | Out-Null
+          Compress-Archive -Path target/${{ matrix.target }}/release/jsonbit.exe -DestinationPath dist/${{ matrix.asset }}.zip
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.asset }}
+          path: dist/*
+
+  github-release:
+    name: Create GitHub Release
+    needs: [bump-and-tag, build-binaries]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+
+      - name: Generate SHA256SUMS
+        working-directory: dist
+        run: sha256sum jsonbit-* > SHA256SUMS.txt
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.bump-and-tag.outputs.tag_name }}
+          generate_release_notes: true
+          files: dist/*
+
+  pypi-wheels:
+    name: Build Python Wheels (${{ matrix.target }})
+    needs: [bump-and-tag]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            target: x86_64
+            manylinux: auto
+          - os: ubuntu-24.04-arm
+            target: aarch64
+            manylinux: auto
+          - os: macos-15
+            target: aarch64
+            manylinux: ""
+          - os: macos-15-intel
+            target: x86_64
+            manylinux: ""
+          - os: windows-latest
+            target: x64
+            manylinux: ""
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.bump-and-tag.outputs.tag_name }}
+
+      - name: Build wheel with maturin
+        uses: PyO3/maturin-action@v1
+        with:
+          target: ${{ matrix.target }}
+          args: --release --out dist
+          manylinux: ${{ matrix.manylinux }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wheels-${{ matrix.os }}-${{ matrix.target }}
+          path: dist
+
+  pypi-sdist:
+    name: Build Python sdist
+    needs: [bump-and-tag]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.bump-and-tag.outputs.tag_name }}
+      - uses: PyO3/maturin-action@v1
+        with:
+          command: sdist
+          args: --out dist
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wheels-sdist
+          path: dist
+
+  publish-pypi:
+    name: Publish to PyPI
+    needs: [bump-and-tag, pypi-wheels, pypi-sdist]
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/jsonbit
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: wheels-*
+          path: dist
+          merge-multiple: true
+      - name: Publish to PyPI (Trusted Publishing)
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          packages-dir: dist
+
+  publish-crates:
+    name: Publish to crates.io
+    needs: [bump-and-tag, github-release]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check crates.io token
+        id: check
+        env:
+          TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+        run: echo "enabled=$([ -n "$TOKEN" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+        if: steps.check.outputs.enabled == 'true'
+        with:
+          ref: ${{ needs.bump-and-tag.outputs.tag_name }}
+      - uses: dtolnay/rust-toolchain@stable
+        if: steps.check.outputs.enabled == 'true'
+      - name: Publish crate
+        if: steps.check.outputs.enabled == 'true'
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+        run: cargo publish --locked
+
+  publish-npm:
+    name: Publish @jsonbit/core to npm
+    needs: [bump-and-tag, github-release]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check npm token
+        id: check
+        env:
+          TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: echo "enabled=$([ -n "$TOKEN" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+        if: steps.check.outputs.enabled == 'true'
+        with:
+          ref: ${{ needs.bump-and-tag.outputs.tag_name }}
+      - uses: actions/setup-node@v4
+        if: steps.check.outputs.enabled == 'true'
+        with:
+          node-version: "22"
+          registry-url: "https://registry.npmjs.org"
+      - name: Publish to npm
+        if: steps.check.outputs.enabled == 'true'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public --provenance

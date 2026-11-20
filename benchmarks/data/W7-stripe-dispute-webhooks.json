@@ -1,0 +1,2204 @@
+{
+  "charges": [
+    {
+      "chargeId": "ch_3N10000",
+      "amountCents": 32028,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10001",
+      "amountCents": 23714,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10002",
+      "amountCents": 22726,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10003",
+      "amountCents": 38332,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10004",
+      "amountCents": 32902,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10005",
+      "amountCents": 29799,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10006",
+      "amountCents": 20511,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10007",
+      "amountCents": 36531,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10008",
+      "amountCents": 20513,
+      "currency": "gbp",
+      "captured": false,
+      "disputed": true,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10009",
+      "amountCents": 38503,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10010",
+      "amountCents": 6945,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10011",
+      "amountCents": 17090,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10012",
+      "amountCents": 25826,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10013",
+      "amountCents": 6164,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10014",
+      "amountCents": 47906,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": true,
+      "paymentMethod": {
+        "type": "card",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10015",
+      "amountCents": 20062,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10016",
+      "amountCents": 6059,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10017",
+      "amountCents": 3988,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": true,
+      "paymentMethod": {
+        "type": "card",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10018",
+      "amountCents": 21394,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10019",
+      "amountCents": 17551,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10020",
+      "amountCents": 44256,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10021",
+      "amountCents": 3022,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10022",
+      "amountCents": 44377,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10023",
+      "amountCents": 49770,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10024",
+      "amountCents": 19914,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10025",
+      "amountCents": 35128,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10026",
+      "amountCents": 4248,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10027",
+      "amountCents": 7424,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10028",
+      "amountCents": 18968,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10029",
+      "amountCents": 26741,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10030",
+      "amountCents": 30079,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10031",
+      "amountCents": 5984,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10032",
+      "amountCents": 39527,
+      "currency": "usd",
+      "captured": true,
+      "disputed": true,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10033",
+      "amountCents": 9845,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10034",
+      "amountCents": 34585,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10035",
+      "amountCents": 8868,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10036",
+      "amountCents": 8972,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10037",
+      "amountCents": 28719,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10038",
+      "amountCents": 19114,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10039",
+      "amountCents": 40064,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10040",
+      "amountCents": 40646,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10041",
+      "amountCents": 39601,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10042",
+      "amountCents": 19395,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10043",
+      "amountCents": 23622,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10044",
+      "amountCents": 47237,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10045",
+      "amountCents": 44310,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10046",
+      "amountCents": 41829,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10047",
+      "amountCents": 34092,
+      "currency": "usd",
+      "captured": false,
+      "disputed": true,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10048",
+      "amountCents": 34457,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10049",
+      "amountCents": 33158,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10050",
+      "amountCents": 38470,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10051",
+      "amountCents": 47637,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10052",
+      "amountCents": 28561,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10053",
+      "amountCents": 5495,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10054",
+      "amountCents": 14383,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10055",
+      "amountCents": 30614,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10056",
+      "amountCents": 48331,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10057",
+      "amountCents": 27709,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10058",
+      "amountCents": 47531,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10059",
+      "amountCents": 49752,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10060",
+      "amountCents": 43544,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10061",
+      "amountCents": 7599,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10062",
+      "amountCents": 44619,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10063",
+      "amountCents": 45820,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10064",
+      "amountCents": 49501,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10065",
+      "amountCents": 18159,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10066",
+      "amountCents": 32316,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10067",
+      "amountCents": 37267,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10068",
+      "amountCents": 39325,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10069",
+      "amountCents": 5279,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10070",
+      "amountCents": 49295,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10071",
+      "amountCents": 32423,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10072",
+      "amountCents": 19831,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10073",
+      "amountCents": 28109,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10074",
+      "amountCents": 37328,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10075",
+      "amountCents": 37931,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10076",
+      "amountCents": 8842,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10077",
+      "amountCents": 27905,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10078",
+      "amountCents": 48846,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10079",
+      "amountCents": 5249,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10080",
+      "amountCents": 33069,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10081",
+      "amountCents": 27079,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10082",
+      "amountCents": 38866,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10083",
+      "amountCents": 14466,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10084",
+      "amountCents": 25288,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10085",
+      "amountCents": 35042,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10086",
+      "amountCents": 19261,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10087",
+      "amountCents": 17438,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10088",
+      "amountCents": 26390,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10089",
+      "amountCents": 12363,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10090",
+      "amountCents": 43418,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10091",
+      "amountCents": 8506,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10092",
+      "amountCents": 30274,
+      "currency": "gbp",
+      "captured": false,
+      "disputed": true,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10093",
+      "amountCents": 2111,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10094",
+      "amountCents": 33008,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10095",
+      "amountCents": 31036,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10096",
+      "amountCents": 3169,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10097",
+      "amountCents": 16484,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10098",
+      "amountCents": 14498,
+      "currency": "gbp",
+      "captured": false,
+      "disputed": true,
+      "paymentMethod": {
+        "type": "card",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10099",
+      "amountCents": 45523,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10100",
+      "amountCents": 37256,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10101",
+      "amountCents": 36163,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10102",
+      "amountCents": 33479,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10103",
+      "amountCents": 3395,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10104",
+      "amountCents": 45831,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10105",
+      "amountCents": 2502,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10106",
+      "amountCents": 18390,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10107",
+      "amountCents": 2365,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10108",
+      "amountCents": 3799,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10109",
+      "amountCents": 5092,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10110",
+      "amountCents": 15873,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10111",
+      "amountCents": 49529,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10112",
+      "amountCents": 25666,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10113",
+      "amountCents": 49442,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10114",
+      "amountCents": 20740,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10115",
+      "amountCents": 2137,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10116",
+      "amountCents": 19574,
+      "currency": "eur",
+      "captured": true,
+      "disputed": true,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10117",
+      "amountCents": 22651,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10118",
+      "amountCents": 26903,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10119",
+      "amountCents": 16850,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10120",
+      "amountCents": 30360,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10121",
+      "amountCents": 43546,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10122",
+      "amountCents": 44757,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10123",
+      "amountCents": 42479,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10124",
+      "amountCents": 16574,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10125",
+      "amountCents": 34882,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10126",
+      "amountCents": 34815,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10127",
+      "amountCents": 40097,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10128",
+      "amountCents": 23375,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10129",
+      "amountCents": 27195,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10130",
+      "amountCents": 5313,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10131",
+      "amountCents": 5655,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10132",
+      "amountCents": 9545,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10133",
+      "amountCents": 7865,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10134",
+      "amountCents": 45567,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10135",
+      "amountCents": 43917,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10136",
+      "amountCents": 44637,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10137",
+      "amountCents": 29156,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10138",
+      "amountCents": 17489,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10139",
+      "amountCents": 10248,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10140",
+      "amountCents": 24883,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10141",
+      "amountCents": 37420,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10142",
+      "amountCents": 33918,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10143",
+      "amountCents": 17797,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10144",
+      "amountCents": 27694,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10145",
+      "amountCents": 18014,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10146",
+      "amountCents": 42918,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10147",
+      "amountCents": 41293,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": true,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10148",
+      "amountCents": 44794,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10149",
+      "amountCents": 4041,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10150",
+      "amountCents": 49496,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10151",
+      "amountCents": 40098,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10152",
+      "amountCents": 24342,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10153",
+      "amountCents": 43983,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10154",
+      "amountCents": 22181,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10155",
+      "amountCents": 43526,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10156",
+      "amountCents": 4434,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10157",
+      "amountCents": 25465,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10158",
+      "amountCents": 17656,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10159",
+      "amountCents": 21017,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10160",
+      "amountCents": 10879,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10161",
+      "amountCents": 36428,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10162",
+      "amountCents": 4819,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10163",
+      "amountCents": 32785,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10164",
+      "amountCents": 21901,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10165",
+      "amountCents": 7568,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10166",
+      "amountCents": 48538,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10167",
+      "amountCents": 21655,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10168",
+      "amountCents": 43321,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10169",
+      "amountCents": 44161,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10170",
+      "amountCents": 49169,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10171",
+      "amountCents": 10703,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10172",
+      "amountCents": 20092,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10173",
+      "amountCents": 39329,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10174",
+      "amountCents": 24508,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10175",
+      "amountCents": 38135,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10176",
+      "amountCents": 21945,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10177",
+      "amountCents": 40103,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10178",
+      "amountCents": 40192,
+      "currency": "usd",
+      "captured": true,
+      "disputed": true,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10179",
+      "amountCents": 11419,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10180",
+      "amountCents": 18811,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10181",
+      "amountCents": 18553,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10182",
+      "amountCents": 19911,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10183",
+      "amountCents": 27762,
+      "currency": "usd",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10184",
+      "amountCents": 5640,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10185",
+      "amountCents": 17062,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10186",
+      "amountCents": 4571,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10187",
+      "amountCents": 41367,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10188",
+      "amountCents": 9702,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10189",
+      "amountCents": 40196,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10190",
+      "amountCents": 32497,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10191",
+      "amountCents": 39558,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10192",
+      "amountCents": 25359,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10193",
+      "amountCents": 9600,
+      "currency": "usd",
+      "captured": false,
+      "disputed": true,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10194",
+      "amountCents": 42535,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "ach_transfer",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10195",
+      "amountCents": 32230,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "FR"
+      }
+    },
+    {
+      "chargeId": "ch_3N10196",
+      "amountCents": 47948,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "US"
+      }
+    },
+    {
+      "chargeId": "ch_3N10197",
+      "amountCents": 49815,
+      "currency": "usd",
+      "captured": true,
+      "disputed": true,
+      "paymentMethod": {
+        "type": "sepa_debit",
+        "country": "DE"
+      }
+    },
+    {
+      "chargeId": "ch_3N10198",
+      "amountCents": 22906,
+      "currency": "eur",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "card",
+        "country": "GB"
+      }
+    },
+    {
+      "chargeId": "ch_3N10199",
+      "amountCents": 33177,
+      "currency": "gbp",
+      "captured": true,
+      "disputed": false,
+      "paymentMethod": {
+        "type": "apple_pay",
+        "country": "FR"
+      }
+    }
+  ]
+}

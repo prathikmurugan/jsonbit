@@ -1,0 +1,3868 @@
+{
+  "orders": [
+    {
+      "orderId": "ORD-5001",
+      "customer": {
+        "customerId": "CUST-100",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 4,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 4,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 1,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 16112
+    },
+    {
+      "orderId": "ORD-5002",
+      "customer": {
+        "customerId": "CUST-101",
+        "tier": "starter",
+        "region": "eu-central"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 2,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 901
+    },
+    {
+      "orderId": "ORD-5003",
+      "customer": {
+        "customerId": "CUST-102",
+        "tier": "starter",
+        "region": "ap-northeast"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 1,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 3,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 6142
+    },
+    {
+      "orderId": "ORD-5004",
+      "customer": {
+        "customerId": "CUST-103",
+        "tier": "pro",
+        "region": "us-east"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 5,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 5,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 3,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 5,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 21321.25
+    },
+    {
+      "orderId": "ORD-5005",
+      "customer": {
+        "customerId": "CUST-104",
+        "tier": "starter",
+        "region": "eu-central"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 2,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 2,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 4,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 3922
+    },
+    {
+      "orderId": "ORD-5006",
+      "customer": {
+        "customerId": "CUST-105",
+        "tier": "starter",
+        "region": "ap-northeast"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 1,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 2400
+    },
+    {
+      "orderId": "ORD-5007",
+      "customer": {
+        "customerId": "CUST-106",
+        "tier": "enterprise",
+        "region": "us-east"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 5,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 1,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 2,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 4,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 10792.75
+    },
+    {
+      "orderId": "ORD-5008",
+      "customer": {
+        "customerId": "CUST-107",
+        "tier": "pro",
+        "region": "eu-central"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 5,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 5,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 10200
+    },
+    {
+      "orderId": "ORD-5009",
+      "customer": {
+        "customerId": "CUST-108",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 4,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 2,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 5521
+    },
+    {
+      "orderId": "ORD-5010",
+      "customer": {
+        "customerId": "CUST-109",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 1,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 1150
+    },
+    {
+      "orderId": "ORD-5011",
+      "customer": {
+        "customerId": "CUST-110",
+        "tier": "enterprise",
+        "region": "eu-central"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 5,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 12000
+    },
+    {
+      "orderId": "ORD-5012",
+      "customer": {
+        "customerId": "CUST-111",
+        "tier": "enterprise",
+        "region": "ap-northeast"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 3,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 1351.5
+    },
+    {
+      "orderId": "ORD-5013",
+      "customer": {
+        "customerId": "CUST-112",
+        "tier": "pro",
+        "region": "us-east"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 3,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 2,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 5,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 7673.25
+    },
+    {
+      "orderId": "ORD-5014",
+      "customer": {
+        "customerId": "CUST-113",
+        "tier": "pro",
+        "region": "eu-central"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 1,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 2,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 3,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 5,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 13400.25
+    },
+    {
+      "orderId": "ORD-5015",
+      "customer": {
+        "customerId": "CUST-114",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 2,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 2,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 3201
+    },
+    {
+      "orderId": "ORD-5016",
+      "customer": {
+        "customerId": "CUST-115",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 1,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 2400
+    },
+    {
+      "orderId": "ORD-5017",
+      "customer": {
+        "customerId": "CUST-116",
+        "tier": "starter",
+        "region": "eu-central"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 2,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 901
+    },
+    {
+      "orderId": "ORD-5018",
+      "customer": {
+        "customerId": "CUST-117",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 2,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 3,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 5,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 5,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 8383.75
+    },
+    {
+      "orderId": "ORD-5019",
+      "customer": {
+        "customerId": "CUST-118",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 5,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 901.25
+    },
+    {
+      "orderId": "ORD-5020",
+      "customer": {
+        "customerId": "CUST-119",
+        "tier": "pro",
+        "region": "eu-central"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 3,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 2,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 4351
+    },
+    {
+      "orderId": "ORD-5021",
+      "customer": {
+        "customerId": "CUST-120",
+        "tier": "enterprise",
+        "region": "ap-northeast"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 4,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 1,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 10490
+    },
+    {
+      "orderId": "ORD-5022",
+      "customer": {
+        "customerId": "CUST-121",
+        "tier": "enterprise",
+        "region": "us-east"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 3,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 1,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 1531.75
+    },
+    {
+      "orderId": "ORD-5023",
+      "customer": {
+        "customerId": "CUST-122",
+        "tier": "starter",
+        "region": "eu-central"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 5,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 1,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 7402
+    },
+    {
+      "orderId": "ORD-5024",
+      "customer": {
+        "customerId": "CUST-123",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 3,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 2,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 1,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 3,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 9680.75
+    },
+    {
+      "orderId": "ORD-5025",
+      "customer": {
+        "customerId": "CUST-124",
+        "tier": "pro",
+        "region": "us-east"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 2,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 2300
+    },
+    {
+      "orderId": "ORD-5026",
+      "customer": {
+        "customerId": "CUST-125",
+        "tier": "starter",
+        "region": "eu-central"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 3,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 4,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 10760
+    },
+    {
+      "orderId": "ORD-5027",
+      "customer": {
+        "customerId": "CUST-126",
+        "tier": "starter",
+        "region": "ap-northeast"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 4,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 2,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 7323
+    },
+    {
+      "orderId": "ORD-5028",
+      "customer": {
+        "customerId": "CUST-127",
+        "tier": "enterprise",
+        "region": "us-east"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 3,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 2670
+    },
+    {
+      "orderId": "ORD-5029",
+      "customer": {
+        "customerId": "CUST-128",
+        "tier": "starter",
+        "region": "eu-central"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 3,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 540.75
+    },
+    {
+      "orderId": "ORD-5030",
+      "customer": {
+        "customerId": "CUST-129",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 4,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 2,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 2,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 2,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 10661.5
+    },
+    {
+      "orderId": "ORD-5031",
+      "customer": {
+        "customerId": "CUST-130",
+        "tier": "enterprise",
+        "region": "us-east"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 5,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 1,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 12890
+    },
+    {
+      "orderId": "ORD-5032",
+      "customer": {
+        "customerId": "CUST-131",
+        "tier": "starter",
+        "region": "eu-central"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 3,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 4,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 2072.5
+    },
+    {
+      "orderId": "ORD-5033",
+      "customer": {
+        "customerId": "CUST-132",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 2,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 3,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 3,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 4,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 7302.5
+    },
+    {
+      "orderId": "ORD-5034",
+      "customer": {
+        "customerId": "CUST-133",
+        "tier": "pro",
+        "region": "us-east"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 2,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 360.5
+    },
+    {
+      "orderId": "ORD-5035",
+      "customer": {
+        "customerId": "CUST-134",
+        "tier": "enterprise",
+        "region": "eu-central"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 1,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 2,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 3,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 2591.75
+    },
+    {
+      "orderId": "ORD-5036",
+      "customer": {
+        "customerId": "CUST-135",
+        "tier": "starter",
+        "region": "ap-northeast"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 4,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 1,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 10490
+    },
+    {
+      "orderId": "ORD-5037",
+      "customer": {
+        "customerId": "CUST-136",
+        "tier": "pro",
+        "region": "us-east"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 3,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 1351.5
+    },
+    {
+      "orderId": "ORD-5038",
+      "customer": {
+        "customerId": "CUST-137",
+        "tier": "enterprise",
+        "region": "eu-central"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 4,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 5,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 2,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 3,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 10751.75
+    },
+    {
+      "orderId": "ORD-5039",
+      "customer": {
+        "customerId": "CUST-138",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 2,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 360.5
+    },
+    {
+      "orderId": "ORD-5040",
+      "customer": {
+        "customerId": "CUST-139",
+        "tier": "pro",
+        "region": "us-east"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 1,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 5,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 5,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 15853.25
+    },
+    {
+      "orderId": "ORD-5041",
+      "customer": {
+        "customerId": "CUST-140",
+        "tier": "starter",
+        "region": "eu-central"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 1,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 2400
+    },
+    {
+      "orderId": "ORD-5042",
+      "customer": {
+        "customerId": "CUST-141",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 2,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 2,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 3,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 1,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 9351.5
+    },
+    {
+      "orderId": "ORD-5043",
+      "customer": {
+        "customerId": "CUST-142",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 4,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 3560
+    },
+    {
+      "orderId": "ORD-5044",
+      "customer": {
+        "customerId": "CUST-143",
+        "tier": "pro",
+        "region": "eu-central"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 1,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 180.25
+    },
+    {
+      "orderId": "ORD-5045",
+      "customer": {
+        "customerId": "CUST-144",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 5,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 7552
+    },
+    {
+      "orderId": "ORD-5046",
+      "customer": {
+        "customerId": "CUST-145",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 4,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 3,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 4,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 1,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 17320.5
+    },
+    {
+      "orderId": "ORD-5047",
+      "customer": {
+        "customerId": "CUST-146",
+        "tier": "enterprise",
+        "region": "eu-central"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 4,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 2523
+    },
+    {
+      "orderId": "ORD-5048",
+      "customer": {
+        "customerId": "CUST-147",
+        "tier": "enterprise",
+        "region": "ap-northeast"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 5,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 5,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 3,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 11551.5
+    },
+    {
+      "orderId": "ORD-5049",
+      "customer": {
+        "customerId": "CUST-148",
+        "tier": "enterprise",
+        "region": "us-east"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 2,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 4,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 2,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 11740.5
+    },
+    {
+      "orderId": "ORD-5050",
+      "customer": {
+        "customerId": "CUST-149",
+        "tier": "starter",
+        "region": "eu-central"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 3,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 5,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 5702.5
+    },
+    {
+      "orderId": "ORD-5051",
+      "customer": {
+        "customerId": "CUST-150",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 4,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 1,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 10490
+    },
+    {
+      "orderId": "ORD-5052",
+      "customer": {
+        "customerId": "CUST-151",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 3,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 4,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 5,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 5,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 18522.5
+    },
+    {
+      "orderId": "ORD-5053",
+      "customer": {
+        "customerId": "CUST-152",
+        "tier": "enterprise",
+        "region": "eu-central"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 4,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 3,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 7010
+    },
+    {
+      "orderId": "ORD-5054",
+      "customer": {
+        "customerId": "CUST-153",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 1,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 3,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 7380.25
+    },
+    {
+      "orderId": "ORD-5055",
+      "customer": {
+        "customerId": "CUST-154",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 3,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 3450
+    },
+    {
+      "orderId": "ORD-5056",
+      "customer": {
+        "customerId": "CUST-155",
+        "tier": "starter",
+        "region": "eu-central"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 4,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 9600
+    },
+    {
+      "orderId": "ORD-5057",
+      "customer": {
+        "customerId": "CUST-156",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 1802
+    },
+    {
+      "orderId": "ORD-5058",
+      "customer": {
+        "customerId": "CUST-157",
+        "tier": "pro",
+        "region": "us-east"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 5,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 4450
+    },
+    {
+      "orderId": "ORD-5059",
+      "customer": {
+        "customerId": "CUST-158",
+        "tier": "starter",
+        "region": "eu-central"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 2,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 360.5
+    },
+    {
+      "orderId": "ORD-5060",
+      "customer": {
+        "customerId": "CUST-159",
+        "tier": "starter",
+        "region": "ap-northeast"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 4,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 5,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 1,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 7032.75
+    },
+    {
+      "orderId": "ORD-5061",
+      "customer": {
+        "customerId": "CUST-100",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 5,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 12000
+    },
+    {
+      "orderId": "ORD-5062",
+      "customer": {
+        "customerId": "CUST-101",
+        "tier": "enterprise",
+        "region": "eu-central"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 2,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 5,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 4,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 4,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 14962.25
+    },
+    {
+      "orderId": "ORD-5063",
+      "customer": {
+        "customerId": "CUST-102",
+        "tier": "enterprise",
+        "region": "ap-northeast"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 2,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 1780
+    },
+    {
+      "orderId": "ORD-5064",
+      "customer": {
+        "customerId": "CUST-103",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 5,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 901.25
+    },
+    {
+      "orderId": "ORD-5065",
+      "customer": {
+        "customerId": "CUST-104",
+        "tier": "enterprise",
+        "region": "eu-central"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 2,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 1,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 4,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 4,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 13071.5
+    },
+    {
+      "orderId": "ORD-5066",
+      "customer": {
+        "customerId": "CUST-105",
+        "tier": "enterprise",
+        "region": "ap-northeast"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 4,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 4,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 13160
+    },
+    {
+      "orderId": "ORD-5067",
+      "customer": {
+        "customerId": "CUST-106",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 1,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 450.5
+    },
+    {
+      "orderId": "ORD-5068",
+      "customer": {
+        "customerId": "CUST-107",
+        "tier": "enterprise",
+        "region": "eu-central"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 3,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 2670
+    },
+    {
+      "orderId": "ORD-5069",
+      "customer": {
+        "customerId": "CUST-108",
+        "tier": "enterprise",
+        "region": "ap-northeast"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 4,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 721
+    },
+    {
+      "orderId": "ORD-5070",
+      "customer": {
+        "customerId": "CUST-109",
+        "tier": "enterprise",
+        "region": "us-east"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 5,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 2,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 5,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 7552.25
+    },
+    {
+      "orderId": "ORD-5071",
+      "customer": {
+        "customerId": "CUST-110",
+        "tier": "enterprise",
+        "region": "eu-central"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 2,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 5,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 3,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 12700
+    },
+    {
+      "orderId": "ORD-5072",
+      "customer": {
+        "customerId": "CUST-111",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 1,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 4,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 1171.5
+    },
+    {
+      "orderId": "ORD-5073",
+      "customer": {
+        "customerId": "CUST-112",
+        "tier": "pro",
+        "region": "us-east"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 4,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 4,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 8160
+    },
+    {
+      "orderId": "ORD-5074",
+      "customer": {
+        "customerId": "CUST-113",
+        "tier": "pro",
+        "region": "eu-central"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 3,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 540.75
+    },
+    {
+      "orderId": "ORD-5075",
+      "customer": {
+        "customerId": "CUST-114",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 5,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 5750
+    },
+    {
+      "orderId": "ORD-5076",
+      "customer": {
+        "customerId": "CUST-115",
+        "tier": "pro",
+        "region": "us-east"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 2,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 4,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 5,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 14110
+    },
+    {
+      "orderId": "ORD-5077",
+      "customer": {
+        "customerId": "CUST-116",
+        "tier": "enterprise",
+        "region": "eu-central"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 4,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 2523
+    },
+    {
+      "orderId": "ORD-5078",
+      "customer": {
+        "customerId": "CUST-117",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 3,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 3,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 6120
+    },
+    {
+      "orderId": "ORD-5079",
+      "customer": {
+        "customerId": "CUST-118",
+        "tier": "enterprise",
+        "region": "us-east"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 5,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 901.25
+    },
+    {
+      "orderId": "ORD-5080",
+      "customer": {
+        "customerId": "CUST-119",
+        "tier": "starter",
+        "region": "eu-central"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 3,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 1,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 1,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 4080.75
+    },
+    {
+      "orderId": "ORD-5081",
+      "customer": {
+        "customerId": "CUST-120",
+        "tier": "enterprise",
+        "region": "ap-northeast"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 2,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 2,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 4,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 11180
+    },
+    {
+      "orderId": "ORD-5082",
+      "customer": {
+        "customerId": "CUST-121",
+        "tier": "pro",
+        "region": "us-east"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 2,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 1,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 1081.25
+    },
+    {
+      "orderId": "ORD-5083",
+      "customer": {
+        "customerId": "CUST-122",
+        "tier": "starter",
+        "region": "eu-central"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 3,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 3,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 7922
+    },
+    {
+      "orderId": "ORD-5084",
+      "customer": {
+        "customerId": "CUST-123",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 4,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 1,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 2,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 4901
+    },
+    {
+      "orderId": "ORD-5085",
+      "customer": {
+        "customerId": "CUST-124",
+        "tier": "pro",
+        "region": "us-east"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 1,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 2,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 3312.5
+    },
+    {
+      "orderId": "ORD-5086",
+      "customer": {
+        "customerId": "CUST-125",
+        "tier": "pro",
+        "region": "eu-central"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 4,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 1,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 4,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 15090
+    },
+    {
+      "orderId": "ORD-5087",
+      "customer": {
+        "customerId": "CUST-126",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 1802
+    },
+    {
+      "orderId": "ORD-5088",
+      "customer": {
+        "customerId": "CUST-127",
+        "tier": "enterprise",
+        "region": "us-east"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 3,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 2670
+    },
+    {
+      "orderId": "ORD-5089",
+      "customer": {
+        "customerId": "CUST-128",
+        "tier": "enterprise",
+        "region": "eu-central"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 5,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 901.25
+    },
+    {
+      "orderId": "ORD-5090",
+      "customer": {
+        "customerId": "CUST-129",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 5,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 5,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 8002.5
+    },
+    {
+      "orderId": "ORD-5091",
+      "customer": {
+        "customerId": "CUST-130",
+        "tier": "pro",
+        "region": "us-east"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 5,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 1,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 2,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 1,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 15640.5
+    },
+    {
+      "orderId": "ORD-5092",
+      "customer": {
+        "customerId": "CUST-131",
+        "tier": "pro",
+        "region": "eu-central"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 1,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 450.5
+    },
+    {
+      "orderId": "ORD-5093",
+      "customer": {
+        "customerId": "CUST-132",
+        "tier": "enterprise",
+        "region": "ap-northeast"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 1,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 1,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 2,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 4,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 3662
+    },
+    {
+      "orderId": "ORD-5094",
+      "customer": {
+        "customerId": "CUST-133",
+        "tier": "pro",
+        "region": "us-east"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 1,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 180.25
+    },
+    {
+      "orderId": "ORD-5095",
+      "customer": {
+        "customerId": "CUST-134",
+        "tier": "pro",
+        "region": "eu-central"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 3,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 5,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 5702.5
+    },
+    {
+      "orderId": "ORD-5096",
+      "customer": {
+        "customerId": "CUST-135",
+        "tier": "starter",
+        "region": "ap-northeast"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 1,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 2,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 5,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 9930
+    },
+    {
+      "orderId": "ORD-5097",
+      "customer": {
+        "customerId": "CUST-136",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 3,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 2,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 2,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 6512
+    },
+    {
+      "orderId": "ORD-5098",
+      "customer": {
+        "customerId": "CUST-137",
+        "tier": "enterprise",
+        "region": "eu-central"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 5,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 4450
+    },
+    {
+      "orderId": "ORD-5099",
+      "customer": {
+        "customerId": "CUST-138",
+        "tier": "starter",
+        "region": "ap-northeast"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 3,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 540.75
+    },
+    {
+      "orderId": "ORD-5100",
+      "customer": {
+        "customerId": "CUST-139",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 1,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 5,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 2,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 8653.25
+    },
+    {
+      "orderId": "ORD-5101",
+      "customer": {
+        "customerId": "CUST-140",
+        "tier": "pro",
+        "region": "eu-central"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 2,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 5,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 1,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 10400
+    },
+    {
+      "orderId": "ORD-5102",
+      "customer": {
+        "customerId": "CUST-141",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 3,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 2342.75
+    },
+    {
+      "orderId": "ORD-5103",
+      "customer": {
+        "customerId": "CUST-142",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 3,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 3,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 1,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 6570.5
+    },
+    {
+      "orderId": "ORD-5104",
+      "customer": {
+        "customerId": "CUST-143",
+        "tier": "starter",
+        "region": "eu-central"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 2,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 4,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 5,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 14410.5
+    },
+    {
+      "orderId": "ORD-5105",
+      "customer": {
+        "customerId": "CUST-144",
+        "tier": "starter",
+        "region": "ap-northeast"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 5,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 5750
+    },
+    {
+      "orderId": "ORD-5106",
+      "customer": {
+        "customerId": "CUST-145",
+        "tier": "pro",
+        "region": "us-east"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 2,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 3,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 1,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 10422
+    },
+    {
+      "orderId": "ORD-5107",
+      "customer": {
+        "customerId": "CUST-146",
+        "tier": "enterprise",
+        "region": "eu-central"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 5,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 4,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 1,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 5373.5
+    },
+    {
+      "orderId": "ORD-5108",
+      "customer": {
+        "customerId": "CUST-147",
+        "tier": "starter",
+        "region": "ap-northeast"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 1,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 2,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 4992
+    },
+    {
+      "orderId": "ORD-5109",
+      "customer": {
+        "customerId": "CUST-148",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 2,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 360.5
+    },
+    {
+      "orderId": "ORD-5110",
+      "customer": {
+        "customerId": "CUST-149",
+        "tier": "enterprise",
+        "region": "eu-central"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 3,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 5,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 4,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 6423.5
+    },
+    {
+      "orderId": "ORD-5111",
+      "customer": {
+        "customerId": "CUST-150",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 3,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 2,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 8980
+    },
+    {
+      "orderId": "ORD-5112",
+      "customer": {
+        "customerId": "CUST-151",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 1,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 2,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 3,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 9452.25
+    },
+    {
+      "orderId": "ORD-5113",
+      "customer": {
+        "customerId": "CUST-152",
+        "tier": "starter",
+        "region": "eu-central"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 3,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 1,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 3820
+    },
+    {
+      "orderId": "ORD-5114",
+      "customer": {
+        "customerId": "CUST-153",
+        "tier": "enterprise",
+        "region": "ap-northeast"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 3,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 4,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 10140.75
+    },
+    {
+      "orderId": "ORD-5115",
+      "customer": {
+        "customerId": "CUST-154",
+        "tier": "enterprise",
+        "region": "us-east"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 5,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 1,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 2,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 6561
+    },
+    {
+      "orderId": "ORD-5116",
+      "customer": {
+        "customerId": "CUST-155",
+        "tier": "pro",
+        "region": "eu-central"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 5,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 12000
+    },
+    {
+      "orderId": "ORD-5117",
+      "customer": {
+        "customerId": "CUST-156",
+        "tier": "starter",
+        "region": "ap-northeast"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 2,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 2,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 2,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 6061.5
+    },
+    {
+      "orderId": "ORD-5118",
+      "customer": {
+        "customerId": "CUST-157",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 1,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 890
+    },
+    {
+      "orderId": "ORD-5119",
+      "customer": {
+        "customerId": "CUST-158",
+        "tier": "enterprise",
+        "region": "eu-central"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 5,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 901.25
+    },
+    {
+      "orderId": "ORD-5120",
+      "customer": {
+        "customerId": "CUST-159",
+        "tier": "starter",
+        "region": "ap-northeast"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 2,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 1,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 2750.5
+    },
+    {
+      "orderId": "ORD-5121",
+      "customer": {
+        "customerId": "CUST-100",
+        "tier": "enterprise",
+        "region": "us-east"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 3,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 3,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 1,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 11020
+    },
+    {
+      "orderId": "ORD-5122",
+      "customer": {
+        "customerId": "CUST-101",
+        "tier": "enterprise",
+        "region": "eu-central"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 5,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 1,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 2432.75
+    },
+    {
+      "orderId": "ORD-5123",
+      "customer": {
+        "customerId": "CUST-102",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 3,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 2,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 3,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 3,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 6862.25
+    },
+    {
+      "orderId": "ORD-5124",
+      "customer": {
+        "customerId": "CUST-103",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 2,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 2,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 5,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 3,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 13060.5
+    },
+    {
+      "orderId": "ORD-5125",
+      "customer": {
+        "customerId": "CUST-104",
+        "tier": "pro",
+        "region": "eu-central"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 2,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 2300
+    },
+    {
+      "orderId": "ORD-5126",
+      "customer": {
+        "customerId": "CUST-105",
+        "tier": "starter",
+        "region": "ap-northeast"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 3,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 7200
+    },
+    {
+      "orderId": "ORD-5127",
+      "customer": {
+        "customerId": "CUST-106",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 1802
+    },
+    {
+      "orderId": "ORD-5128",
+      "customer": {
+        "customerId": "CUST-107",
+        "tier": "pro",
+        "region": "eu-central"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 3,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 2670
+    },
+    {
+      "orderId": "ORD-5129",
+      "customer": {
+        "customerId": "CUST-108",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 3,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 1,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 3,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 4,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 10210.75
+    },
+    {
+      "orderId": "ORD-5130",
+      "customer": {
+        "customerId": "CUST-109",
+        "tier": "pro",
+        "region": "us-east"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 5,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 1,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 5,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 5,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 19101.75
+    },
+    {
+      "orderId": "ORD-5131",
+      "customer": {
+        "customerId": "CUST-110",
+        "tier": "starter",
+        "region": "eu-central"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 5,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 12000
+    },
+    {
+      "orderId": "ORD-5132",
+      "customer": {
+        "customerId": "CUST-111",
+        "tier": "starter",
+        "region": "ap-northeast"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 3,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 3,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 5,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 2,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 15672.25
+    },
+    {
+      "orderId": "ORD-5133",
+      "customer": {
+        "customerId": "CUST-112",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 2,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 5,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 9332
+    },
+    {
+      "orderId": "ORD-5134",
+      "customer": {
+        "customerId": "CUST-113",
+        "tier": "pro",
+        "region": "eu-central"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 4,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 5,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 4,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 16281
+    },
+    {
+      "orderId": "ORD-5135",
+      "customer": {
+        "customerId": "CUST-114",
+        "tier": "starter",
+        "region": "ap-northeast"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 4,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 6402
+    },
+    {
+      "orderId": "ORD-5136",
+      "customer": {
+        "customerId": "CUST-115",
+        "tier": "enterprise",
+        "region": "us-east"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 4,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 2,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 1,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 12530
+    },
+    {
+      "orderId": "ORD-5137",
+      "customer": {
+        "customerId": "CUST-116",
+        "tier": "enterprise",
+        "region": "eu-central"
+      },
+      "status": "shipped",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 5,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 4,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 5,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 5,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 19423.5
+    },
+    {
+      "orderId": "ORD-5138",
+      "customer": {
+        "customerId": "CUST-117",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 3,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 2,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 5,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 4,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 7943.5
+    },
+    {
+      "orderId": "ORD-5139",
+      "customer": {
+        "customerId": "CUST-118",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 2,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 5,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 4,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 4,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 20520.5
+    },
+    {
+      "orderId": "ORD-5140",
+      "customer": {
+        "customerId": "CUST-119",
+        "tier": "starter",
+        "region": "eu-central"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 5,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 3,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 7101.5
+    },
+    {
+      "orderId": "ORD-5141",
+      "customer": {
+        "customerId": "CUST-120",
+        "tier": "enterprise",
+        "region": "ap-northeast"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 3,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 5,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 4,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 18052
+    },
+    {
+      "orderId": "ORD-5142",
+      "customer": {
+        "customerId": "CUST-121",
+        "tier": "enterprise",
+        "region": "us-east"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 2,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 2,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 4,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 10861.5
+    },
+    {
+      "orderId": "ORD-5143",
+      "customer": {
+        "customerId": "CUST-122",
+        "tier": "pro",
+        "region": "eu-central"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 3,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 1,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 3,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 5171.5
+    },
+    {
+      "orderId": "ORD-5144",
+      "customer": {
+        "customerId": "CUST-123",
+        "tier": "starter",
+        "region": "ap-northeast"
+      },
+      "status": "refunded",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 3,
+          "unitPrice": 180.25
+        }
+      ],
+      "orderTotal": 540.75
+    },
+    {
+      "orderId": "ORD-5145",
+      "customer": {
+        "customerId": "CUST-124",
+        "tier": "enterprise",
+        "region": "us-east"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 5,
+          "unitPrice": 1150
+        },
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 1,
+          "unitPrice": 450.5
+        },
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 3,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 2,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 11541.25
+    },
+    {
+      "orderId": "ORD-5146",
+      "customer": {
+        "customerId": "CUST-125",
+        "tier": "pro",
+        "region": "eu-central"
+      },
+      "status": "delivered",
+      "items": [
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 3,
+          "unitPrice": 2400
+        },
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 5,
+          "unitPrice": 890
+        },
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 2,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 13950
+    },
+    {
+      "orderId": "ORD-5147",
+      "customer": {
+        "customerId": "CUST-126",
+        "tier": "pro",
+        "region": "ap-northeast"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-NVME-02",
+          "name": "NVMe Raid Array",
+          "quantity": 4,
+          "unitPrice": 450.5
+        }
+      ],
+      "orderTotal": 1802
+    },
+    {
+      "orderId": "ORD-5148",
+      "customer": {
+        "customerId": "CUST-127",
+        "tier": "starter",
+        "region": "us-east"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-NIC-03",
+          "name": "Infiniband Switch",
+          "quantity": 4,
+          "unitPrice": 890
+        }
+      ],
+      "orderTotal": 3560
+    },
+    {
+      "orderId": "ORD-5149",
+      "customer": {
+        "customerId": "CUST-128",
+        "tier": "enterprise",
+        "region": "eu-central"
+      },
+      "status": "cancelled",
+      "items": [
+        {
+          "sku": "SKU-PSU-04",
+          "name": "Redundant Power Supply",
+          "quantity": 4,
+          "unitPrice": 180.25
+        },
+        {
+          "sku": "SKU-GPU-01",
+          "name": "H100 Compute Node",
+          "quantity": 3,
+          "unitPrice": 2400
+        }
+      ],
+      "orderTotal": 7921
+    },
+    {
+      "orderId": "ORD-5150",
+      "customer": {
+        "customerId": "CUST-129",
+        "tier": "starter",
+        "region": "ap-northeast"
+      },
+      "status": "processing",
+      "items": [
+        {
+          "sku": "SKU-RACK-05",
+          "name": "Server Rack 42U",
+          "quantity": 3,
+          "unitPrice": 1150
+        }
+      ],
+      "orderTotal": 3450
+    }
+  ]
+}

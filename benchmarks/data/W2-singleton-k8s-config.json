@@ -1,0 +1,23 @@
+{
+  "cluster": {
+    "name": "prod-us-east-eks",
+    "version": "1.31",
+    "network": {
+      "vpcId": "vpc-0a9b8c7d",
+      "cidr": "10.24.0.0/16",
+      "natGateways": 3,
+      "privateSubnets": true
+    },
+    "autoscaler": {
+      "enabled": true,
+      "minNodes": 6,
+      "maxNodes": 64,
+      "scaleDownDelaySec": 300
+    },
+    "observability": {
+      "prometheusPort": 9090,
+      "tracingSampleRate": 0.25,
+      "logRetentionDays": 30
+    }
+  }
+}

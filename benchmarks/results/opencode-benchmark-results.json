@@ -1,0 +1,301 @@
+{
+  "tool": "OpenCode v1.19.5 (opencode/big-pickle)",
+  "bash_enabled_6_scenarios": {
+    "model": "opencode/big-pickle",
+    "scenarios": [
+      {
+        "id": "OC1-nested-csr-joins",
+        "name": "1-to-Many Nested Orders (150 orders / 380 items)",
+        "json": {
+          "sec": 16.49,
+          "ok": true,
+          "scripts": true
+        },
+        "toon": {
+          "sec": 12.67,
+          "ok": true,
+          "scripts": true
+        },
+        "jsonbit": {
+          "sec": 9.48,
+          "ok": true,
+          "mcpUsed": true,
+          "scripts": false
+        }
+      },
+      {
+        "id": "OC2-sparse-jsonl-triage",
+        "name": "Sparse OTEL Production Logs (300 lines)",
+        "json": {
+          "sec": 11.43,
+          "ok": true,
+          "scripts": true
+        },
+        "toon": {
+          "sec": 21.09,
+          "ok": true,
+          "scripts": true
+        },
+        "jsonbit": {
+          "sec": 10.18,
+          "ok": true,
+          "mcpUsed": true,
+          "scripts": false
+        }
+      },
+      {
+        "id": "OC3-wide-crm-and-unicode",
+        "name": "Wide 30-Col CRM + Unicode Financial Ledger",
+        "json": {
+          "sec": 16.12,
+          "ok": true,
+          "scripts": true
+        },
+        "toon": {
+          "sec": 16.93,
+          "ok": true,
+          "scripts": true
+        },
+        "jsonbit": {
+          "sec": 12.06,
+          "ok": true,
+          "mcpUsed": true,
+          "scripts": false
+        }
+      },
+      {
+        "id": "OC4-iam-and-github-filters",
+        "name": "IAM Primitive Arrays + GitHub Repo Telemetry",
+        "json": {
+          "sec": 14.79,
+          "ok": true,
+          "scripts": true
+        },
+        "toon": {
+          "sec": 32.59,
+          "ok": true,
+          "scripts": true
+        },
+        "jsonbit": {
+          "sec": 18.44,
+          "ok": true,
+          "mcpUsed": true,
+          "scripts": false
+        }
+      },
+      {
+        "id": "OC5-claims-and-5k-traces",
+        "name": "Healthcare FHIR Claims + 5,000-Line Sparse Traces",
+        "json": {
+          "sec": 19.23,
+          "ok": true,
+          "scripts": true
+        },
+        "toon": {
+          "sec": 16.28,
+          "ok": true,
+          "scripts": true
+        },
+        "jsonbit": {
+          "sec": 25.49,
+          "ok": true,
+          "mcpUsed": true,
+          "scripts": false
+        }
+      },
+      {
+        "id": "OC6-4file-multi-analytics",
+        "name": "4-File Multi-Workload Suite (orders500 + logs + crm + ledger)",
+        "json": {
+          "sec": 15.64,
+          "ok": true,
+          "scripts": true
+        },
+        "toon": {
+          "sec": 43.28,
+          "ok": true,
+          "scripts": true
+        },
+        "jsonbit": {
+          "sec": 12.43,
+          "ok": true,
+          "mcpUsed": true,
+          "scripts": false
+        }
+      }
+    ],
+    "totals": {
+      "jsonbit": {
+        "accuracy": "6/6",
+        "avgSec": 14.68,
+        "totalSec": 88.08,
+        "mcpDiscovery": "6/6",
+        "bashScriptsNeeded": 0
+      },
+      "json": {
+        "accuracy": "6/6",
+        "avgSec": 15.62,
+        "totalSec": 93.7
+      },
+      "toon": {
+        "accuracy": "6/6",
+        "avgSec": 23.81,
+        "totalSec": 142.84
+      }
+    }
+  },
+  "sandboxed_read_only_8_scenarios": [
+    {
+      "id": "SB01-tiny-4row-api",
+      "tier": "Tiny (<500B)",
+      "jsonbit-mcp": {
+        "ok": true,
+        "sec": 6.6,
+        "reason": "PASS"
+      },
+      "toon-mcp": {
+        "ok": true,
+        "sec": 11.9,
+        "reason": "PASS"
+      },
+      "json": {
+        "ok": true,
+        "sec": 8,
+        "reason": "PASS"
+      }
+    },
+    {
+      "id": "SB02-singleton-k8s-config",
+      "tier": "Tiny Config",
+      "jsonbit-mcp": {
+        "ok": true,
+        "sec": 6,
+        "reason": "PASS"
+      },
+      "toon-mcp": {
+        "ok": true,
+        "sec": 6.9,
+        "reason": "PASS"
+      },
+      "json": {
+        "ok": true,
+        "sec": 8.2,
+        "reason": "PASS"
+      }
+    },
+    {
+      "id": "SB03-qualitative-summary",
+      "tier": "Qualitative/Prose",
+      "jsonbit-mcp": {
+        "ok": true,
+        "sec": 5.9,
+        "reason": "PASS"
+      },
+      "toon-mcp": {
+        "ok": true,
+        "sec": 8.1,
+        "reason": "PASS"
+      },
+      "json": {
+        "ok": true,
+        "sec": 54.9,
+        "reason": "PASS"
+      }
+    },
+    {
+      "id": "SB04-nested-csr-joins",
+      "tier": "Medium (150 orders)",
+      "jsonbit-mcp": {
+        "ok": true,
+        "sec": 12.7,
+        "reason": "PASS"
+      },
+      "toon-mcp": {
+        "ok": true,
+        "sec": 59,
+        "reason": "PASS"
+      },
+      "json": {
+        "ok": true,
+        "sec": 69.2,
+        "reason": "PASS"
+      }
+    },
+    {
+      "id": "SB05-sparse-otel-logs",
+      "tier": "Medium (300 logs)",
+      "jsonbit-mcp": {
+        "ok": true,
+        "sec": 16.7,
+        "reason": "PASS"
+      },
+      "toon-mcp": {
+        "ok": true,
+        "sec": 23.3,
+        "reason": "PASS"
+      },
+      "json": {
+        "ok": true,
+        "sec": 21.1,
+        "reason": "PASS"
+      }
+    },
+    {
+      "id": "SB06-unicode-settlements",
+      "tier": "Medium (150 rows)",
+      "jsonbit-mcp": {
+        "ok": true,
+        "sec": 12.9,
+        "reason": "PASS"
+      },
+      "toon-mcp": {
+        "ok": true,
+        "sec": 12.8,
+        "reason": "PASS"
+      },
+      "json": {
+        "ok": true,
+        "sec": 40.2,
+        "reason": "PASS"
+      }
+    },
+    {
+      "id": "SB07-500-orders-sum",
+      "tier": "Large (350KB)",
+      "jsonbit-mcp": {
+        "ok": true,
+        "sec": 8.6,
+        "reason": "PASS"
+      },
+      "toon-mcp": {
+        "ok": false,
+        "sec": 120.1,
+        "reason": "TIMEOUT"
+      },
+      "json": {
+        "ok": false,
+        "sec": 120.1,
+        "reason": "TIMEOUT"
+      }
+    },
+    {
+      "id": "SB08-5000-sparse-traces",
+      "tier": "Large (5,000 lines)",
+      "jsonbit-mcp": {
+        "ok": true,
+        "sec": 8.3,
+        "reason": "PASS"
+      },
+      "toon-mcp": {
+        "ok": true,
+        "sec": 91.7,
+        "reason": "PASS"
+      },
+      "json": {
+        "ok": true,
+        "sec": 23.7,
+        "reason": "PASS"
+      }
+    }
+  ]
+}

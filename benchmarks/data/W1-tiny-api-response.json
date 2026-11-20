@@ -1,0 +1,28 @@
+{
+  "nodes": [
+    {
+      "nodeId": "n-01",
+      "zone": "us-east-1a",
+      "cpuPct": 42,
+      "healthy": true
+    },
+    {
+      "nodeId": "n-02",
+      "zone": "us-east-1b",
+      "cpuPct": 88,
+      "healthy": true
+    },
+    {
+      "nodeId": "n-03",
+      "zone": "eu-west-1a",
+      "cpuPct": 95,
+      "healthy": false
+    },
+    {
+      "nodeId": "n-04",
+      "zone": "ap-south-1a",
+      "cpuPct": 31,
+      "healthy": true
+    }
+  ]
+}
