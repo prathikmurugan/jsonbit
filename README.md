@@ -16,7 +16,6 @@
 - [Overview](#overview)
 - [Installation & Setup](#installation--setup)
 - [Agent Integrations (OpenCode, Claude Code, Codex, Cursor)](#agent-integrations)
-- [SDK Usage (Python, TypeScript, Rust)](#sdk-usage)
 - [CLI Reference](#cli-reference)
 - [Architecture](#architecture)
 - [Benchmarks](#benchmarks)
@@ -130,71 +129,6 @@ Codex and terminal agents automatically read [`AGENTS.md`](./AGENTS.md) in the r
 
 ---
 
-## SDK Usage
-
-### Python (`python/jsonbit`)
-
-Requires Python 3.10+ with no third-party pip packages:
-
-```python
-from jsonbit import JsonBit  # or `from python.jsonbit import JsonBit` from repo root
-
-with JsonBit("benchmarks/data/github-repos.json") as olap:
-    # Generate compact OLAP schema & statistical card
-    card = olap.card()
-
-    # Deterministic scalar answer
-    ans = olap.answer("How many repositories have more than 150000 stars and more than 30000 forks?")
-    assert ans == "31"
-
-    # Read-only SQL query (supports GROUP BY, ORDER BY, LIMIT, and JSON dot-paths)
-    rows = olap.sql(
-        "SELECT defaultBranch, COUNT(*) AS cnt FROM records GROUP BY defaultBranch ORDER BY cnt DESC"
-    )
-
-    # Save compressed .jsonbit binary snapshot
-    olap.pack("repos.jsonbit")
-```
-
-### TypeScript / Node.js (`@jsonbit/core`)
-
-```ts
-import { JsonBit, rehydrateFrom3NF } from '@jsonbit/core'
-
-const engine = JsonBit.from(jsonData)
-
-// Retrieve the OLAP data card
-console.log(engine.getDataCard().text)
-
-// Retrieve a verified query slice or scalar answer
-console.log(engine.answer('How many shipped orders include a USB Cable?'))
-console.log(engine.slice('How many shipped orders include a USB Cable?').context)
-
-// Execute SQL (automatically resolves JSON dot-paths such as customer.name -> customer_name)
-const rows = engine.sql(`SELECT orderId, customer.name, total FROM orders WHERE total > 500`)
-
-// Losslessly reconstruct original nested JSON
-const original = rehydrateFrom3NF(engine)
-engine.close()
-```
-
-### Rust Library (`jsonbit`)
-
-```rust
-use jsonbit::{execute_sql, JsonBitEngine};
-use serde_json::Value;
-
-let data: Value = serde_json::from_str(raw_json)?;
-let engine = JsonBitEngine::from_json(&data);
-
-let card = engine.data_card();
-let slice = engine.query_slice("How many active employees work in Sales?");
-let rows = execute_sql(&engine, "SELECT department, COUNT(*) AS cnt FROM employees GROUP BY department")?;
-let restored = engine.rehydrate();
-```
-
----
-
 ## CLI Reference
 
 | Command | Arguments | Description |
@@ -207,6 +141,43 @@ let restored = engine.rehydrate();
 | `jsonbit pack` | `<input.json> <output.jsonbit>` | Serializes the bit-packed 3NF tables into a binary `.jsonbit` snapshot. |
 | `jsonbit rehydrate` | `<file.json\|.jsonl\|.jsonbit>` | Reconstructs and prints the original nested JSON document. |
 | `jsonbit mcp` | *(none)* | Starts the concurrent stdio JSON-RPC 2.0 MCP server (`olap_load`, `olap_digest`, `olap_ask`, `olap_sql`, `olap_rehydrate`). |
+
+<details>
+<summary><strong>Programmatic SDK Usage (Python, TypeScript, Rust)</strong></summary>
+
+#### Python (`pip install jsonbit`)
+```python
+from jsonbit import JsonBit
+
+with JsonBit("benchmarks/data/github-repos.json") as olap:
+    card = olap.card()
+    ans = olap.answer("How many repositories have more than 150000 stars and more than 30000 forks?")
+    rows = olap.sql("SELECT defaultBranch, COUNT(*) AS cnt FROM records GROUP BY defaultBranch ORDER BY cnt DESC")
+    olap.pack("repos.jsonbit")
+```
+
+#### TypeScript / Node.js (`@jsonbit/core`)
+```ts
+import { JsonBit, rehydrateFrom3NF } from '@jsonbit/core'
+
+const engine = JsonBit.from(jsonData)
+const card = engine.getDataCard().text
+const rows = engine.sql(`SELECT orderId, customer.name, total FROM orders WHERE total > 500`)
+const original = rehydrateFrom3NF(engine)
+engine.close()
+```
+
+#### Rust Library (`cargo add jsonbit`)
+```rust
+use jsonbit::{execute_sql, JsonBitEngine};
+
+let engine = JsonBitEngine::from_json(&serde_json::from_str(raw_json)?);
+let card = engine.data_card();
+let rows = execute_sql(&engine, "SELECT department, COUNT(*) AS cnt FROM employees GROUP BY department")?;
+let restored = engine.rehydrate();
+```
+
+</details>
 
 ---
 
@@ -242,7 +213,7 @@ Evaluates `Raw JSON`, `Minified JSON`, `YAML`, `TOON` (`@toon-format/toon`), and
 
 ![Live Gemini 3.8 Flash Accuracy and Token Efficiency](./benchmarks/charts/gemini-accuracy-and-tokens.svg)
 
-| Format / Tool | Mode | Live `gemini-3.8-flash` Accuracy | Total Prompt Tokens | Token Reduction vs. Raw JSON | Token Reduction vs. `TOON` |
+| Format / Tool | Mode | Live `gemini-3.8-flash` Accuracy | Est. Tokens (`o200k_base`) | Reduction vs. Raw JSON | Reduction vs. `TOON` |
 | :--- | :--- | ---: | ---: | ---: | ---: |
 | **Raw JSON (Pretty)** | 1-Turn Full Text | 55.6% (15/27) | 375,713 | — | — |
 | **Minified JSON** | 1-Turn Full Text | 48.1% (13/27) | 237,891 | -36.7% | — |
@@ -250,6 +221,8 @@ Evaluates `Raw JSON`, `Minified JSON`, `YAML`, `TOON` (`@toon-format/toon`), and
 | **`TOON` v4 (`@toon-format/toon`)** | 1-Turn Full Text | 59.3% (16/27) | 169,627 | -54.9% | — |
 | **`jsonbit` Holistic Digest (`olap_digest`)** | **1-Turn (100% Rows + Pivot Legend)** | **96.3% (26/27)** | **101,302** | **-73.0%** | **-40.3%** |
 | **`jsonbit` Cube Card + SQL (`olap_load` + `olap_sql`)** | **Agentic $O(1)$ Card + Rust SQL** | **100.0% (27/27)** | **11,729** | **-96.9%** | **-93.1%** |
+
+> *Methodology note: Token counts above are `gpt-tokenizer` (`o200k_base`) estimates for reproducible cross-format comparison; the `jsonbit` SQL path total includes the Cube Card prompt plus generated SQL query tokens.*
 
 #### Qualitative & Holistic Executive Summary Verification (`1-Turn: TOON vs. jsonbit digest`)
 
@@ -277,11 +250,13 @@ While linear text encodings (`Raw JSON`, `Minified JSON`, `YAML`, `TOON`) scale 
 | **5,000 rows** *(~15,000 line items)* | 783,443 | 366,356 | 293,972 | **472** | 58.97 ms |
 | **25,000 rows** *(~75,000 line items)* | 3,917,366 | 1,831,843 | 1,469,911 | **473** | 334.42 ms |
 
+> *Note: For `5,000`- and `25,000`-row payloads (>2 MB), `YAML` and `TOON` token counts are ratio-extrapolated from the `500`-row exact encoding; `jsonbit` card tokens and Rust ingest times are measured directly on the full dataset.*
+
 ### 3. Memory Footprint & Query Speed (`Pure-Rust jsonbit` vs. `jq` CLI)
 
 ![Pure-Rust Memory Footprint and Query Speed](./benchmarks/charts/storage-and-query-speed.svg)
 
-| Workload | Category | Minified JSON | Rust 3NF Bit-Packed | Pretty JSON (Tok) | `TOON` (100% Rows) | `jsonbit digest` (100% Rows) | `jsonbit card` ($O(1)$) | 3NF Lossless |
+| Workload | Category | Minified JSON | Rust Column-Store (RAM) | Pretty JSON (Tok) | `TOON` (100% Rows) | `jsonbit digest` (100% Rows) | `jsonbit card` ($O(1)$) | 3NF Lossless |
 | :--- | :--- | ---: | ---: | ---: | ---: | ---: | ---: | :---: |
 | `W1-tiny-api-response` | Tiny Payload (<500B) | 0.3 KB | **0.1 KB** | 166 | 71 | **67 (-5.6%)** | **67** | PASS |
 | `W2-singleton-k8s-config` | Singleton Config Tree | 0.3 KB | **0.2 KB** | 167 | 131 | **110 (-16.0%)** | **110** | PASS |
@@ -295,14 +270,17 @@ While linear text encodings (`Raw JSON`, `Minified JSON`, `YAML`, `TOON`) scale 
 | `W10-unicode-financial-ledger` | UTF-8, Nulls & Zeroes | 18.4 KB | **2.9 KB** | 9,550 | 3,750 | **2,359 (-37.1%)** | **243** | PASS |
 | **Total (10 Workloads)** | **All Categories** | **280.6 KB** | **30.6 KB (-89.1%)** | **143,978** | **61,887** | **36,636 (-40.8%)** | **3,249 (-94.7%)** | **10/10 PASS** |
 
-- **Query Latency (`Pure-Rust BitVec64 SQL` vs. `jq` C CLI):**
-  - `jq` CLI (`stedolan/jq`): `6,545.3 µs` average per query
-  - `jsonbit` Pure-Rust SQL (`execute_sql`): **`6.8 µs` average per query (`963x` faster)**
-  - `jsonbit` Pure-Rust Bitmap Slice (`query_slice`): **`19.9 µs` average per query (`329x` faster)**
+- **Storage Accounting (`W1`–`W10`):**
+  - **In-memory bit-packed column store:** `280.6 KB` (Minified JSON) $\rightarrow$ **`30.6 KB` (`-89.1%`)**
+  - **Serialized on-disk `.jsonbit` snapshots (`jsonbit pack`):** `280.6 KB` (Minified JSON) / `427.7 KB` (raw files) $\rightarrow$ **`54.3 KB` (`-80.6%` vs. Minified JSON, `-87.3%` vs. raw files)**
+- **Query Latency (Warm In-Memory Rust Engine vs. Cold `jq` CLI Subprocess):**
+  - `jq` CLI (`stedolan/jq`, cold subprocess including startup & JSON parsing): `6,545.3 µs` average per query
+  - `jsonbit` Pure-Rust SQL (`execute_sql`, warm in-memory engine): **`6.8 µs` average per query**
+  - `jsonbit` Pure-Rust Bitmap Slice (`query_slice`, warm in-memory engine): **`19.9 µs` average per query**
 - **Standard 8-Dataset Benchmark Suite:**
-  - **Storage Compression:** `1,178,283` bytes (Minified JSON) $\rightarrow$ **`419,661` bytes (`-64.4%` RAM/storage reduction)**, `8/8` (`100%`) lossless 3NF rehydration.
+  - **In-Memory Column-Store Compression:** `1,178,283` bytes (Minified JSON) $\rightarrow$ **`419,661` bytes (`-64.4%`)**, `8/8` (`100%`) lossless 3NF rehydration.
   - **Token Reduction:** `334,046` tokens (`TOON` v4) $\rightarrow$ **`2,536` tokens (`-99.24%`)**.
-  - **239-Question Evaluation Accuracy:** `99.16% (237/239)` strict match at **`8.0 µs`** average query latency.
+  - **239-Question Evaluation Accuracy:** `99.16% (237/239)` strict match at **`8.0 µs`** average warm query latency.
 
 ### 4. Autonomous Coding Agent Head-to-Head (`OpenCode v1.19.5`)
 

@@ -70,6 +70,33 @@ pub fn sanitize_ident(raw: &str) -> String {
         .collect()
 }
 
+/// Resolves a deterministic, collision-free SQL column alias for an exact JSON `source_path`.
+/// If two distinct JSON paths (e.g. `["a-b"]` and `["a_b"]`) sanitize to the same SQL identifier,
+/// the second receives a disambiguated alias (`a_b_2`, `a_b_3`, ...) while preserving its exact
+/// `source_path` for 100% lossless rehydration.
+fn resolve_unique_col_name(
+    path: &[String],
+    path_to_col: &mut HashMap<Vec<String>, String>,
+    used_names: &mut HashMap<String, Vec<String>>,
+) -> String {
+    if let Some(existing) = path_to_col.get(path) {
+        return existing.clone();
+    }
+    let base = sanitize_ident(&path.join("_"));
+    let mut candidate = base.clone();
+    let mut suffix = 2usize;
+    while let Some(owner) = used_names.get(&candidate) {
+        if owner == path {
+            break;
+        }
+        candidate = format!("{}_{}", base, suffix);
+        suffix += 1;
+    }
+    path_to_col.insert(path.to_vec(), candidate.clone());
+    used_names.insert(candidate.clone(), path.to_vec());
+    candidate
+}
+
 pub fn is_array_of_objects(v: &Value) -> bool {
     match v {
         Value::Array(arr) => !arr.is_empty() && arr.iter().all(|x| x.is_object()),
@@ -163,25 +190,35 @@ fn extract_complex_singleton(
     let top_fields: Vec<String> = map.keys().cloned().collect();
     let mut flat_row = Map::new();
     let mut path_map: HashMap<String, (Vec<String>, bool)> = HashMap::new();
+    let mut path_to_col: HashMap<Vec<String>, String> = HashMap::new();
+    let mut used_names: HashMap<String, Vec<String>> = HashMap::new();
+    let mut explicit_null_cols: std::collections::HashSet<String> = std::collections::HashSet::new();
     let mut col_order: Vec<String> = Vec::new();
 
+    #[allow(clippy::too_many_arguments)]
     fn walk_singleton(
         prefix: &[String],
         current: &Map<String, Value>,
         flat_row: &mut Map<String, Value>,
         path_map: &mut HashMap<String, (Vec<String>, bool)>,
+        path_to_col: &mut HashMap<Vec<String>, String>,
+        used_names: &mut HashMap<String, Vec<String>>,
+        explicit_null_cols: &mut std::collections::HashSet<String>,
         col_order: &mut Vec<String>,
         tables: &mut Vec<ColumnarTable>,
     ) {
         for (k, v) in current {
-            if v.is_null() {
-                continue;
-            }
             let mut next_path = prefix.to_vec();
             next_path.push(k.clone());
-            let col_name = sanitize_ident(&next_path.join("_"));
+            let col_name = resolve_unique_col_name(&next_path, path_to_col, used_names);
 
-            if v.is_string() || v.is_number() || v.is_boolean() {
+            if v.is_null() {
+                if !path_map.contains_key(&col_name) {
+                    col_order.push(col_name.clone());
+                    path_map.insert(col_name.clone(), (next_path, false));
+                }
+                explicit_null_cols.insert(col_name);
+            } else if v.is_string() || v.is_number() || v.is_boolean() {
                 if !path_map.contains_key(&col_name) {
                     col_order.push(col_name.clone());
                     path_map.insert(col_name.clone(), (next_path, false));
@@ -217,7 +254,17 @@ fn extract_complex_singleton(
                     }
                     extract_table_from_rows(&col_name, next_path, &rows, true, None, tables);
                 } else {
-                    walk_singleton(&next_path, sub_map, flat_row, path_map, col_order, tables);
+                    walk_singleton(
+                        &next_path,
+                        sub_map,
+                        flat_row,
+                        path_map,
+                        path_to_col,
+                        used_names,
+                        explicit_null_cols,
+                        col_order,
+                        tables,
+                    );
                 }
             }
         }
@@ -228,6 +275,9 @@ fn extract_complex_singleton(
         map,
         &mut flat_row,
         &mut path_map,
+        &mut path_to_col,
+        &mut used_names,
+        &mut explicit_null_cols,
         &mut col_order,
         tables,
     );
@@ -239,13 +289,17 @@ fn extract_complex_singleton(
             let (src_path, is_prim_arr) = path_map.remove(&c_name).unwrap();
             let val_slice = vec![flat_row.get(&c_name).cloned()];
             let store = build_column_store(&val_slice, is_prim_arr);
+            let mut explicit_nulls = BitVec64::new_empty(1);
+            if explicit_null_cols.contains(&c_name) {
+                explicit_nulls.set(0);
+            }
             let idx = columns.len();
             col_index.insert(c_name.clone(), idx);
             columns.push(ColumnMeta {
                 name: c_name,
                 source_path: src_path,
                 is_synthetic_count: false,
-                explicit_nulls: BitVec64::new_empty(1),
+                explicit_nulls,
                 store,
             });
         }
@@ -310,6 +364,8 @@ fn extract_table_from_rows(
 
     let mut col_order: Vec<String> = Vec::new();
     let mut col_meta_info: HashMap<String, (Vec<String>, bool, bool)> = HashMap::new();
+    let mut path_to_col: HashMap<Vec<String>, String> = HashMap::new();
+    let mut used_names: HashMap<String, Vec<String>> = HashMap::new();
     let mut col_cells: HashMap<String, Vec<Option<Value>>> = HashMap::new();
     let mut col_explicit_nulls: HashMap<String, BitVec64> = HashMap::new();
 
@@ -324,6 +380,8 @@ fn extract_table_from_rows(
             n,
             &mut col_order,
             &mut col_meta_info,
+            &mut path_to_col,
+            &mut used_names,
             &mut col_cells,
             &mut col_explicit_nulls,
             &mut child_order,
@@ -408,6 +466,8 @@ fn flatten_row_recursive(
     total_rows: usize,
     col_order: &mut Vec<String>,
     col_meta_info: &mut HashMap<String, (Vec<String>, bool, bool)>,
+    path_to_col: &mut HashMap<Vec<String>, String>,
+    used_names: &mut HashMap<String, Vec<String>>,
     col_cells: &mut HashMap<String, Vec<Option<Value>>>,
     col_explicit_nulls: &mut HashMap<String, BitVec64>,
     child_order: &mut Vec<String>,
@@ -416,7 +476,7 @@ fn flatten_row_recursive(
     for (k, v) in obj {
         let mut path = prefix.to_vec();
         path.push(k.clone());
-        let col_name = sanitize_ident(&path.join("_"));
+        let col_name = resolve_unique_col_name(&path, path_to_col, used_names);
 
         if v.is_null() || v.is_string() || v.is_number() || v.is_boolean() {
             if !col_meta_info.contains_key(&col_name) {
@@ -498,6 +558,8 @@ fn flatten_row_recursive(
                 total_rows,
                 col_order,
                 col_meta_info,
+                path_to_col,
+                used_names,
                 col_cells,
                 col_explicit_nulls,
                 child_order,
@@ -521,13 +583,16 @@ fn build_column_store(cells: &[Option<Value>], is_primitive_array: bool) -> Colu
     }
 
     if non_nulls.iter().all(|v| v.is_number()) {
-        if non_nulls.iter().all(|v| v.is_i64() || v.is_u64()) {
+        if non_nulls.iter().all(|v| v.as_i64().is_some()) {
             let int_opts: Vec<Option<i64>> = cells
                 .iter()
                 .map(|c| c.as_ref().and_then(|v| v.as_i64()))
                 .collect();
             return ColumnStore::Int(ForIntColumn::from_options(&int_opts));
-        } else {
+        } else if !non_nulls
+            .iter()
+            .any(|v| v.is_u64() && v.as_i64().is_none())
+        {
             let float_opts: Vec<Option<f64>> = cells
                 .iter()
                 .map(|c| c.as_ref().and_then(|v| v.as_f64()))
@@ -572,6 +637,8 @@ pub fn rehydrate_from_3nf(tables: &[ColumnarTable]) -> Value {
             }
             if let Some(val) = col.store.get_json_value(0) {
                 set_nested_path(&mut root_obj, &col.source_path, val);
+            } else if col.explicit_nulls.get(0) {
+                set_nested_path(&mut root_obj, &col.source_path, Value::Null);
             }
         }
         for child_table in &tables[1..] {

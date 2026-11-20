@@ -146,4 +146,50 @@ mod tests {
             }
         });
     }
+
+    #[test]
+    fn test_colliding_keys_explicit_singleton_nulls_and_large_u64() {
+        // 1. Field collision in singleton: {"a-b": 1, "a_b": 2}
+        let colliding_singleton = json!({ "a-b": 1, "a_b": 2 });
+        let eng1 = JsonBitEngine::from_json(&colliding_singleton);
+        assert_eq!(eng1.rehydrate(), colliding_singleton);
+        let snap1 = serialize_snapshot(&eng1);
+        assert_eq!(deserialize_snapshot(&snap1).unwrap().rehydrate(), colliding_singleton);
+
+        // 2. Field collision in array of objects + SQL disambiguation
+        let colliding_rows = json!([
+            { "a-b": 10, "a_b": 20 },
+            { "a-b": 30, "a_b": 40 }
+        ]);
+        let eng2 = JsonBitEngine::from_json(&colliding_rows);
+        assert_eq!(eng2.rehydrate(), colliding_rows);
+        let snap2 = serialize_snapshot(&eng2);
+        let restored2 = deserialize_snapshot(&snap2).unwrap();
+        assert_eq!(restored2.rehydrate(), colliding_rows);
+        let sql2 = execute_sql(&restored2, "SELECT a_b, a_b_2 FROM records ORDER BY a_b ASC").unwrap();
+        assert_eq!(sql2, json!([{ "a_b": 10, "a_b_2": 20 }, { "a_b": 30, "a_b_2": 40 }]));
+
+        // 3. Explicit null keys in singleton (top-level and nested)
+        let singleton_nulls = json!({ "x": null, "nested": { "y": null, "z": 42 } });
+        let eng3 = JsonBitEngine::from_json(&singleton_nulls);
+        assert_eq!(eng3.rehydrate(), singleton_nulls);
+        let snap3 = serialize_snapshot(&eng3);
+        assert_eq!(deserialize_snapshot(&snap3).unwrap().rehydrate(), singleton_nulls);
+
+        // 4. Unsigned 64-bit integers above i64::MAX (must not drop or lose precision)
+        let large_u64 = json!([
+            { "id": 1, "big": 18446744073709551615u64 },
+            { "id": 2, "big": 9223372036854775808u64 }
+        ]);
+        let eng4 = JsonBitEngine::from_json(&large_u64);
+        assert_eq!(eng4.rehydrate(), large_u64);
+        let snap4 = serialize_snapshot(&eng4);
+        assert_eq!(deserialize_snapshot(&snap4).unwrap().rehydrate(), large_u64);
+
+        let singleton_u64 = json!({ "max_u64": 18446744073709551615u64, "empty": null });
+        let eng5 = JsonBitEngine::from_json(&singleton_u64);
+        assert_eq!(eng5.rehydrate(), singleton_u64);
+        let snap5 = serialize_snapshot(&eng5);
+        assert_eq!(deserialize_snapshot(&snap5).unwrap().rehydrate(), singleton_u64);
+    }
 }
