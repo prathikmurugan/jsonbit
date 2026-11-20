@@ -22,10 +22,15 @@ def _resolve_default_bin() -> str:
     local_bin = Path(__file__).resolve().parent.parent.parent / "target" / "release" / exe
     if local_bin.exists():
         return str(local_bin)
-    # 2. Binary installed alongside the active Python environment (pip / uv / venv)
-    venv_bin = Path(sys.executable).resolve().parent / exe
-    if venv_bin.exists():
-        return str(venv_bin)
+    # 2. Binary installed alongside the active Python environment (pip / uv / venv / conda)
+    # Note: do NOT call .resolve() on sys.executable because venv python is a symlink to system python!
+    scripts_dir = "Scripts" if os.name == "nt" else "bin"
+    for venv_bin in (
+        Path(sys.executable).parent / exe,
+        Path(sys.prefix) / scripts_dir / exe,
+    ):
+        if venv_bin.exists():
+            return str(venv_bin)
     # 3. Global PATH lookup
     path_bin = shutil.which("jsonbit")
     if path_bin:
