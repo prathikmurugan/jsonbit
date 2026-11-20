@@ -192,4 +192,54 @@ mod tests {
         let snap5 = serialize_snapshot(&eng5);
         assert_eq!(deserialize_snapshot(&snap5).unwrap().rehydrate(), singleton_u64);
     }
+
+    #[test]
+    fn test_digest_escaping_and_edge_cases() {
+        // Small payload (micro-card path, <= 8 rows): commas, pipes, quotes, backslashes, newlines, Unicode
+        let small = json!([
+            {
+                "id": 1,
+                "note": "New York, NY | \"HQ\" \\ line1\nline2",
+                "alias": "$0",
+                "empty_str": "",
+                "explicit_null": null,
+                "unicode": "東京 🚀 café"
+            },
+            {
+                "id": 2,
+                "note": "plain",
+                "alias": "normal",
+                "empty_str": "x",
+                "unicode": "München"
+            }
+        ]);
+        let eng_small = JsonBitEngine::from_json(&small);
+        assert_eq!(eng_small.rehydrate(), small);
+        let small_digest = eng_small.holistic_digest();
+        assert!(small_digest.contains(r#""New York, NY | \"HQ\" \\ line1\nline2""#));
+        assert!(!small_digest.contains("line1\nline2"));
+
+        // Multi-row nested payload (> 8 rows): tests @dict quoting, literal `$0` escaping, pipe escaping in child rows
+        let mut orders = Vec::new();
+        for i in 0..10 {
+            orders.push(json!({
+                "orderId": format!("ORD-{:03}", i + 1),
+                "note": if i == 0 { "a, b | \"c\" \\ d\ne" } else if i == 1 { "$0" } else { "Standard Shipping Label" },
+                "items": [
+                    { "sku": format!("SKU-{}", i), "label": if i == 0 { "Pipe | & Comma, \"Item\"" } else { "Cable" } }
+                ]
+            }));
+        }
+        let multi = json!({ "orders": orders });
+        let eng_multi = JsonBitEngine::from_json(&multi);
+        assert_eq!(eng_multi.rehydrate(), multi);
+        let multi_snap = serialize_snapshot(&eng_multi);
+        assert_eq!(deserialize_snapshot(&multi_snap).unwrap().rehydrate(), multi);
+
+        let multi_digest = eng_multi.holistic_digest();
+        assert!(multi_digest.contains(r#"$0="Standard Shipping Label""#));
+        assert!(multi_digest.contains(r#""a, b | \"c\" \\ d\ne""#));
+        assert!(multi_digest.contains(r#""$0""#));
+        assert!(multi_digest.contains(r#""Pipe | & Comma, \"Item\"""#));
+    }
 }

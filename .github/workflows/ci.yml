@@ -51,19 +51,43 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Smoke test Python SDK & MCP server
+      - name: Smoke test CLI round-trip, Python SDK & MCP server
         run: |
+          ./target/release/jsonbit digest benchmarks/data/W4-ecommerce-orders-1toN.json > /dev/null
+          ./target/release/jsonbit pack benchmarks/data/W4-ecommerce-orders-1toN.json /tmp/ci_w4.jsonbit
+          ./target/release/jsonbit rehydrate /tmp/ci_w4.jsonbit > /tmp/ci_w4_restored.json
           python3 -B -c '
           import json, subprocess
           from python.jsonbit import JsonBit
+
+          # 1. Verify lossless pack -> rehydrate round-trip
+          orig = json.load(open("benchmarks/data/W4-ecommerce-orders-1toN.json", encoding="utf-8"))
+          restored = json.load(open("/tmp/ci_w4_restored.json", encoding="utf-8"))
+          assert orig == restored, "pack -> rehydrate round-trip mismatch"
+
+          # 2. Verify Python SDK & edge cases (colliding keys, explicit null, u64 > i64::MAX)
           with JsonBit("benchmarks/data/github-repos.json") as olap:
               assert olap.answer("How many repositories have more than 150000 stars and more than 30000 forks?") == "31"
               assert len(olap.sql("SELECT defaultBranch, COUNT(*) AS cnt FROM records GROUP BY defaultBranch")) > 0
-          proc = subprocess.run(
-              ["./target/release/jsonbit", "mcp"],
-              input="{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"ping\"}\n",
-              capture_output=True, text=True, check=True,
-          )
-          assert json.loads(proc.stdout.strip()) == {"jsonrpc": "2.0", "id": 1, "result": {}}
-          print("Python SDK & MCP ping OK")
+          edge = {"a-b": 1, "a_b": 2, "x": None, "big": 18446744073709551615}
+          with JsonBit(edge) as olap:
+              assert olap.rehydrate() == edge
+
+          # 3. Verify documented MCP server lifecycle (initialize -> tools/list -> olap_load -> olap_sql -> ping)
+          msgs = "\n".join([
+              json.dumps({"jsonrpc": "2.0", "id": 1, "method": "initialize"}),
+              json.dumps({"jsonrpc": "2.0", "id": 2, "method": "tools/list"}),
+              json.dumps({"jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": {"name": "olap_load", "arguments": {"filePath": "benchmarks/data/W4-ecommerce-orders-1toN.json"}}}),
+              json.dumps({"jsonrpc": "2.0", "id": 4, "method": "tools/call", "params": {"name": "olap_sql", "arguments": {"sql": "SELECT COUNT(*) AS cnt FROM orders"}}}),
+              json.dumps({"jsonrpc": "2.0", "id": 5, "method": "ping"}),
+          ]) + "\n"
+          proc = subprocess.run(["./target/release/jsonbit", "mcp"], input=msgs, capture_output=True, text=True, check=True)
+          lines = [json.loads(l) for l in proc.stdout.strip().splitlines()]
+          assert lines[0]["result"]["protocolVersion"] == "2024-11-05"
+          assert len(lines[1]["result"]["tools"]) == 5
+          assert "TABLE orders" in lines[2]["result"]["content"][0]["text"]
+          assert json.loads(lines[3]["result"]["content"][0]["text"])[0]["cnt"] == 150
+          assert lines[4] == {"jsonrpc": "2.0", "id": 5, "result": {}}
+          print("CLI round-trip, Python SDK & MCP smoke tests: PASS")
           '
+          rm -f /tmp/ci_w4.jsonbit /tmp/ci_w4_restored.json

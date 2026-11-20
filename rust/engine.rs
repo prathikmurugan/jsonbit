@@ -89,7 +89,19 @@ impl JsonOlapEngine {
                         .map(|&cname| {
                             table
                                 .get_col(cname)
-                                .and_then(|c| c.store.get_scalar_string(r_idx, false))
+                                .and_then(|c| {
+                                    let is_prim_arr = matches!(
+                                        &c.store,
+                                        ColumnStore::DictStr(dc) if dc.is_primitive_array
+                                    );
+                                    c.store.get_scalar_string(r_idx, false).map(|v| {
+                                        if is_prim_arr {
+                                            v
+                                        } else {
+                                            escape_digest_cell(&v, true, false)
+                                        }
+                                    })
+                                })
                                 .unwrap_or_default()
                         })
                         .collect();
@@ -246,10 +258,10 @@ impl JsonOlapEngine {
                                     let code = format!("${}", dict_counter);
                                     dict_counter += 1;
                                     global_dict.insert(s.clone(), code.clone());
-                                    format!("{}={}", code, s)
+                                    format!("{}={}", code, escape_dict_value(s))
                                 }
                             } else {
-                                format!("{}={}", col.name, s)
+                                format!("{}={}", col.name, escape_dict_value(s))
                             };
 
                             // Build row bitmap for this category to pre-compute O(1) BitVec64 pivot stats
@@ -372,6 +384,7 @@ impl JsonOlapEngine {
                 }
             }
 
+            let is_child_table = table.parent_table.is_some();
             let format_row_cells = |r_idx: usize| -> String {
                 let mut cells: Vec<String> = Vec::with_capacity(active_cols.len());
                 for (c_idx, col) in active_cols.iter().enumerate() {
@@ -387,9 +400,10 @@ impl JsonOlapEngine {
                                 if let Some(code) = global_dict.get(s) {
                                     code.clone()
                                 } else if let Some(pref) = &col_prefixes[c_idx] {
-                                    s.strip_prefix(pref.as_str()).unwrap_or(s).to_string()
+                                    let stripped = s.strip_prefix(pref.as_str()).unwrap_or(s);
+                                    escape_digest_cell(stripped, is_child_table, true)
                                 } else {
-                                    s.to_string()
+                                    escape_digest_cell(s, is_child_table, true)
                                 }
                             }
                             None => String::new(),
@@ -1499,6 +1513,49 @@ fn resolve_numeric_col_dynamic(
         }
     }
     best_col.map(|s| s.to_string())
+}
+
+fn quote_digest_str(s: &str) -> String {
+    let mut out = String::with_capacity(s.len() + 2);
+    out.push('"');
+    for ch in s.chars() {
+        match ch {
+            '\\' => out.push_str("\\\\"),
+            '"' => out.push_str("\\\""),
+            '\n' => out.push_str("\\n"),
+            '\r' => out.push_str("\\r"),
+            other => out.push(other),
+        }
+    }
+    out.push('"');
+    out
+}
+
+/// Escapes a digest cell only when it contains delimiters, quotes, backslashes, newlines,
+/// leading/trailing spaces, or `$` prefixes that could collide with `@dict` aliases.
+fn escape_digest_cell(s: &str, escape_pipe: bool, escape_dollar: bool) -> String {
+    let needs_quote = s.starts_with(' ')
+        || s.ends_with(' ')
+        || (escape_dollar && s.starts_with('$'))
+        || s.chars().any(|c| {
+            matches!(c, ',' | '"' | '\\' | '\n' | '\r') || (escape_pipe && c == '|')
+        });
+    if needs_quote {
+        quote_digest_str(s)
+    } else {
+        s.to_string()
+    }
+}
+
+fn escape_dict_value(s: &str) -> String {
+    let needs_quote = s.chars().any(|c| {
+        c.is_whitespace() || matches!(c, '(' | ')' | ',' | '"' | '\\' | '\n' | '\r' | '|')
+    });
+    if needs_quote {
+        quote_digest_str(s)
+    } else {
+        s.to_string()
+    }
 }
 
 fn detect_column_prefix(dc: &crate::column::DictStringColumn) -> Option<String> {

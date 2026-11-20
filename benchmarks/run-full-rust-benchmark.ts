@@ -533,7 +533,7 @@ function generateStorageAndLatencySvg(
 
 async function main() {
   console.log('================================================================================')
-  console.log(' JSON-OLAP PURE-RUST BENCHMARK SUITE (RUST v1.0.0 + LIVE GEMINI 3.8 FLASH)')
+  console.log(' JSONBIT PURE-RUST BENCHMARK SUITE (RUST v1.1 + LIVE GEMINI 3.8 FLASH)')
   console.log('================================================================================\n')
 
   const workloads = buildRealWorldWorkloads()

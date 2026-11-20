@@ -7,35 +7,48 @@
 [![MCP](https://img.shields.io/badge/MCP-2024--11--05-00ADD8.svg)](./rust/mcp.rs)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
-`jsonbit` is an in-memory and on-disk analytical engine written in Rust that normalizes nested `.json` and `.jsonl` payloads into Third-Normal-Form (3NF) bit-packed columnar tables. It provides sub-10-microsecond bitmap query execution, compact `.jsonbit` binary snapshots, and a compact OLAP schema summary designed for Large Language Model (LLM) context windows and Model Context Protocol (MCP) agents.
+**JsonBit compacts nested JSON before it reaches your LLM.** Send a compact digest in one prompt, or let your agent query the original data locally via SQL/MCP and read only the results it needs.
+
+```bash
+pip install jsonbit
+jsonbit digest path/to/your-file.json
+```
+
+Pass the output to your LLM in place of the raw JSON. *(Rust `cargo`, Node.js `npm`/`npx`, and standalone binaries are listed under [Installation & Setup](#installation--setup).)*
+
+Example output from `jsonbit digest`:
+
+```text
+# orders[4](orderId,customer_name,customer_tier,status,total)
+@stats: total[sum=619.00,avg=154.75,min=95.50,max=201.00]
+ORD-101,Alice,pro,shipped,171.75
+ORD-102,Bob,starter,pending,201
+ORD-103,Cara,pro,shipped,95.5
+ORD-104,Dan,pro,shipped,150.75
+# orders_items[6] -> orders (sku,qty,price)
+@stats: qty[sum=15,avg=2.5,min=1(n=1),max=4] price[sum=246.25,avg=41.04,min=10.50,max=74.50]
+0:USB-C,2,10.5|MOUSE,3,50.25
+1:MOUSE,4,50.25
+2:HUB-4,1,74.5|USB-C,2,10.5
+3:MOUSE,3,50.25
+```
+
+| Workflow | Command / MCP Tool | Best For | Fidelity & Guarantees |
+| :--- | :--- | :--- | :--- |
+| **1-Turn Compaction** | `jsonbit digest` / `olap_digest` | Single-prompt LLM calls & holistic summaries where the model needs every row. | Compact LLM text view containing all rows, escaped delimiters, hoisted child tables, and precomputed stats *(rounded averages are approximate)*. |
+| **Agentic Local Querying** | `jsonbit card` + `sql` / `olap_load` + `olap_sql` | Coding agents (OpenCode, Claude Code, Cursor) querying medium/large `.json` or `.jsonl` files. | Emits a compact schema and statistics summary (independent of row count); runs exact read-only SQL & `BitVec64` filters locally in microseconds. |
+| **Binary Storage** | `jsonbit pack` / `jsonbit rehydrate` | Archiving or caching normalized `.jsonbit` snapshots on disk (`-80.6%` vs. minified JSON on `W1`–`W10`). | Lossless round-trip verified across all 33 benchmark/adversarial datasets and unit tests (preserving nulls, colliding keys, and `u64 > i64::MAX`). |
 
 ---
 
 ## Table of Contents
 
-- [Overview](#overview)
 - [Installation & Setup](#installation--setup)
 - [Agent Integrations (OpenCode, Claude Code, Codex, Cursor)](#agent-integrations)
 - [CLI Reference](#cli-reference)
 - [Architecture](#architecture)
 - [Benchmarks](#benchmarks)
 - [License](#license)
-
----
-
-## Overview
-
-Passing large structured datasets (API responses, telemetry logs, database exports) directly into LLM prompts as raw JSON or text tables introduces two bottlenecks:
-
-1. **Token Volume:** A 2,000-record dataset consumes `50,000–180,000` tokens in JSON or text-table encodings, increasing API cost and time-to-first-token (TTFT).
-2. **In-Context Arithmetic Errors:** Autoregressive attention struggles with exact row counting, multi-column filtering, and floating-point summation across thousands of lines.
-
-`jsonbit` addresses both problems by separating **storage and computation** from **prompt context**:
-
-- **Automatic 3NF Normalization:** Decomposes nested 1-to-1 objects, sparse optional fields, dynamic-keyed maps, and 1-to-Many child arrays into flat columnar tables linked by Compressed Sparse Row (CSR) offset arrays.
-- **Bit-Packed Columnar Storage:** Compresses integers using Frame-of-Reference (`FOR`) delta packing, strings using dictionary bit-packing with inverted 64-bit bitmaps (`BitVec64`), and booleans using 1 bit per row—reducing storage size by **64.4%** compared to minified JSON while maintaining lossless round-trip reconstruction.
-- **Compact OLAP Data Cards:** Emits a `~200–540` token summary containing table schemas, column types, exact numeric aggregates (`sum`, `avg`, `min`, `max`), and categorical value distributions (**99.24% fewer tokens** than full-dataset text encodings).
-- **Deterministic Execution:** Evaluates natural-language slices and SQL queries (`SELECT`, `WHERE`, `GROUP BY`, `ORDER BY`, `LIMIT`, and parent-child `JOIN`s) directly on bit-packed columns and 64-bit word-aligned bitmaps in **`8.0 µs`** average latency.
 
 ---
 
@@ -133,8 +146,8 @@ Codex and terminal agents automatically read [`AGENTS.md`](./AGENTS.md) in the r
 
 | Command | Arguments | Description |
 | :--- | :--- | :--- |
-| `jsonbit card` | `<file.json\|.jsonl\|.jsonbit>` | Prints the $O(1)$ 3NF OLAP Cube Card (`~250 tokens`) and storage compression statistics. |
-| `jsonbit digest` | `<file.json\|.jsonl\|.jsonbit>` | Prints the 1-Turn Factorized 3NF Holistic Digest (100% of rows + `BitVec64` Pivot Legend, `-41%` to `-72%` smaller than `TOON`). |
+| `jsonbit card` | `<file.json\|.jsonl\|.jsonbit>` | Prints the compact 3NF schema and statistics summary (independent of row count) plus storage compression stats. |
+| `jsonbit digest` | `<file.json\|.jsonl\|.jsonbit>` | Prints the 1-Turn Factorized 3NF Holistic Digest (all rows, hoisted child tables, and precomputed summary stats). |
 | `jsonbit ask` | `<file> "<question>"` | Evaluates a question against the bitmap index and prints the verified context slice. |
 | `jsonbit answer` | `<file> "<question>"` | Evaluates a question and prints only the scalar answer value. |
 | `jsonbit sql` | `<file> "<SELECT ...>"` | Executes a read-only SQL query against the 3NF columnar store (`WHERE`, `IN`, `BETWEEN`, `LIKE`, `GROUP BY`, `ORDER BY`, `LIMIT`, `OFFSET`, CSR `JOIN`). |
@@ -209,22 +222,27 @@ All benchmarks execute directly against the compiled Pure-Rust `jsonbit` binary 
 
 ### 1. Live `gemini-3.8-flash` Evaluation Across 10 Real-World Workloads (27 Questions)
 
-Evaluates `Raw JSON`, `Minified JSON`, `YAML`, `TOON` (`@toon-format/toon`), and `jsonbit` (Pure-Rust `olap_load` + `olap_sql`) across 10 production workloads (`W1`–`W10`), including flat tables, 1-to-Many e-commerce orders, sparse `.jsonl` OpenTelemetry logs with free-text messages, singleton Kubernetes configs, IAM primitive arrays, wide 30-column tables, and multi-byte UTF-8 financial ledgers:
+Evaluates `Raw JSON`, `Minified JSON`, `YAML`, `TOON` (`@toon-format/toon`), and `jsonbit` across 10 production workloads (`W1`–`W10`), including flat tables, 1-to-Many e-commerce orders, sparse `.jsonl` OpenTelemetry logs with free-text messages, singleton Kubernetes configs, IAM primitive arrays, wide 30-column tables, and multi-byte UTF-8 financial ledgers. Across the 27 questions, single-prompt `jsonbit digest` uses **57.4% fewer estimated tokens than Minified JSON** (`101,302` vs. `237,891`) with **26/27** vs. **13/27** accuracy:
 
 ![Live Gemini 3.8 Flash Accuracy and Token Efficiency](./benchmarks/charts/gemini-accuracy-and-tokens.svg)
 
-| Format / Tool | Mode | Live `gemini-3.8-flash` Accuracy | Est. Tokens (`o200k_base`) | Reduction vs. Raw JSON | Reduction vs. `TOON` |
+| Format / Tool | Mode | Live `gemini-3.8-flash` Accuracy | Est. Tokens (`o200k_base`) | Reduction vs. Minified JSON | Reduction vs. Raw JSON |
 | :--- | :--- | ---: | ---: | ---: | ---: |
-| **Raw JSON (Pretty)** | 1-Turn Full Text | 55.6% (15/27) | 375,713 | — | — |
-| **Minified JSON** | 1-Turn Full Text | 48.1% (13/27) | 237,891 | -36.7% | — |
-| **YAML** | 1-Turn Full Text | 59.3% (16/27) | 293,690 | -21.8% | — |
-| **`TOON` v4 (`@toon-format/toon`)** | 1-Turn Full Text | 59.3% (16/27) | 169,627 | -54.9% | — |
-| **`jsonbit` Holistic Digest (`olap_digest`)** | **1-Turn (100% Rows + Pivot Legend)** | **96.3% (26/27)** | **101,302** | **-73.0%** | **-40.3%** |
-| **`jsonbit` Cube Card + SQL (`olap_load` + `olap_sql`)** | **Agentic $O(1)$ Card + Rust SQL** | **100.0% (27/27)** | **11,729** | **-96.9%** | **-93.1%** |
+| **Raw JSON (Pretty)** | 1-Turn Full Text | 55.6% (15/27) | 375,713 | +57.9% | — |
+| **Minified JSON** | 1-Turn Full Text | 48.1% (13/27) | 237,891 | — | -36.7% |
+| **YAML** | 1-Turn Full Text | 59.3% (16/27) | 293,690 | +23.5% | -21.8% |
+| **`TOON` v4 (`@toon-format/toon`)** | 1-Turn Full Text | 59.3% (16/27) | 169,627 | -28.7% | -54.9% |
+| **`jsonbit` Holistic Digest (`olap_digest`)** | **1-Turn (All Rows + Summary Stats)** | **96.3% (26/27)** | **101,302** | **-57.4%** | **-73.0%** |
 
-> *Methodology note: Token counts above are `gpt-tokenizer` (`o200k_base`) estimates for reproducible cross-format comparison; the `jsonbit` SQL path total includes the Cube Card prompt plus generated SQL query tokens.*
+*Agentic local-query comparison (separate workflow — schema summary + Rust SQL execution, not a full-row text encoding):*
 
-#### Qualitative & Holistic Executive Summary Verification (`1-Turn: TOON vs. jsonbit digest`)
+| Tool | Mode | Live `gemini-3.8-flash` Accuracy | Est. Tokens (`o200k_base`) | Reduction vs. Minified JSON |
+| :--- | :--- | ---: | ---: | ---: |
+| **`jsonbit` Schema Card + SQL (`olap_load` + `olap_sql`)** | **Agentic Schema Summary + Local Rust SQL** | **100.0% (27/27)** | **11,729** | **-95.1%** |
+
+> *Methodology note: Token counts above are `gpt-tokenizer` (`o200k_base`) estimates for reproducible cross-format comparison; the `jsonbit` SQL path total includes the schema summary prompt plus generated SQL query tokens.*
+
+#### Single-Prompt Summary Accuracy (`W3`, `W4`, `W5`, `W10`)
 
 For qualitative tasks where the LLM must read all records in a single turn and write a multi-fact executive summary (naming all departments, products, microservice failure messages, and international counterparties across `W3`, `W4`, `W5`, and `W10`):
 
@@ -245,10 +263,10 @@ While linear text encodings (`Raw JSON`, `Minified JSON`, `YAML`, `TOON`) scale 
 | Dataset Scale (Nested Orders) | Raw JSON (Tokens) | YAML (Tokens) | `TOON` v4 (Tokens) | `jsonbit` Rust Card (Tokens) | Rust Ingest Time |
 | :--- | ---: | ---: | ---: | ---: | ---: |
 | **4 rows** *(Tiny API Payload)* | 166 | 122 | 71 | **67** | 0.04 ms |
-| **50 rows** *(~150 line items)* | 7,780 | 5,801 | 4,783 | **447** | 0.52 ms |
-| **500 rows** *(~1,500 line items)* | 78,115 | 58,244 | 47,983 | **449** | 4.72 ms |
-| **5,000 rows** *(~15,000 line items)* | 783,443 | 366,356 | 293,972 | **472** | 58.97 ms |
-| **25,000 rows** *(~75,000 line items)* | 3,917,366 | 1,831,843 | 1,469,911 | **473** | 334.42 ms |
+| **50 rows** *(~150 line items)* | 7,780 | 5,801 | 4,783 | **445** | 0.51 ms |
+| **500 rows** *(~1,500 line items)* | 78,115 | 58,244 | 47,983 | **447** | 3.99 ms |
+| **5,000 rows** *(~15,000 line items)* | 783,443 | 366,356 | 293,972 | **470** | 55.56 ms |
+| **25,000 rows** *(~75,000 line items)* | 3,917,366 | 1,831,843 | 1,469,911 | **471** | 315.13 ms |
 
 > *Note: For `5,000`- and `25,000`-row payloads (>2 MB), `YAML` and `TOON` token counts are ratio-extrapolated from the `500`-row exact encoding; `jsonbit` card tokens and Rust ingest times are measured directly on the full dataset.*
 
@@ -260,15 +278,17 @@ While linear text encodings (`Raw JSON`, `Minified JSON`, `YAML`, `TOON`) scale 
 | :--- | :--- | ---: | ---: | ---: | ---: | ---: | ---: | :---: |
 | `W1-tiny-api-response` | Tiny Payload (<500B) | 0.3 KB | **0.1 KB** | 166 | 71 | **67 (-5.6%)** | **67** | PASS |
 | `W2-singleton-k8s-config` | Singleton Config Tree | 0.3 KB | **0.2 KB** | 167 | 131 | **110 (-16.0%)** | **110** | PASS |
-| `W3-hr-payroll-directory` | Tabular (200 rows) | 28.4 KB | **4.5 KB** | 14,064 | 4,847 | **4,145 (-14.5%)** | **272** | PASS |
-| `W4-ecommerce-orders-1toN` | 1-to-Many (150 orders) | 48.3 KB | **4.5 KB** | 25,466 | 15,372 | **6,878 (-55.3%)** | **472** | PASS |
-| `W5-otel-production-logs` | Sparse `.jsonl` + Free-Text | 44.4 KB | **4.7 KB** | 17,439 | 13,632 | **4,123 (-69.8%)** | **226** | PASS |
-| `W6-github-repos-metrics` | High-Card + Ranges | 28.6 KB | **3.4 KB** | 14,829 | 5,364 | **4,285 (-20.1%)** | **309** | PASS |
-| `W7-stripe-dispute-webhooks` | Financial Webhooks | 28.9 KB | **3.1 KB** | 14,333 | 4,104 | **3,906 (-4.8%)** | **250** | PASS |
-| `W8-iam-primitive-arrays` | Primitive Arrays | 14.4 KB | **1.6 KB** | 7,185 | 4,810 | **1,247 (-74.1%)** | **164** | PASS |
-| `W9-wide-enterprise-crm` | Wide Table (30 cols) | 68.6 KB | **5.7 KB** | 40,779 | 9,806 | **9,516 (-3.0%)** | **1,136** | PASS |
-| `W10-unicode-financial-ledger` | UTF-8, Nulls & Zeroes | 18.4 KB | **2.9 KB** | 9,550 | 3,750 | **2,359 (-37.1%)** | **243** | PASS |
-| **Total (10 Workloads)** | **All Categories** | **280.6 KB** | **30.6 KB (-89.1%)** | **143,978** | **61,887** | **36,636 (-40.8%)** | **3,249 (-94.7%)** | **10/10 PASS** |
+| `W3-hr-payroll-directory` | Tabular (200 rows) | 28.4 KB | **4.5 KB** | 14,064 | 4,847 | **4,327 (-10.7%)** | **270** | PASS |
+| `W4-ecommerce-orders-1toN` | 1-to-Many (150 orders) | 48.3 KB | **4.5 KB** | 25,466 | 15,372 | **6,892 (-55.2%)** | **470** | PASS |
+| `W5-otel-production-logs` | Sparse `.jsonl` + Free-Text | 44.4 KB | **4.7 KB** | 17,439 | 13,632 | **4,132 (-69.7%)** | **224** | PASS |
+| `W6-github-repos-metrics` | High-Card + Ranges | 28.6 KB | **3.4 KB** | 14,829 | 5,364 | **4,414 (-17.7%)** | **307** | PASS |
+| `W7-stripe-dispute-webhooks` | Financial Webhooks | 28.9 KB | **3.1 KB** | 14,333 | 4,104 | **4,341 (+5.8%)** | **248** | PASS |
+| `W8-iam-primitive-arrays` | Primitive Arrays | 14.4 KB | **1.6 KB** | 7,185 | 4,810 | **1,257 (-73.9%)** | **162** | PASS |
+| `W9-wide-enterprise-crm` | Wide Table (30 cols) | 68.6 KB | **5.7 KB** | 40,779 | 9,806 | **9,549 (-2.6%)** | **1,134** | PASS |
+| `W10-unicode-financial-ledger` | UTF-8, Nulls & Zeroes | 18.4 KB | **2.9 KB** | 9,550 | 3,750 | **2,364 (-37.0%)** | **241** | PASS |
+| **Total (10 Workloads)** | **All Categories** | **280.6 KB** | **30.6 KB (-89.1%)** | **143,978** | **61,887** | **37,453 (-39.5%)** | **3,233 (-94.8%)** | **10/10 PASS** |
+
+> *Workload breakdown: On tiny payloads (`W1`), singleton configs (`W2`), financial webhooks with heavy quoting (`W7`, `+5.8%`), and wide flat 30-column tables (`W9`, `-2.6%`), 1-turn `digest` is close to `TOON`. The largest reductions come from nested 1-to-Many hierarchies (`W4`, `-55.2%`), sparse `.jsonl` logs (`W5`, `-69.7%`), and primitive arrays (`W8`, `-73.8%`), where 3NF hoisting and prefix/dictionary factoring eliminate repeated structure.*
 
 - **Storage Accounting (`W1`–`W10`):**
   - **In-memory bit-packed column store:** `280.6 KB` (Minified JSON) $\rightarrow$ **`30.6 KB` (`-89.1%`)**
@@ -279,7 +299,7 @@ While linear text encodings (`Raw JSON`, `Minified JSON`, `YAML`, `TOON`) scale 
   - `jsonbit` Pure-Rust Bitmap Slice (`query_slice`, warm in-memory engine): **`19.9 µs` average per query**
 - **Standard 8-Dataset Benchmark Suite:**
   - **In-Memory Column-Store Compression:** `1,178,283` bytes (Minified JSON) $\rightarrow$ **`419,661` bytes (`-64.4%`)**, `8/8` (`100%`) lossless 3NF rehydration.
-  - **Token Reduction:** `334,046` tokens (`TOON` v4) $\rightarrow$ **`2,536` tokens (`-99.24%`)**.
+  - **Schema Card Size vs. Full Dataset Text:** `334,046` tokens (`TOON` v4 full text) $\rightarrow$ **`2,536` tokens (`-99.24%`, schema & stats summary only)**.
   - **239-Question Evaluation Accuracy:** `99.16% (237/239)` strict match at **`8.0 µs`** average warm query latency.
 
 ### 4. Autonomous Coding Agent Head-to-Head (`OpenCode v1.19.5`)
