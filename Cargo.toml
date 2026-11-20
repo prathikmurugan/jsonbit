@@ -1,6 +1,6 @@
 [package]
 name = "jsonbit"
-version = "1.1.0"
+version = "1.1.1"
 edition = "2021"
 authors = ["Prathik Murugan"]
 description = "jsonbit — Pure-Rust Auto-3NF Columnar Bit-Packed & BitVec64 Analytical Engine for LLMs"

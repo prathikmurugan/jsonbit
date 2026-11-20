@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/prathikmurugan/jsonbit/compare/v1.1.0...v1.1.1) (2026-11-20)
+
+
+### Bug Fixes
+
+* **python:** package python/jsonbit/__init__.py for maturin wheels ([ada1e17](https://github.com/prathikmurugan/jsonbit/commit/ada1e17d2e35bb924675c8b6d78a13b859c4e3a8))
+
 ## [1.1.0](https://github.com/prathikmurugan/jsonbit/compare/v1.0.0...v1.1.0) (2026-11-20)
 
 
