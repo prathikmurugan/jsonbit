@@ -189,16 +189,22 @@ jobs:
   publish-crates:
     name: Publish to crates.io
     needs: [release-please, upload-binaries]
-    if: ${{ needs.release-please.outputs.release_created == 'true' && env.HAS_CARGO_TOKEN == 'true' }}
-    env:
-      HAS_CARGO_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN != '' }}
+    if: ${{ needs.release-please.outputs.release_created == 'true' }}
     runs-on: ubuntu-latest
     steps:
+      - name: Check crates.io token
+        id: check
+        env:
+          TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+        run: echo "enabled=$([ -n "$TOKEN" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
       - uses: actions/checkout@v4
+        if: steps.check.outputs.enabled == 'true'
         with:
           ref: ${{ needs.release-please.outputs.tag_name }}
       - uses: dtolnay/rust-toolchain@stable
+        if: steps.check.outputs.enabled == 'true'
       - name: Publish crate
+        if: steps.check.outputs.enabled == 'true'
         env:
           CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
         run: cargo publish --locked
@@ -206,19 +212,25 @@ jobs:
   publish-npm:
     name: Publish @jsonbit/core to npm
     needs: [release-please, upload-binaries]
-    if: ${{ needs.release-please.outputs.release_created == 'true' && env.HAS_NPM_TOKEN == 'true' }}
-    env:
-      HAS_NPM_TOKEN: ${{ secrets.NPM_TOKEN != '' }}
+    if: ${{ needs.release-please.outputs.release_created == 'true' }}
     runs-on: ubuntu-latest
     steps:
+      - name: Check npm token
+        id: check
+        env:
+          TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: echo "enabled=$([ -n "$TOKEN" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
       - uses: actions/checkout@v4
+        if: steps.check.outputs.enabled == 'true'
         with:
           ref: ${{ needs.release-please.outputs.tag_name }}
       - uses: actions/setup-node@v4
+        if: steps.check.outputs.enabled == 'true'
         with:
           node-version: "22"
           registry-url: "https://registry.npmjs.org"
       - name: Publish to npm
+        if: steps.check.outputs.enabled == 'true'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --access public --provenance
