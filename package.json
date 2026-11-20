@@ -1,6 +1,6 @@
 {
   "name": "@jsonbit/core",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "jsonbit — Pure-Rust Auto-3NF Columnar Bit-Packed & BitVec64 Engine for LLMs and AI Agents",
   "type": "module",
   "main": "./src/index.ts",
