@@ -183,49 +183,60 @@ let restored = engine.rehydrate();
 
 ## Benchmarks
 
-All benchmarks execute directly against the compiled Pure-Rust `jsonbit` binary (`target/release/jsonbit`).
+All benchmarks run directly against the compiled Pure-Rust binary (`target/release/jsonbit`). Token counts use `gpt-tokenizer` (`o200k_base`) for reproducible cross-format comparison.
 
-### 1. Live `gemini-3.8-flash` Evaluation Across 10 Real-World Workloads (27 Questions)
+### At a Glance
 
-Evaluates `Raw JSON`, `Minified JSON`, `YAML`, `TOON` (`@toon-format/toon`), and `jsonbit` across 10 production workloads (`W1`–`W10`), including flat tables, 1-to-Many e-commerce orders, sparse `.jsonl` OpenTelemetry logs with free-text messages, singleton Kubernetes configs, IAM primitive arrays, wide 30-column tables, and multi-byte UTF-8 financial ledgers. Across the 27 questions, single-prompt `jsonbit digest` uses **57.4% fewer estimated tokens than Minified JSON** (`101,302` vs. `237,891`) with **26/27** vs. **13/27** accuracy:
+| Workflow | Headline Result | Measured Scope |
+| :--- | :--- | :--- |
+| **Agentic SQL (`card` + `sql`)** | **100.0% accuracy (27/27)** · **-95.1% tokens** vs. Minified JSON | Live `gemini-3.8-flash` across 10 workloads (`W1`–`W10`) |
+| **1-Turn Digest (`digest`)** | **-83.7% tokens** vs. Pretty JSON (`-62.0%` vs. `TOON`, 10/10 wins) | 100% lossless full-row compaction on `W1`–`W10` (`23,513` vs. `143,978` tok) |
+| **Coding Agents (`mcp`)** | **10/10 (`153.2s`)** vs. **2/10 (`735.0s`)** on Raw JSON | Sandboxed `OpenCode v1.19.5` (`bash: "deny"`, up to 15k-row logs) |
+| **Storage & Speed (`pack` / `sql`)** | **-89.1% RAM** · **-80.6% disk** · **6.8 µs** avg warm SQL query | `W1`–`W10` bit-packed 3NF store, 100% lossless round-trip |
 
-![Live Gemini 3.8 Flash Accuracy and Token Efficiency](./benchmarks/charts/gemini-accuracy-and-tokens.svg)
+---
 
-| Format / Tool | Mode | Live `gemini-3.8-flash` Accuracy | Est. Tokens (`o200k_base`) | Reduction vs. Minified JSON | Reduction vs. Raw JSON |
+### 1. Live LLM Accuracy & Token Efficiency (`gemini-3.8-flash`, 27 Questions)
+
+Evaluated across 10 production workloads (`W1`–`W10`: flat tables, 1-to-Many orders, sparse `.jsonl` OpenTelemetry logs, singleton Kubernetes configs, IAM arrays, 30-column tables, and UTF-8 ledgers):
+
+![jsonbit Live Gemini 3.8 Flash Accuracy and Token Efficiency](./benchmarks/charts/gemini-accuracy-and-tokens.svg)
+
+| Format / Tool | Workflow Mode | Accuracy | Est. Tokens (`o200k_base`) | vs. Minified JSON | vs. Raw JSON |
 | :--- | :--- | ---: | ---: | ---: | ---: |
 | **Raw JSON (Pretty)** | 1-Turn Full Text | 55.6% (15/27) | 375,713 | +57.9% | — |
 | **Minified JSON** | 1-Turn Full Text | 48.1% (13/27) | 237,891 | — | -36.7% |
 | **YAML** | 1-Turn Full Text | 59.3% (16/27) | 293,690 | +23.5% | -21.8% |
-| **`TOON` v4 (`@toon-format/toon`)** | 1-Turn Full Text | 59.3% (16/27) | 169,627 | -28.7% | -54.9% |
-| **`jsonbit` Holistic Digest (`olap_digest`)** | **1-Turn (All Rows + Summary Stats)** | **96.3% (26/27)** | **101,302** | **-57.4%** | **-73.0%** |
+| **`TOON` v4** | 1-Turn Full Text | 59.3% (16/27) | 169,627 | -28.7% | -54.9% |
+| **`jsonbit digest`** | **1-Turn (All Rows + Stats)** | **96.3% (26/27)** | **101,302** | **-57.4%** | **-73.0%** |
+| **`jsonbit card + sql`** | **Agentic Schema Card + Local Rust SQL** | **100.0% (27/27)** | **11,729** | **-95.1%** | **-96.9%** |
 
-*Agentic local-query comparison (separate workflow — schema summary + Rust SQL execution, not a full-row text encoding):*
+> *Note: The `jsonbit card + sql` total includes both the schema card prompt and generated SQL query tokens. `jsonbit digest` was evaluated on the `v1.1.5` digest encoder; the current 7-stage BPE-aware `digest` cuts full-row token counts a further `-32.3%` (see Section 4).*
 
-| Tool | Mode | Live `gemini-3.8-flash` Accuracy | Est. Tokens (`o200k_base`) | Reduction vs. Minified JSON |
-| :--- | :--- | ---: | ---: | ---: |
-| **`jsonbit` Schema Card + SQL (`olap_load` + `olap_sql`)** | **Agentic Schema Summary + Local Rust SQL** | **100.0% (27/27)** | **11,729** | **-95.1%** |
+<details>
+<summary><strong>Single-Prompt Qualitative Summary Accuracy (H1–H4: 32/32 facts preserved)</strong></summary>
 
-> *Methodology note: Token counts above are `gpt-tokenizer` (`o200k_base`) estimates for reproducible cross-format comparison; the `jsonbit` SQL path total includes the schema summary prompt plus generated SQL query tokens.*
+For qualitative tasks where the LLM reads every record in 1 turn and writes a multi-fact executive summary across `W3`, `W4`, `W5`, and `W10`:
 
-#### Single-Prompt Summary Accuracy (`W3`, `W4`, `W5`, `W10`)
-
-For qualitative tasks where the LLM must read all records in a single turn and write a multi-fact executive summary (naming all departments, products, microservice failure messages, and international counterparties across `W3`, `W4`, `W5`, and `W10`):
-
-| Holistic Synthesis Task | `TOON` v4 Facts Preserved | `jsonbit digest` Facts Preserved | `TOON` Tokens | `jsonbit digest` Tokens | Token Savings vs. `TOON` |
+| Task | `TOON` v4 Facts | `jsonbit digest` Facts | `TOON` Tokens | `jsonbit digest` Tokens | Savings vs. `TOON` |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| `H1` — HR Directory Executive Summary | 8 / 9 | **9 / 9 (100%)** | 4,881 | **4,372** | **-10.4%** |
-| `H2` — E-Commerce Catalog & Orders Summary | 8 / 8 | **8 / 8 (100%)** | 15,405 | **6,933** | **-55.0%** |
-| `H3` — Production Incident Log Triage Report | 9 / 9 | **9 / 9 (100%)** | 13,665 | **4,169** | **-69.5%** |
-| `H4` — International Settlement Ledger Summary | 2 / 6 | **6 / 6 (100%)** | 3,781 | **2,403** | **-36.4%** |
-| **Total Across All Qualitative Summaries** | **27 / 32 (84.4%)** | **32 / 32 (100.0%)** | **37,732** | **17,877** | **-52.6%** |
+| `H1` — HR Directory Summary | 8 / 9 | **9 / 9 (100%)** | 4,881 | **4,372** | **-10.4%** |
+| `H2` — E-Commerce Catalog & Orders | 8 / 8 | **8 / 8 (100%)** | 15,405 | **6,933** | **-55.0%** |
+| `H3` — Incident Log Triage Report | 9 / 9 | **9 / 9 (100%)** | 13,665 | **4,169** | **-69.5%** |
+| `H4` — International Settlement Ledger | 2 / 6 | **6 / 6 (100%)** | 3,781 | **2,403** | **-36.4%** |
+| **Total** | **27 / 32 (84.4%)** | **32 / 32 (100.0%)** | **37,732** | **17,877** | **-52.6%** |
 
-### 2. Token Scaling Curve (`4` $\rightarrow$ `25,000` Nested Orders)
+</details>
 
-While linear text encodings (`Raw JSON`, `Minified JSON`, `YAML`, `TOON`) scale at $O(N)$ with row count and exceed LLM context windows at scale, `jsonbit` maintains an $O(1)$ prompt footprint (`~67–473` tokens):
+---
+
+### 2. Token Scaling at Scale (`4` $\rightarrow$ `25,000` Nested Orders)
+
+Linear text formats scale at $O(N)$ and overflow LLM context windows; `jsonbit card` stays constant at $O(1)$ (`~67–471` tokens):
 
 ![LLM Context Tokens vs Dataset Scale](./benchmarks/charts/token-scaling.svg)
 
-| Dataset Scale (Nested Orders) | Raw JSON (Tokens) | YAML (Tokens) | `TOON` v4 (Tokens) | `jsonbit` Rust Card (Tokens) | Rust Ingest Time |
+| Dataset Scale (Nested Orders) | Raw JSON | YAML | `TOON` v4 | `jsonbit card` ($O(1)$) | Rust Ingest |
 | :--- | ---: | ---: | ---: | ---: | ---: |
 | **4 rows** *(Tiny API Payload)* | 166 | 122 | 71 | **67** | 0.04 ms |
 | **50 rows** *(~150 line items)* | 7,780 | 5,801 | 4,783 | **445** | 0.51 ms |
@@ -233,49 +244,51 @@ While linear text encodings (`Raw JSON`, `Minified JSON`, `YAML`, `TOON`) scale 
 | **5,000 rows** *(~15,000 line items)* | 783,443 | 366,356 | 293,972 | **470** | 55.56 ms |
 | **25,000 rows** *(~75,000 line items)* | 3,917,366 | 1,831,843 | 1,469,911 | **471** | 315.13 ms |
 
-> *Note: For `5,000`- and `25,000`-row payloads (>2 MB), `YAML` and `TOON` token counts are ratio-extrapolated from the `500`-row exact encoding; `jsonbit` card tokens and Rust ingest times are measured directly on the full dataset.*
+> *Note: At `5,000` and `25,000` rows (>2 MB), `YAML` and `TOON` counts are ratio-extrapolated from the `500`-row exact encoding; `jsonbit card` tokens and Rust ingest times are measured directly on the full dataset.*
 
-### 3. Memory Footprint & Query Speed (`Pure-Rust jsonbit` vs. `jq` CLI)
+---
 
-![Pure-Rust Memory Footprint and Query Speed](./benchmarks/charts/storage-and-query-speed.svg)
+### 3. Autonomous Coding Agents (`OpenCode v1.19.5`)
 
-| Workload | Category | Minified JSON | Rust Column-Store (RAM) | Pretty JSON (Tok) | `TOON` (100% Rows) | `jsonbit digest` (100% Rows) | `jsonbit card` ($O(1)$) | 3NF Lossless |
+Evaluated in isolated directories with zero prompt hints and zero `AGENTS.md`/`CLAUDE.md` files (`opencode/big-pickle`):
+
+| Environment & Suite | `jsonbit` MCP (`opencode.json` only) | `TOON` v4 | Raw JSON |
+| :--- | :--- | :--- | :--- |
+| **Standard Agent** (`6` scenarios, `18` runs) | **6/6 (`88.1s`) · `0` scripts** | 6/6 (`142.8s`) | 6/6 (`93.7s`) |
+| **Sandboxed Read-Only** (`bash: "deny"`, `8` scenarios) | **8/8 (`77.7s`)** | 7/8 (`333.8s`) | 7/8 (`345.4s`) |
+| **Hard Scale & Log Triage** (`bash: "deny"`, `10` scenarios, `30` runs, up to `15k` rows) | **10/10 (`153.2s`)** | 3/10 (`796.9s`) | 2/10 (`735.0s`) |
+
+---
+
+### 4. Memory Footprint, Query Speed & Per-Workload Results (`W1`–`W10`)
+
+![jsonbit Pure-Rust Memory Footprint and Query Speed](./benchmarks/charts/storage-and-query-speed.svg)
+
+- **In-memory 3NF column store:** `280.6 KB` (Minified JSON) $\rightarrow$ **`30.6 KB` (`-89.1%`)**
+- **On-disk `.jsonbit` snapshots (`jsonbit pack`):** `280.6 KB` (Minified) / `427.7 KB` (Raw) $\rightarrow$ **`54.3 KB` (`-80.6%` / `-87.3%`)**
+- **Query latency:** `6,545.3 µs` (`jq` CLI cold subprocess) vs. **`6.8 µs`** (`jsonbit` warm Rust SQL) and **`19.9 µs`** (`jsonbit` warm Rust bitmap slice)
+
+<details>
+<summary><strong>Per-Workload Breakdown (W1–W10 + Real-World GitHub API JSON + 8-Dataset Suite)</strong></summary>
+
+| Workload | Category | Minified | Rust RAM | Pretty JSON (Tok) | `TOON` (100% Rows) | `jsonbit digest` (100% Rows) | `jsonbit card` ($O(1)$) | Lossless |
 | :--- | :--- | ---: | ---: | ---: | ---: | ---: | ---: | :---: |
 | `W1-tiny-api-response` | Tiny Payload (<500B) | 0.3 KB | **0.1 KB** | 166 | 71 | **67 (-5.6%)** | **67** | PASS |
 | `W2-singleton-k8s-config` | Singleton Config Tree | 0.3 KB | **0.2 KB** | 167 | 131 | **110 (-16.0%)** | **110** | PASS |
 | `W3-hr-payroll-directory` | Tabular (200 rows) | 28.4 KB | **4.5 KB** | 14,064 | 4,847 | **2,312 (-52.3%)** | **270** | PASS |
 | `W4-ecommerce-orders-1toN` | 1-to-Many (150 orders) | 48.3 KB | **4.5 KB** | 25,466 | 15,372 | **4,573 (-70.3%)** | **470** | PASS |
-| `W5-otel-production-logs` | Sparse `.jsonl` + Free-Text | 44.4 KB | **4.7 KB** | 17,439 | 13,632 | **2,517 (-81.5%)** | **224** | PASS |
+| `W5-otel-production-logs` | Sparse `.jsonl` Logs | 44.4 KB | **4.7 KB** | 17,439 | 13,632 | **2,517 (-81.5%)** | **224** | PASS |
 | `W6-github-repos-metrics` | High-Card + Ranges | 28.6 KB | **3.4 KB** | 14,829 | 5,364 | **3,218 (-40.0%)** | **307** | PASS |
 | `W7-stripe-dispute-webhooks` | Financial Webhooks | 28.9 KB | **3.1 KB** | 14,333 | 4,104 | **1,378 (-66.4%)** | **248** | PASS |
 | `W8-iam-primitive-arrays` | Primitive Arrays | 14.4 KB | **1.6 KB** | 7,185 | 4,810 | **914 (-81.0%)** | **162** | PASS |
 | `W9-wide-enterprise-crm` | Wide Table (30 cols) | 68.6 KB | **5.7 KB** | 40,779 | 9,806 | **6,654 (-32.1%)** | **1,134** | PASS |
 | `W10-unicode-financial-ledger` | UTF-8, Nulls & Zeroes | 18.4 KB | **2.9 KB** | 9,550 | 3,750 | **1,770 (-52.8%)** | **241** | PASS |
-| **Total (10 Workloads)** | **All Categories** | **280.6 KB** | **30.6 KB (-89.1%)** | **143,978** | **61,887** | **23,513 (-62.0%)** | **3,233 (-94.8%)** | **10/10 PASS** |
+| **Total (W1–W10)** | **All Categories** | **280.6 KB** | **30.6 KB (-89.1%)** | **143,978** | **61,887** | **23,513 (-62.0%)** | **3,233 (-94.8%)** | **10/10 PASS** |
 
-> *Workload breakdown: `jsonbit digest` outperforms `TOON` on all 10/10 workloads (`-62.0%` total vs. `TOON`, `-83.7%` vs. Pretty JSON) while preserving 100% of rows — including sparse `.jsonl` logs (`W5`, `-81.5%`), primitive arrays (`W8`, `-81.0%`), nested 1-to-Many orders (`W4`, `-70.3%`), financial webhooks (`W7`, `-66.4%`), and wide 30-column tables (`W9`, `-32.1%`). On real-world un-synthetic GitHub API JSON (`benchmarks/data/github-repos.json`), `digest` cuts tokens from `15,330` $\rightarrow$ **`7,213` (`-52.9%`)**.*
+- **Real-world un-synthetic GitHub API JSON (`benchmarks/data/github-repos.json`):** `15,330` tokens $\rightarrow$ **`7,213` tokens (`-52.9%`)** in 100%-row `digest` mode, or **`342` tokens (`-97.8%`)** in `card` mode.
+- **Standard 8-Dataset Benchmark Suite:** `1,178,283` bytes (Minified) $\rightarrow$ **`419,661` bytes (`-64.4%`)**, `8/8` lossless 3NF round-trip, `334,046` $\rightarrow$ **`2,536` card tokens (`-99.24%`)**, and **`99.16% (237/239)`** strict query match at **`8.0 µs`** average warm latency.
 
-- **Storage Accounting (`W1`–`W10`):**
-  - **In-memory bit-packed column store:** `280.6 KB` (Minified JSON) $\rightarrow$ **`30.6 KB` (`-89.1%`)**
-  - **Serialized on-disk `.jsonbit` snapshots (`jsonbit pack`):** `280.6 KB` (Minified JSON) / `427.7 KB` (raw files) $\rightarrow$ **`54.3 KB` (`-80.6%` vs. Minified JSON, `-87.3%` vs. raw files)**
-- **Query Latency (Warm In-Memory Rust Engine vs. Cold `jq` CLI Subprocess):**
-  - `jq` CLI (`stedolan/jq`, cold subprocess including startup & JSON parsing): `6,545.3 µs` average per query
-  - `jsonbit` Pure-Rust SQL (`execute_sql`, warm in-memory engine): **`6.8 µs` average per query**
-  - `jsonbit` Pure-Rust Bitmap Slice (`query_slice`, warm in-memory engine): **`19.9 µs` average per query**
-- **Standard 8-Dataset Benchmark Suite:**
-  - **In-Memory Column-Store Compression:** `1,178,283` bytes (Minified JSON) $\rightarrow$ **`419,661` bytes (`-64.4%`)**, `8/8` (`100%`) lossless 3NF rehydration.
-  - **Schema Card Size vs. Full Dataset Text:** `334,046` tokens (`TOON` v4 full text) $\rightarrow$ **`2,536` tokens (`-99.24%`, schema & stats summary only)**.
-  - **239-Question Evaluation Accuracy:** `99.16% (237/239)` strict match at **`8.0 µs`** average warm query latency.
-
-### 4. Autonomous Coding Agent Head-to-Head (`OpenCode v1.19.5`)
-
-Evaluated in isolated directories with zero prompt hints and zero `AGENTS.md`/`CLAUDE.md` files (`opencode/big-pickle`) across both standard (bash-enabled) and sandboxed (`bash: "deny"`) agent environments:
-
-| Agent Mode | `jsonbit` MCP (`opencode.json` only) | `TOON` v4 (`toon_encode` / CLI) | Raw JSON |
-| :--- | :--- | :--- | :--- |
-| **Standard Agent (`6` Scenarios, `18` Runs)** | **6/6 (`88.1s`) · `0` scripts** | 6/6 (`142.8s`) · `awk`/Python parsers | 6/6 (`93.7s`) · Python scripts |
-| **Sandboxed Read-Only (`bash: "deny"`, `8` Scenarios)** | **8/8 (`77.7s`)** | 7/8 (`333.8s`) · failed `500`-order sum | 7/8 (`345.4s`) · failed `500`-order sum |
-| **Hard Scale, Security & Log Triage Suite (`bash: "deny"`, `10` Scenarios, `30` Runs: `15k` security logs, `10k` OTEL/latency logs, `5k` IAM audit, `3k` fraud ledger, `2k` UTF-8/orders, `1k` orders, `500`-order JOIN, tiny config)** | **10/10 (`153.2s`)** | 3/10 (`796.9s`) · `7` timeouts | 2/10 (`735.0s`) · `8` failures/timeouts |
+</details>
 
 ---
 
