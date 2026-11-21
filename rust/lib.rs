@@ -1,5 +1,6 @@
 pub mod bitmap;
 pub mod column;
+pub mod digest;
 pub mod engine;
 pub mod mcp;
 pub mod normalizer;
@@ -241,5 +242,89 @@ mod tests {
         assert!(multi_digest.contains(r#""a, b | \"c\" \\ d\ne""#));
         assert!(multi_digest.contains(r#""$0""#));
         assert!(multi_digest.contains(r#""Pipe | & Comma, \"Item\"""#));
+    }
+
+    #[test]
+    fn test_factorized_bpe_digest_all_seven_stages() {
+        // 1. Test stages 1-6: const, dominant-default, seq (int + zero-pad str), tpl,
+        //    cross-column suffix (`*/$name` + `=`), numeric `*1k`/`*1M`, local enum `a..z`,
+        //    strict suffix (`Z`), and majority prefix (`2026-07-` with `^` fallback).
+        let mut rows = Vec::new();
+        for i in 0..24 {
+            let name = format!("pkg-{}-x{}", (i * 7) % 19, (i * 3) % 11);
+            let owner = if i % 4 == 0 {
+                name.clone()
+            } else {
+                format!("team{}", i % 3)
+            };
+            let dept = match i % 3 {
+                0 => "Engineering",
+                1 => "Product",
+                _ => "Security",
+            };
+            let pushed = if i < 20 {
+                format!("2026-07-{:02}T10:12:{:02}Z", (i % 28) + 1, (i * 7) % 60)
+            } else {
+                format!("2025-11-{:02}T08:30:{:02}Z", (i % 28) + 1, (i * 11) % 60)
+            };
+            rows.push(json!({
+                "seqId": 100 + (i as i64) * 5,
+                "code": format!("ORD-{:03}", i + 1),
+                "tplSlug": format!("org-{}/app-{}", i + 1, i + 1),
+                "env": "prod",
+                "alert": i == 3 || i == 19,
+                "name": name,
+                "repo": format!("{}/{}", owner, name),
+                "dept": dept,
+                "salary": (100 + ((i * 7) % 13) as i64) * 1000,
+                "budget": (2 + (i % 5) as i64) * 1_000_000,
+                "pushedAt": pushed
+            }));
+        }
+        let payload = json!({ "items": rows });
+        let eng = JsonBitEngine::from_json(&payload);
+        assert_eq!(eng.rehydrate(), payload);
+
+        let dig = eng.holistic_digest();
+        // Stage 1 & 2: hoisted const, dominant-default, int seq, zero-pad str seq, template
+        assert!(dig.contains("@hoist:"), "expected @hoist in:\n{}", dig);
+        assert!(dig.contains("env=prod"), "expected const env=prod");
+        assert!(dig.contains("alert=F except[3:T,19:T]"), "expected dominant-default alert");
+        assert!(dig.contains("seqId=seq(100,+5)"), "expected int seq");
+        assert!(dig.contains(r#"code=seq("ORD-",001,+1)"#), "expected zero-padded str seq");
+        assert!(dig.contains(r#"tplSlug=tpl("org-{i}/app-{i}",1)"#), "expected multi-part tpl");
+        // Stage 3: cross-column suffix + `=` shorthand
+        assert!(dig.contains("repo=*/$name"), "expected cross-column repo=*/$name");
+        assert!(dig.contains(",=,"), "expected `=` shorthand when owner == name");
+        // Stage 4: power-of-10 numeric scaling
+        assert!(dig.contains("salary*1k"), "expected salary*1k");
+        assert!(dig.contains("budget*1M"), "expected budget*1M");
+        // Stage 5: single-letter local enum codes
+        assert!(dig.contains("dept(a="), "expected single-letter local enum for dept");
+        // Stage 6: majority prefix + strict `Z` suffix + `^` fallback on non-matching rows
+        assert!(dig.contains(r#"pushedAt:"2026-07-"?*"Z""#), "expected majority prefix + Z suffix");
+        assert!(dig.contains("^2025-11-"), "expected `^` fallback for non-matching majority prefix");
+
+        // 2. Test stage 7: wide table (>= 8 active cols) intra-row RLE + arithmetic progression
+        //    + escaping of literal `*` and `..` when `@fold` is active.
+        let mut wide = Vec::new();
+        for i in 0..10 {
+            let rle_v = 5 + ((i * 7) % 11) as i64;
+            let s_base = 10 + ((i * 5) % 9) as i64;
+            wide.push(json!({
+                "tag": if i == 0 { "a*4" } else if i == 1 { "1..9" } else { "ok" },
+                "m0": rle_v, "m1": rle_v, "m2": rle_v, "m3": rle_v, "m4": rle_v,
+                "s0": s_base, "s1": s_base + 2, "s2": s_base + 4, "s3": s_base + 6
+            }));
+        }
+        let wide_val = json!(wide);
+        let wide_eng = JsonBitEngine::from_json(&wide_val);
+        assert_eq!(wide_eng.rehydrate(), wide_val);
+        let wide_dig = wide_eng.holistic_digest();
+        assert!(wide_dig.contains("@fold: v*k=repeat, a..b(+d)=seq"), "expected @fold header");
+        assert!(wide_dig.contains("5*5"), "expected RLE 5*5");
+        assert!(wide_dig.contains("10..16(+2)"), "expected arithmetic progression 10..16(+2)");
+        assert!(wide_dig.contains(r#""a*4""#), "expected literal `*` quoted when @fold active");
+        assert!(wide_dig.contains(r#""1..9""#), "expected literal `..` quoted when @fold active");
     }
 }

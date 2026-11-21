@@ -297,5 +297,237 @@
         "reason": "PASS"
       }
     }
+  ],
+  "hard_scale_and_join_5_scenarios": [
+    {
+      "id": "T1-1000-nested-orders",
+      "rawKB": 245,
+      "toonKB": 224,
+      "jsonbit": {
+        "ok": true,
+        "sec": 14.5,
+        "timedOut": false,
+        "snippet": "-1000-nested-orders_jsonbit/orders_1000.json\"}\n\u001b[0m⚙ \u001b[0mjsonbit_olap_sql {\"sql\":\"SELECT COUNT(*) AS cnt, SUM(orderTotal) AS total FROM orders WHERE status = 'shipped' AND customer_tier = 'enterprise'\",\"alias\":\"default\"}"
+      },
+      "toon": {
+        "ok": false,
+        "sec": 90.1,
+        "timedOut": true,
+        "snippet": "ound in PATH — plugin disabled\n\u001b[0m\n> build · big-pickle\n\u001b[0m\n\u001b[0m✱ \u001b[0mGlob \"**/orders_1000.toon\"\u001b[90m 1 match\u001b[0m\n\u001b[0m→ \u001b[0mRead orders_1000.toon\u001b[90m [limit=60]\u001b[0m\n\u001b[0m• \u001b[0mCompute order stats\u001b[90m General Agent\u001b[0m"
+      },
+      "json": {
+        "ok": false,
+        "sec": 90.1,
+        "timedOut": true,
+        "snippet": "is file (1 lines)\n\u001b[0m✗ \u001b[0mWebFetch file:///tmp/oc_hard_T1-1000-nested-orders_json/orders_1000.json failed\n\u001b[91m\u001b[1mError: \u001b[0mURL must start with http:// or https://\n\u001b[0m• \u001b[0mAnalyze orders JSON\u001b[90m Explore Agent\u001b[0m"
+      }
+    },
+    {
+      "id": "T2-10k-sparse-jsonl",
+      "rawKB": 1125,
+      "toonKB": 1267,
+      "jsonbit": {
+        "ok": true,
+        "sec": 10.8,
+        "timedOut": false,
+        "snippet": "I'll load the file first, then run exact queries.\n1923 retryable 5xx entries; highest is billing-svc (495)."
+      },
+      "toon": {
+        "ok": false,
+        "sec": 90.1,
+        "timedOut": true,
+        "snippet": "✱ \u001b[0mGlob \"**/otel_10k.toon\"\u001b[90m 1 match\u001b[0m\n\u001b[0m→ \u001b[0mRead otel_10k.toon\u001b[90m [limit=80]\u001b[0m\n\u001b[0m✱ \u001b[0mGrep \"retryable: true\"\u001b[90m in . · 100 matches\u001b[0m\n\u001b[0m• \u001b[0mCount retryable 5xx by service\u001b[90m General Agent\u001b[0m"
+      },
+      "json": {
+        "ok": false,
+        "sec": 90.1,
+        "timedOut": true,
+        "snippet": ". · 100 matches\u001b[0m\n\u001b[0m✱ \u001b[0mGrep \"\"retryable\":true.*\"statusCode\":5[0-9][0-9]\"\u001b[90m in . · 0 matches\u001b[0m\n\u001b[0m✱ \u001b[0mGrep \"\"retryable\"\"\u001b[90m in . · 100 matches\u001b[0m\n\u001b[0m• \u001b[0mCount retryable 5xx logs\u001b[90m General Agent\u001b[0m"
+      }
+    },
+    {
+      "id": "T3-2k-unicode-float-ledger",
+      "rawKB": 226,
+      "toonKB": 96,
+      "jsonbit": {
+        "ok": true,
+        "sec": 8.6,
+        "timedOut": false,
+        "snippet": "bit/ledger_2k.json\"}\n\u001b[0m⚙ \u001b[0mjsonbit_olap_sql {\"sql\":\"SELECT SUM(amount) AS total FROM settlements WHERE currency = 'EUR' AND settled = true\",\"filePath\":\"/tmp/oc_hard_T3-2k-unicode-float-ledger_jsonbit/ledger_2k.json\"}"
+      },
+      "toon": {
+        "ok": false,
+        "sec": 90.1,
+        "timedOut": true,
+        "snippet": "\n\u001b[0m\n\u001b[0m✱ \u001b[0mGlob \"**/ledger_2k.toon\"\u001b[90m 1 match\u001b[0m\n\u001b[0m→ \u001b[0mRead ledger_2k.toon\u001b[90m [limit=80]\u001b[0m\n\u001b[0m• \u001b[0mCompute EUR settled sum\u001b[90m General Agent\u001b[0m\n\u001b[0m• \u001b[0mVerify EUR settled sum\u001b[90m General Agent\u001b[0m"
+      },
+      "json": {
+        "ok": false,
+        "sec": 90.1,
+        "timedOut": true,
+        "snippet": "n PATH — plugin disabled\n\u001b[0m\n> build · big-pickle\n\u001b[0m\n\u001b[0m✱ \u001b[0mGlob \"**/ledger_2k.json\"\u001b[90m 1 match\u001b[0m\n\u001b[0m→ \u001b[0mRead ledger_2k.json\u001b[90m [limit=60]\u001b[0m\n\u001b[0m• \u001b[0mCompute exact EUR settled sum\u001b[90m General Agent\u001b[0m"
+      }
+    },
+    {
+      "id": "T4-500-orders-csr-join",
+      "rawKB": 122,
+      "toonKB": 112,
+      "jsonbit": {
+        "ok": true,
+        "sec": 60.8,
+        "timedOut": false,
+        "snippet": "276"
+      },
+      "toon": {
+        "ok": false,
+        "sec": 90,
+        "timedOut": true,
+        "snippet": "[90m General Agent\u001b[0m\n\u001b[0m→ \u001b[0mRead orders_500.toon\u001b[90m [offset=1828, limit=25]\u001b[0m\n\u001b[0m→ \u001b[0mRead orders_500.toon\u001b[90m [offset=3660, limit=25]\u001b[0m\n\u001b[0m• \u001b[0mIndependently verify full-file total\u001b[90m General Agent\u001b[0m"
+      },
+      "json": {
+        "ok": false,
+        "sec": 8.5,
+        "timedOut": false,
+        "snippet": "ncode/skills/customize-opencode/*); auto-rejecting\n\u001b[0m✗ \u001b[0mRead /home/opencode/.config/opencode/skills/customize-opencode/SKILL.md failed\n\u001b[91m\u001b[1mError: \u001b[0mThe user rejected permission to use this specific tool call."
+      }
+    },
+    {
+      "id": "T5-tiny-k8s-fairness",
+      "rawKB": 0,
+      "toonKB": 0,
+      "jsonbit": {
+        "ok": true,
+        "sec": 9.9,
+        "timedOut": false,
+        "snippet": "not found in PATH — plugin disabled\n\u001b[0m\n> build · big-pickle\n\u001b[0m\n\u001b[0m✱ \u001b[0mGlob \"**/k8s_config.json\"\u001b[90m 1 match\u001b[0m\n\u001b[0m⚙ \u001b[0mjsonbit_olap_load {\"filePath\":\"/tmp/oc_hard_T5-tiny-k8s-fairness_jsonbit/k8s_config.json\"}"
+      },
+      "toon": {
+        "ok": true,
+        "sec": 10.1,
+        "timedOut": false,
+        "snippet": "ec.template.image: \"ghcr.io/acme/payments:v4.2.1\"\n\n[snip] snip binary not found in PATH — plugin disabled\n\u001b[0m\n> build · big-pickle\n\u001b[0m\n\u001b[0m✱ \u001b[0mGlob \"**/k8s_config.toon\"\u001b[90m 1 match\u001b[0m\n\u001b[0m→ \u001b[0mRead k8s_config.toon"
+      },
+      "json": {
+        "ok": true,
+        "sec": 7.7,
+        "timedOut": false,
+        "snippet": "c.template.image`: `ghcr.io/acme/payments:v4.2.1`\n\n[snip] snip binary not found in PATH — plugin disabled\n\u001b[0m\n> build · big-pickle\n\u001b[0m\n\u001b[0m✱ \u001b[0mGlob \"**/k8s_config.json\"\u001b[90m 1 match\u001b[0m\n\u001b[0m→ \u001b[0mRead k8s_config.json"
+      }
+    },
+    {
+      "id": "T6-15k-security-audit-log",
+      "rawKB": 1356,
+      "toonKB": 536,
+      "jsonbit": {
+        "ok": true,
+        "sec": 8.6,
+        "timedOut": false,
+        "answer": "I'll load the file first to understand its schema.\nNow I'll query for unauthorized events (401/403), count, top offender IP, and targeted endpoint.\n- **Total unauthorized events:** 405 (HTTP 401/403)\n- **Top offender IP:** `185.220.101.42` "
+      },
+      "toon": {
+        "ok": false,
+        "sec": 90.1,
+        "timedOut": true,
+        "answer": ""
+      },
+      "json": {
+        "ok": true,
+        "sec": 88.8,
+        "timedOut": false,
+        "answer": "405 unauthorized events (202 × 401, 203 × 403). Top (and only) offender: `185.220.101.42` with 405 requests, all targeting `/admin/api-keys`."
+      }
+    },
+    {
+      "id": "T7-10k-latency-p99-triage",
+      "rawKB": 821,
+      "toonKB": 294,
+      "jsonbit": {
+        "ok": true,
+        "sec": 17.1,
+        "timedOut": false,
+        "answer": "I'll load the JSONL file first.\n- Total 5xx: **200**\n- Most 5xx errors: **payments-core (129)**\n- P99 latencyMs: **4850 ms**\n- Most frequent error message: **tie** — \"gateway timeout\" and \"db connection pool exhausted\" (100 each)"
+      },
+      "toon": {
+        "ok": false,
+        "sec": 90,
+        "timedOut": true,
+        "answer": ""
+      },
+      "json": {
+        "ok": false,
+        "sec": 90,
+        "timedOut": true,
+        "answer": "I'll inspect the file structure first, then compute the requested metrics.\nI'll delegate exact computation to an agent that can run a script over all 10,000 records.\nLet me verify the key figures independently."
+      }
+    },
+    {
+      "id": "T8-5k-iam-access-denied",
+      "rawKB": 569,
+      "toonKB": 276,
+      "jsonbit": {
+        "ok": true,
+        "sec": 7.9,
+        "timedOut": false,
+        "answer": "I'll load the file first to index its structure.\n322 total AccessDenied events; `svc-ci-deployer` has the most with 263."
+      },
+      "toon": {
+        "ok": true,
+        "sec": 79.7,
+        "timedOut": false,
+        "answer": "I'll analyze the file for AccessDenied events.\n- **Total AccessDenied events:** 322\n- **Highest principal:** `svc-ci-deployer` with 263 (of 322)"
+      },
+      "json": {
+        "ok": false,
+        "sec": 90.1,
+        "timedOut": true,
+        "answer": "I'll locate and analyze the file."
+      }
+    },
+    {
+      "id": "T9-3k-fraud-risk-ledger",
+      "rawKB": 242,
+      "toonKB": 87,
+      "jsonbit": {
+        "ok": true,
+        "sec": 7.7,
+        "timedOut": false,
+        "answer": "I'll load the file first, then run the exact query.\n95 transactions, SUM(amount) = 64972.50."
+      },
+      "toon": {
+        "ok": true,
+        "sec": 76.6,
+        "timedOut": false,
+        "answer": "I'll look for the file and analyze it.\nLet me search for disputed transactions with high risk scores.\nLet me verify the data format and check for any edge cases.\n**95 transactions**, with **SUM(amount) = 64972.5**."
+      },
+      "json": {
+        "ok": false,
+        "sec": 89.5,
+        "timedOut": true,
+        "answer": "I'll find and inspect the file.\n95 transactions; SUM(amount) = 64972.5"
+      }
+    },
+    {
+      "id": "T10-2k-region-revenue-rank",
+      "rawKB": 147,
+      "toonKB": 56,
+      "jsonbit": {
+        "ok": true,
+        "sec": 7.3,
+        "timedOut": false,
+        "answer": "I'll load the JSON file first, then query it.\nNA, with an exact total of 97920.0."
+      },
+      "toon": {
+        "ok": false,
+        "sec": 90.1,
+        "timedOut": true,
+        "answer": "I'll find and analyze the file."
+      },
+      "json": {
+        "ok": false,
+        "sec": 90.1,
+        "timedOut": true,
+        "answer": "I'll find and analyze the file."
+      }
+    }
   ]
 }

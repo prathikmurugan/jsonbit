@@ -135,7 +135,7 @@ impl RustMcpServer {
                         },
                         {
                             "name": "olap_sql",
-                            "description": "Execute a read-only SQL SELECT query directly against the Pure-Rust Bit-Packed Columnar store (supports WHERE AND/OR, GROUP BY, ORDER BY, LIMIT, CSR JOINs, and JSON dot-paths like customer.name or error.retryable).",
+                            "description": "Execute a read-only SQL SELECT query directly against the Pure-Rust Bit-Packed Columnar store (supports WHERE AND/OR, IN, BETWEEN, LIKE, GROUP BY, ORDER BY, LIMIT, JSON dot-paths like customer.name or error.retryable, and parent-child CSR JOINs like `SELECT SUM(qty) FROM orders JOIN orders_items WHERE orders.status = 'shipped' AND orders_items.sku = 'SKU-USB-C'`).",
                             "inputSchema": {
                                 "type": "object",
                                 "properties": {

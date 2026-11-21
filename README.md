@@ -7,31 +7,18 @@
 [![MCP](https://img.shields.io/badge/MCP-2024--11--05-00ADD8.svg)](./rust/mcp.rs)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 
-**JsonBit compacts nested JSON before it reaches your LLM.** Send a compact digest in one prompt, or let your agent query the original data locally via SQL/MCP and read only the results it needs.
+**Your agent is burning tokens reading a 5 MB JSON file. Give it a ~470-token schema card and a SQL tool instead.**
+
+**95.1% fewer estimated tokens** vs. minified JSON with **27/27 accuracy** in agentic SQL/MCP mode — or **62.0% fewer tokens than `TOON`** (**83.7% fewer than Pretty JSON**, winning 10/10 workloads) in 100%-row single-prompt `digest` mode ([Benchmarks](#benchmarks)).
+
+![jsonbit Terminal Demo](./benchmarks/charts/demo-terminal.gif)
 
 ```bash
 pip install jsonbit
 jsonbit digest path/to/your-file.json
 ```
 
-Pass the output to your LLM in place of the raw JSON. *(Rust `cargo`, Node.js `npm`/`npx`, and standalone binaries are listed under [Installation & Setup](#installation--setup).)*
-
-Example output from `jsonbit digest`:
-
-```text
-# orders[4](orderId,customer_name,customer_tier,status,total)
-@stats: total[sum=619.00,avg=154.75,min=95.50,max=201.00]
-ORD-101,Alice,pro,shipped,171.75
-ORD-102,Bob,starter,pending,201
-ORD-103,Cara,pro,shipped,95.5
-ORD-104,Dan,pro,shipped,150.75
-# orders_items[6] -> orders (sku,qty,price)
-@stats: qty[sum=15,avg=2.5,min=1(n=1),max=4] price[sum=246.25,avg=41.04,min=10.50,max=74.50]
-0:USB-C,2,10.5|MOUSE,3,50.25
-1:MOUSE,4,50.25
-2:HUB-4,1,74.5|USB-C,2,10.5
-3:MOUSE,3,50.25
-```
+Pass the output to your LLM in place of the raw JSON — or connect `jsonbit mcp` to let your agent query locally via SQL. *(Rust `cargo`, Node.js `npm`/`npx`, and standalone binaries are listed under [Installation & Setup](#installation--setup).)*
 
 | Workflow | Command / MCP Tool | Best For | Fidelity & Guarantees |
 | :--- | :--- | :--- | :--- |
@@ -46,8 +33,8 @@ ORD-104,Dan,pro,shipped,150.75
 - [Installation & Setup](#installation--setup)
 - [Agent Integrations (OpenCode, Claude Code, Codex, Cursor)](#agent-integrations)
 - [CLI Reference](#cli-reference)
-- [Architecture](#architecture)
 - [Benchmarks](#benchmarks)
+- [Architecture](#architecture)
 - [License](#license)
 
 ---
@@ -194,28 +181,6 @@ let restored = engine.rehydrate();
 
 ---
 
-## Architecture
-
-```mermaid
-flowchart TD
-    Input["Nested JSON / JSONL Input"] --> Normalizer["3NF Normalizer & CSR Indexer (rust/normalizer.rs)"]
-    Normalizer --> ColStore["Bit-Packed Columnar Store (rust/column.rs)"]
-    ColStore --> Bitmap["BitVec64 Bitmap Engine (rust/bitmap.rs)"]
-    Bitmap --> Card["OLAP Data Card (rust/engine.rs)"]
-    Bitmap --> SqlExec["SQL & Predicate Executor (rust/query_exec.rs)"]
-    ColStore --> Snapshot[".jsonbit Binary Snapshot (rust/snapshot.rs)"]
-    ColStore --> Rehydrate["Lossless 3NF Rehydrator (rust/normalizer.rs)"]
-```
-
-### Storage Layout (`rust/column.rs` & `rust/normalizer.rs`)
-
-1. **`ForIntColumn` (Frame-of-Reference Integers):** Computes `[min_val, max_val]` per column and packs unsigned deltas `val - min_val` into `ceil(log2(max_val - min_val + 1))` bits per row inside a `Vec<u64>` buffer. Column headers store `sum`, `min`, `max`, and `non_null_count` for `O(1)` unfiltered aggregations.
-2. **`DictStringColumn` (Dictionary + Inverted Bitmaps):** Interns unique strings into a string arena, bit-packs dictionary IDs into `ceil(log2(|D|))` bits per row, and builds a 64-bit word-aligned `BitVec64` inverted index per category (`|D| <= 64`) for `O(1)` equality lookups and `POPCNT` frequency histograms.
-3. **`BoolBitmapColumn` (1-Bit Booleans):** Packs 64 boolean values into each `u64` word alongside a 1-bit validity mask.
-4. **CSR 1-to-Many Join Index:** Child arrays (e.g., `orders[].items[]`) are normalized into child tables with a contiguous `csr_offsets: Vec<u32>` array mapping each parent row `i` to its child slice `csr_offsets[i]..csr_offsets[i + 1]`.
-
----
-
 ## Benchmarks
 
 All benchmarks execute directly against the compiled Pure-Rust `jsonbit` binary (`target/release/jsonbit`).
@@ -278,17 +243,17 @@ While linear text encodings (`Raw JSON`, `Minified JSON`, `YAML`, `TOON`) scale 
 | :--- | :--- | ---: | ---: | ---: | ---: | ---: | ---: | :---: |
 | `W1-tiny-api-response` | Tiny Payload (<500B) | 0.3 KB | **0.1 KB** | 166 | 71 | **67 (-5.6%)** | **67** | PASS |
 | `W2-singleton-k8s-config` | Singleton Config Tree | 0.3 KB | **0.2 KB** | 167 | 131 | **110 (-16.0%)** | **110** | PASS |
-| `W3-hr-payroll-directory` | Tabular (200 rows) | 28.4 KB | **4.5 KB** | 14,064 | 4,847 | **4,327 (-10.7%)** | **270** | PASS |
-| `W4-ecommerce-orders-1toN` | 1-to-Many (150 orders) | 48.3 KB | **4.5 KB** | 25,466 | 15,372 | **6,892 (-55.2%)** | **470** | PASS |
-| `W5-otel-production-logs` | Sparse `.jsonl` + Free-Text | 44.4 KB | **4.7 KB** | 17,439 | 13,632 | **4,132 (-69.7%)** | **224** | PASS |
-| `W6-github-repos-metrics` | High-Card + Ranges | 28.6 KB | **3.4 KB** | 14,829 | 5,364 | **4,414 (-17.7%)** | **307** | PASS |
-| `W7-stripe-dispute-webhooks` | Financial Webhooks | 28.9 KB | **3.1 KB** | 14,333 | 4,104 | **4,341 (+5.8%)** | **248** | PASS |
-| `W8-iam-primitive-arrays` | Primitive Arrays | 14.4 KB | **1.6 KB** | 7,185 | 4,810 | **1,257 (-73.9%)** | **162** | PASS |
-| `W9-wide-enterprise-crm` | Wide Table (30 cols) | 68.6 KB | **5.7 KB** | 40,779 | 9,806 | **9,549 (-2.6%)** | **1,134** | PASS |
-| `W10-unicode-financial-ledger` | UTF-8, Nulls & Zeroes | 18.4 KB | **2.9 KB** | 9,550 | 3,750 | **2,364 (-37.0%)** | **241** | PASS |
-| **Total (10 Workloads)** | **All Categories** | **280.6 KB** | **30.6 KB (-89.1%)** | **143,978** | **61,887** | **37,453 (-39.5%)** | **3,233 (-94.8%)** | **10/10 PASS** |
+| `W3-hr-payroll-directory` | Tabular (200 rows) | 28.4 KB | **4.5 KB** | 14,064 | 4,847 | **2,312 (-52.3%)** | **270** | PASS |
+| `W4-ecommerce-orders-1toN` | 1-to-Many (150 orders) | 48.3 KB | **4.5 KB** | 25,466 | 15,372 | **4,573 (-70.3%)** | **470** | PASS |
+| `W5-otel-production-logs` | Sparse `.jsonl` + Free-Text | 44.4 KB | **4.7 KB** | 17,439 | 13,632 | **2,517 (-81.5%)** | **224** | PASS |
+| `W6-github-repos-metrics` | High-Card + Ranges | 28.6 KB | **3.4 KB** | 14,829 | 5,364 | **3,218 (-40.0%)** | **307** | PASS |
+| `W7-stripe-dispute-webhooks` | Financial Webhooks | 28.9 KB | **3.1 KB** | 14,333 | 4,104 | **1,378 (-66.4%)** | **248** | PASS |
+| `W8-iam-primitive-arrays` | Primitive Arrays | 14.4 KB | **1.6 KB** | 7,185 | 4,810 | **914 (-81.0%)** | **162** | PASS |
+| `W9-wide-enterprise-crm` | Wide Table (30 cols) | 68.6 KB | **5.7 KB** | 40,779 | 9,806 | **6,654 (-32.1%)** | **1,134** | PASS |
+| `W10-unicode-financial-ledger` | UTF-8, Nulls & Zeroes | 18.4 KB | **2.9 KB** | 9,550 | 3,750 | **1,770 (-52.8%)** | **241** | PASS |
+| **Total (10 Workloads)** | **All Categories** | **280.6 KB** | **30.6 KB (-89.1%)** | **143,978** | **61,887** | **23,513 (-62.0%)** | **3,233 (-94.8%)** | **10/10 PASS** |
 
-> *Workload breakdown: On tiny payloads (`W1`), singleton configs (`W2`), financial webhooks with heavy quoting (`W7`, `+5.8%`), and wide flat 30-column tables (`W9`, `-2.6%`), 1-turn `digest` is close to `TOON`. The largest reductions come from nested 1-to-Many hierarchies (`W4`, `-55.2%`), sparse `.jsonl` logs (`W5`, `-69.7%`), and primitive arrays (`W8`, `-73.8%`), where 3NF hoisting and prefix/dictionary factoring eliminate repeated structure.*
+> *Workload breakdown: `jsonbit digest` outperforms `TOON` on all 10/10 workloads (`-62.0%` total vs. `TOON`, `-83.7%` vs. Pretty JSON) while preserving 100% of rows — including sparse `.jsonl` logs (`W5`, `-81.5%`), primitive arrays (`W8`, `-81.0%`), nested 1-to-Many orders (`W4`, `-70.3%`), financial webhooks (`W7`, `-66.4%`), and wide 30-column tables (`W9`, `-32.1%`). On real-world un-synthetic GitHub API JSON (`benchmarks/data/github-repos.json`), `digest` cuts tokens from `15,330` $\rightarrow$ **`7,213` (`-52.9%`)**.*
 
 - **Storage Accounting (`W1`–`W10`):**
   - **In-memory bit-packed column store:** `280.6 KB` (Minified JSON) $\rightarrow$ **`30.6 KB` (`-89.1%`)**
@@ -310,6 +275,41 @@ Evaluated in isolated directories with zero prompt hints and zero `AGENTS.md`/`C
 | :--- | :--- | :--- | :--- |
 | **Standard Agent (`6` Scenarios, `18` Runs)** | **6/6 (`88.1s`) · `0` scripts** | 6/6 (`142.8s`) · `awk`/Python parsers | 6/6 (`93.7s`) · Python scripts |
 | **Sandboxed Read-Only (`bash: "deny"`, `8` Scenarios)** | **8/8 (`77.7s`)** | 7/8 (`333.8s`) · failed `500`-order sum | 7/8 (`345.4s`) · failed `500`-order sum |
+| **Hard Scale, Security & Log Triage Suite (`bash: "deny"`, `10` Scenarios, `30` Runs: `15k` security logs, `10k` OTEL/latency logs, `5k` IAM audit, `3k` fraud ledger, `2k` UTF-8/orders, `1k` orders, `500`-order JOIN, tiny config)** | **10/10 (`153.2s`)** | 3/10 (`796.9s`) · `7` timeouts | 2/10 (`735.0s`) · `8` failures/timeouts |
+
+---
+
+## Architecture
+
+```mermaid
+flowchart TD
+    Input["Nested JSON / JSONL Input"] --> Normalizer["3NF Normalizer & CSR Indexer (rust/normalizer.rs)"]
+    Normalizer --> ColStore["Bit-Packed Columnar Store (rust/column.rs)"]
+    ColStore --> Bitmap["BitVec64 Bitmap Engine (rust/bitmap.rs)"]
+    Bitmap --> Card["OLAP Data Card (rust/engine.rs)"]
+    Bitmap --> Digest["7-Stage BPE-Aware Digest (rust/digest.rs)"]
+    Bitmap --> SqlExec["SQL & Predicate Executor (rust/query_exec.rs)"]
+    ColStore --> Snapshot[".jsonbit Binary Snapshot (rust/snapshot.rs)"]
+    ColStore --> Rehydrate["Lossless 3NF Rehydrator (rust/normalizer.rs)"]
+```
+
+### Storage Layout (`rust/column.rs` & `rust/normalizer.rs`)
+
+1. **`ForIntColumn` (Frame-of-Reference Integers):** Computes `[min_val, max_val]` per column and packs unsigned deltas `val - min_val` into `ceil(log2(max_val - min_val + 1))` bits per row inside a `Vec<u64>` buffer. Column headers store `sum`, `min`, `max`, and `non_null_count` for `O(1)` unfiltered aggregations.
+2. **`DictStringColumn` (Dictionary + Inverted Bitmaps):** Interns unique strings into a string arena, bit-packs dictionary IDs into `ceil(log2(|D|))` bits per row, and builds a 64-bit word-aligned `BitVec64` inverted index per category (`|D| <= 64`) for `O(1)` equality lookups and `POPCNT` frequency histograms.
+3. **`BoolBitmapColumn` (1-Bit Booleans):** Packs 64 boolean values into each `u64` word alongside a 1-bit validity mask.
+4. **CSR 1-to-Many Join Index:** Child arrays (e.g., `orders[].items[]`) are normalized into child tables with a contiguous `csr_offsets: Vec<u32>` array mapping each parent row `i` to its child slice `csr_offsets[i]..csr_offsets[i + 1]`.
+
+### Factorized BPE-Aware Digest (`rust/digest.rs`)
+
+For 1-turn prompts where the LLM needs every row, `jsonbit digest` applies seven general-purpose lossless structural transforms tuned for modern BPE tokenizers (`o200k_base`):
+1. **Constant & Dominant-Default Hoisting (`@hoist`):** Hoists 100%-constant columns and $\ge 88\%$ dominant columns (`captured=T except[8:F,47:F,...]`) out of row bodies.
+2. **Monotonic Sequence & Template Factoring:** Factors integer sequences (`seq(100,+5)`), prefixed/zero-padded IDs (`seq("ch_3N",10000,+1)`), and multi-part templates (`tpl("org-{i}/project-{i}",1)`).
+3. **Cross-Column Functional Dependencies:** Detects suffix/prefix dependencies between columns (e.g. `repo=*/$name` with `=` shorthand when owner equals name).
+4. **Power-of-10 Integer Scaling:** Factors `*1k` / `*1M` numeric columns (`240000` $\rightarrow$ `240`).
+5. **BPE-Optimal Single-Letter Enum Codes (`a..z`):** Exploits single-token `,a`..`,z` BPE merges with an anti-expansion guard that prevents interning short strings unless net token count drops.
+6. **Affix & Majority-Prefix Stripping:** Strips strict prefixes/suffixes (`*"Z"`) and $\ge 75\%$ majority prefixes (`"2026-07-"?*"Z"` with `^` fallback) plus pruned `@dict` interning for long repeated strings.
+7. **Wide-Table Intra-Row Folding (`@fold`):** Folds repeated runs (`17*24`) and integer progressions (`18..41`, `19..65(+2)`) on wide tables ($\ge 8$ active columns) with automatic quoting for literal `*` / `..` collisions.
 
 ---
 
