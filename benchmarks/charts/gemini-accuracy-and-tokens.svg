@@ -26,28 +26,28 @@
   <line x1="520" y1="92.0" x2="904" y2="92.0" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
   <text x="512" y="96.0" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" fill="#475569">400K</text>
   <line x1="520" y1="362" x2="904" y2="362" stroke="#94a3b8" stroke-width="1.25"/>
-  <rect x="77.0" y="211.9" width="38" height="150.1" rx="4" fill="#94a3b8"/>
+  <rect x="77.0" y="211.9" width="38" height="150.1" rx="4" fill="#cbd5e1"/>
   <text x="96.0" y="205.9" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#334155">55.6%</text>
   <text x="96.0" y="380.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="500" fill="#334155">Raw JSON</text>
-  <rect x="533.0" y="108.4" width="38" height="253.6" rx="4" fill="#94a3b8"/>
+  <rect x="533.0" y="108.4" width="38" height="253.6" rx="4" fill="#cbd5e1"/>
   <text x="552.0" y="102.4" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#334155">375.7K</text>
   <text x="552.0" y="380.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="500" fill="#334155">Raw JSON</text>
-  <rect x="141.0" y="232.1" width="38" height="129.9" rx="4" fill="#64748b"/>
+  <rect x="141.0" y="232.1" width="38" height="129.9" rx="4" fill="#94a3b8"/>
   <text x="160.0" y="226.1" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#334155">48.1%</text>
   <text x="160.0" y="380.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="500" fill="#334155">Minified</text>
-  <rect x="597.0" y="201.4" width="38" height="160.6" rx="4" fill="#64748b"/>
+  <rect x="597.0" y="201.4" width="38" height="160.6" rx="4" fill="#94a3b8"/>
   <text x="616.0" y="195.4" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#334155">237.9K</text>
   <text x="616.0" y="380.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="500" fill="#334155">Minified</text>
-  <rect x="205.0" y="201.9" width="38" height="160.1" rx="4" fill="#7c8ea6"/>
+  <rect x="205.0" y="201.9" width="38" height="160.1" rx="4" fill="#64748b"/>
   <text x="224.0" y="195.9" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#334155">59.3%</text>
   <text x="224.0" y="380.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="500" fill="#334155">YAML</text>
-  <rect x="661.0" y="163.8" width="38" height="198.2" rx="4" fill="#7c8ea6"/>
+  <rect x="661.0" y="163.8" width="38" height="198.2" rx="4" fill="#64748b"/>
   <text x="680.0" y="157.8" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#334155">293.7K</text>
   <text x="680.0" y="380.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="500" fill="#334155">YAML</text>
-  <rect x="269.0" y="201.9" width="38" height="160.1" rx="4" fill="#8b5cf6"/>
+  <rect x="269.0" y="201.9" width="38" height="160.1" rx="4" fill="#475569"/>
   <text x="288.0" y="195.9" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#334155">59.3%</text>
   <text x="288.0" y="380.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="500" fill="#334155">TOON v4</text>
-  <rect x="725.0" y="247.5" width="38" height="114.5" rx="4" fill="#8b5cf6"/>
+  <rect x="725.0" y="247.5" width="38" height="114.5" rx="4" fill="#475569"/>
   <text x="744.0" y="241.5" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#334155">169.6K</text>
   <text x="744.0" y="380.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="500" fill="#334155">TOON v4</text>
   <rect x="333.0" y="102.0" width="38" height="260.0" rx="4" fill="#2563eb"/>
@@ -58,14 +58,14 @@
   <text x="808.0" y="287.6" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#2563eb">101.3K</text>
   <text x="808.0" y="380.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="700" fill="#2563eb">jsonbit</text>
   <text x="808.0" y="394.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="700" fill="#334155">digest</text>
-  <rect x="397.0" y="92.0" width="38" height="270.0" rx="4" fill="#059669"/>
-  <text x="416.0" y="86.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#059669">100.0%</text>
-  <text x="416.0" y="380.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="700" fill="#059669">jsonbit</text>
+  <rect x="397.0" y="92.0" width="38" height="270.0" rx="4" fill="#0f172a"/>
+  <text x="416.0" y="86.0" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#0f172a">100.0%</text>
+  <text x="416.0" y="380.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="700" fill="#0f172a">jsonbit</text>
   <text x="416.0" y="394.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="700" fill="#334155">SQL</text>
-  <rect x="853.0" y="354.1" width="38" height="7.9" rx="4" fill="#059669"/>
-  <text x="872.0" y="348.1" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#059669">11.7K</text>
-  <text x="872.0" y="380.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="700" fill="#059669">jsonbit</text>
+  <rect x="853.0" y="354.1" width="38" height="7.9" rx="4" fill="#0f172a"/>
+  <text x="872.0" y="348.1" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#0f172a">11.7K</text>
+  <text x="872.0" y="380.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="700" fill="#0f172a">jsonbit</text>
   <text x="872.0" y="394.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="700" fill="#334155">SQL</text>
-  <rect x="48" y="402" width="844" height="24" rx="6" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
-  <text x="470.0" y="418" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11.5" font-weight="600" fill="#047857">jsonbit SQL: 100.0% (27/27) accuracy at -95.1% fewer tokens vs. Minified JSON  ·  jsonbit digest: 96.3% (26/27) in 1 turn</text>
+  <rect x="48" y="402" width="844" height="24" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="470.0" y="418" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11.5" font-weight="600" fill="#0f172a">jsonbit SQL: 100.0% (27/27) accuracy at -95.1% fewer tokens vs. Minified JSON  ·  jsonbit digest: 96.3% (26/27) in 1 turn</text>
 </svg>

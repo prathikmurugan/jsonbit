@@ -12,11 +12,11 @@
   <line x1="64" y1="92.0" x2="448" y2="92.0" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
   <text x="56" y="96.0" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" fill="#475569">450</text>
   <line x1="64" y1="348" x2="448" y2="348" stroke="#94a3b8" stroke-width="1.25"/>
-  <rect x="86.0" y="104.7" width="52" height="243.3" rx="4" fill="#94a3b8"/>
+  <rect x="86.0" y="104.7" width="52" height="243.3" rx="4" fill="#cbd5e1"/>
   <text x="112.0" y="98.7" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#334155">427.7 KB</text>
   <text x="112.0" y="366.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="500" fill="#334155">Pretty</text>
   <text x="112.0" y="380.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="500" fill="#334155">JSON</text>
-  <rect x="182.0" y="188.4" width="52" height="159.6" rx="4" fill="#64748b"/>
+  <rect x="182.0" y="188.4" width="52" height="159.6" rx="4" fill="#94a3b8"/>
   <text x="208.0" y="182.4" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#334155">280.6 KB</text>
   <text x="208.0" y="366.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="500" fill="#334155">Minified</text>
   <text x="208.0" y="380.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="500" fill="#334155">JSON</text>
@@ -24,9 +24,9 @@
   <text x="304.0" y="311.1" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#2563eb">54.3 KB</text>
   <text x="304.0" y="366.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="700" fill="#2563eb">jsonbit</text>
   <text x="304.0" y="380.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="700" fill="#334155">.jsonbit</text>
-  <rect x="374.0" y="330.6" width="52" height="17.4" rx="4" fill="#059669"/>
-  <text x="400.0" y="324.6" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#059669">30.6 KB</text>
-  <text x="400.0" y="366.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="700" fill="#059669">jsonbit</text>
+  <rect x="374.0" y="330.6" width="52" height="17.4" rx="4" fill="#0f172a"/>
+  <text x="400.0" y="324.6" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#0f172a">30.6 KB</text>
+  <text x="400.0" y="366.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="700" fill="#0f172a">jsonbit</text>
   <text x="400.0" y="380.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="700" fill="#334155">RAM</text>
   <text x="528" y="80" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="12.5" font-weight="700" fill="#0f172a">B. Average Query Latency (µs, Log Scale)</text>
   <line x1="528" y1="348.0" x2="904" y2="348.0" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
@@ -40,7 +40,7 @@
   <line x1="528" y1="92.0" x2="904" y2="92.0" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3"/>
   <text x="520" y="96.0" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" fill="#475569">10K</text>
   <line x1="528" y1="348" x2="904" y2="348" stroke="#94a3b8" stroke-width="1.25"/>
-  <rect x="559.7" y="103.8" width="62" height="244.2" rx="4" fill="#64748b"/>
+  <rect x="559.7" y="103.8" width="62" height="244.2" rx="4" fill="#94a3b8"/>
   <text x="590.7" y="97.8" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#334155">6545.3 µs</text>
   <text x="590.7" y="366.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="500" fill="#334155">jq CLI</text>
   <text x="590.7" y="380.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="500" fill="#334155">(cold subprocess)</text>
@@ -48,10 +48,10 @@
   <text x="716.0" y="258.9" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#2563eb">19.9 µs</text>
   <text x="716.0" y="366.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="700" fill="#2563eb">jsonbit Slice</text>
   <text x="716.0" y="380.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="700" fill="#334155">(warm Rust)</text>
-  <rect x="810.3" y="294.7" width="62" height="53.3" rx="4" fill="#059669"/>
-  <text x="841.3" y="288.7" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#059669">6.8 µs</text>
-  <text x="841.3" y="366.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="700" fill="#059669">jsonbit SQL</text>
+  <rect x="810.3" y="294.7" width="62" height="53.3" rx="4" fill="#0f172a"/>
+  <text x="841.3" y="288.7" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11.5" font-weight="700" fill="#0f172a">6.8 µs</text>
+  <text x="841.3" y="366.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="700" fill="#0f172a">jsonbit SQL</text>
   <text x="841.3" y="380.0" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11" font-weight="700" fill="#334155">(warm Rust)</text>
-  <rect x="48" y="392" width="844" height="24" rx="6" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"/>
-  <text x="470.0" y="408" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11.5" font-weight="600" fill="#047857">In-memory RAM: -89.1% vs. Minified JSON  ·  On-disk .jsonbit: -80.6%  ·  Warm Rust SQL: 6.8 µs avg</text>
+  <rect x="48" y="392" width="844" height="24" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="470.0" y="408" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="11.5" font-weight="600" fill="#0f172a">In-memory RAM: -89.1% vs. Minified JSON  ·  On-disk .jsonbit: -80.6%  ·  Warm Rust SQL: 6.8 µs avg</text>
 </svg>

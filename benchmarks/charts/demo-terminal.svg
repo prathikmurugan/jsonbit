@@ -11,11 +11,11 @@
       .cmd { font: 700 13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #0f172a; }
       .cmdsm { font: 600 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #0f172a; }
       .hdr { font: 700 13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #1d4ed8; }
-      .json { font: 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #4338ca; }
-      .pill-slate { fill: #f1f5f9; stroke: #cbd5e1; stroke-width: 1; }
+      .json { font: 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #334155; }
+      .pill-slate { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1; }
       .pill-slate-txt { font: 700 13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #1e293b; }
-      .pill-ok { fill: #ecfdf5; stroke: #a7f3d0; stroke-width: 1; }
-      .pill-ok-txt { font: 700 13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #047857; }
+      .pill-ok { fill: #eff6ff; stroke: #bfdbfe; stroke-width: 1; }
+      .pill-ok-txt { font: 700 13px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #1d4ed8; }
       .step1 { opacity: 0; animation: show1 12s infinite; }
       .step2 { opacity: 0; animation: show2 12s infinite; }
       .step3 { opacity: 0; animation: show3 12s infinite; }
