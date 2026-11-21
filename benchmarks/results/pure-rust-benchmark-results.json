@@ -1,6 +1,6 @@
 {
   "timestamp": "2026-11-17T05:02:25.478Z",
-  "engine": "Pure-Rust jsonbit v1.0.0 (BitVec64 + ForInt + DictString + CSR 3NF)",
+  "engine": "Pure-Rust jsonbit (BitVec64 + ForInt + DictString + CSR 3NF + 7-Stage BPE Digest)",
   "model": "gemini-3.8-flash",
   "track1_storage_and_tokens": {
     "workloads": [
@@ -55,7 +55,7 @@
         "minTok": 8660,
         "yamlTok": 10827,
         "toonTok": 4847,
-        "digestTok": 4325,
+        "digestTok": 2312,
         "olapTok": 272,
         "ingestUs": 768,
         "jolapLoadUs": 70,
@@ -74,7 +74,7 @@
         "minTok": 15608,
         "yamlTok": 18942,
         "toonTok": 15372,
-        "digestTok": 6887,
+        "digestTok": 4573,
         "olapTok": 472,
         "ingestUs": 1231,
         "jolapLoadUs": 71,
@@ -93,7 +93,7 @@
         "minTok": 11132,
         "yamlTok": 13630,
         "toonTok": 13632,
-        "digestTok": 4123,
+        "digestTok": 2517,
         "olapTok": 226,
         "ingestUs": 693,
         "jolapLoadUs": 65,
@@ -112,7 +112,7 @@
         "minTok": 9425,
         "yamlTok": 11581,
         "toonTok": 5364,
-        "digestTok": 4414,
+        "digestTok": 3218,
         "olapTok": 309,
         "ingestUs": 532,
         "jolapLoadUs": 46,
@@ -131,7 +131,7 @@
         "minTok": 8928,
         "yamlTok": 10325,
         "toonTok": 4104,
-        "digestTok": 4341,
+        "digestTok": 1378,
         "olapTok": 250,
         "ingestUs": 665,
         "jolapLoadUs": 42,
@@ -150,7 +150,7 @@
         "minTok": 4099,
         "yamlTok": 4659,
         "toonTok": 4810,
-        "digestTok": 1247,
+        "digestTok": 914,
         "olapTok": 164,
         "ingestUs": 279,
         "jolapLoadUs": 30,
@@ -169,7 +169,7 @@
         "minTok": 26825,
         "yamlTok": 35311,
         "toonTok": 9806,
-        "digestTok": 9549,
+        "digestTok": 6654,
         "olapTok": 1136,
         "ingestUs": 1219,
         "jolapLoadUs": 53,
@@ -188,7 +188,7 @@
         "minTok": 6464,
         "yamlTok": 7480,
         "toonTok": 3750,
-        "digestTok": 2359,
+        "digestTok": 1770,
         "olapTok": 243,
         "ingestUs": 391,
         "jolapLoadUs": 47,
@@ -207,7 +207,8 @@
       "totalToonTok": 61887,
       "totalOlapCardTok": 3249,
       "losslessWorkloads": "10/10",
-      "losslessOfficialSuite": "8/8"
+      "losslessOfficialSuite": "8/8",
+      "digestTok": 23513
     }
   },
   "track2_scale_stress": [
@@ -812,5 +813,6 @@
         "olapDigestTok": 2440
       }
     ]
-  }
+  },
+  "digestUpdatedAt": "2026-11-21T01:55:42.034Z"
 }
